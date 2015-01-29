@@ -1,4 +1,4 @@
-FROM docker.dragonfly.co.nz/ubuntu/texlive
+FROM docker.tridentsystems.co.nz/ubuntu/texlive
 MAINTAINER chris@dragonfly.co.nz
 
 RUN echo "deb http://cran.stat.auckland.ac.nz/bin/linux/ubuntu trusty/" > /etc/apt/sources.list.d/cran.list
