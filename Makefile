@@ -2,7 +2,7 @@ REGISTRY := docker.tridentsystems.co.nz
 DOCKERS := \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
-	ubuntu/kahawai-base 
+	ubuntu/gorbachev-base 
 
 BASEIMAGES := \
 	ubuntu 
@@ -28,7 +28,7 @@ deploy: fetch all push
 ubuntu/nz/.docker: ubuntu/.official
 ubuntu/texlive/.docker: ubuntu/nz/.docker
 ubuntu/texlive-r/.docker: ubuntu/texlive/.docker
-ubuntu/kahawai-base/.docker: ubuntu/texlive-r/.docker
+ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
