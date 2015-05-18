@@ -9,3 +9,14 @@ RUN R --slave < /etc/kahawai-jobserver/r_requirements.r
 
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
+
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository multiverse && apt-get update
+RUN apt-get install -y msttcorefonts
+
+COPY fonts/ /usr/local/share/fonts/
+
+COPY dragonfly-latex-templates_1.6_all.deb /tmp/
+COPY trident-latex-templates_1.1_all.deb /tmp/
+RUN dpkg -i /tmp/dragonfly-latex-templates_1.6_all.deb
+RUN dpkg -i /tmp/trident-latex-templates_1.1_all.deb
