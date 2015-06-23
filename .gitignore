@@ -1,5 +1,3 @@
 *.swp
 .docker
 .official
-*.otf
-*.ttf
