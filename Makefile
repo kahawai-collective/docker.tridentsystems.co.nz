@@ -1,5 +1,6 @@
 REGISTRY := docker.tridentsystems.co.nz
 DOCKERS := \
+	stencila/ubuntu-14.04-r-3.2 \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
@@ -44,6 +45,11 @@ clean:
 ubuntu/.official:
 	docker pull ubuntu:14.04
 	$(call fetchofficial,ubuntu:14.04,$@)
+
+stencila/.official:
+	docker pull stencila/ubuntu-14.04-r-3.2
+	docker tag stencila/ubuntu-14.04-r-3.2:latest docker.tridentsystems.co.nz/stencila/ubuntu-14.04-r-3.2:latest
+	docker push docker.tridentsystems.co.nz/stencila/ubuntu-14.04-r-3.2:latest
 
 %/.docker: %/Dockerfile %/*
 	docker build -t $(REGISTRY)/$* $*
