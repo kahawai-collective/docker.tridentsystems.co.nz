@@ -1,12 +1,12 @@
 REGISTRY := docker.tridentsystems.co.nz
 DOCKERS := \
-	stencila/ubuntu-14.04-r-3.2 \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/kahawai-build
 
 BASEIMAGES := \
+	stencila/ubuntu-14.04-r-3.2 \
 	ubuntu 
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
