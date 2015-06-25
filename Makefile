@@ -6,7 +6,7 @@ DOCKERS := \
 	ubuntu/kahawai-build
 
 BASEIMAGES := \
-	stencila/ubuntu-14.04-r-3.2 \
+	stencila \
 	ubuntu 
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
