@@ -1,5 +1,7 @@
 FROM docker.tridentsystems.co.nz/ubuntu/gorbachev-base
 
+RUN apt-get install -y wget
+
 # Install Stencila R package requirements
 # Installing Rcpp using 
 #	RUN Rscript -e "install.packages('Rcpp',repos='http://cran.us.r-project.org')"
