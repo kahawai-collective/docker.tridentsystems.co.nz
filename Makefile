@@ -3,10 +3,10 @@ DOCKERS := \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
+	ubuntu/stencila-r \
 	ubuntu/kahawai-build
 
 BASEIMAGES := \
-	stencila \
 	ubuntu 
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
@@ -31,6 +31,7 @@ ubuntu/nz/.docker: ubuntu/.official
 ubuntu/texlive/.docker: ubuntu/nz/.docker
 ubuntu/texlive-r/.docker: ubuntu/texlive/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
+ubuntu/stencila-r/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
 
@@ -45,11 +46,6 @@ clean:
 ubuntu/.official:
 	docker pull ubuntu:14.04
 	$(call fetchofficial,ubuntu:14.04,$@)
-
-stencila/.official:
-	docker pull stencila/ubuntu-14.04-r-3.2
-	docker tag stencila/ubuntu-14.04-r-3.2:latest docker.tridentsystems.co.nz/stencila/ubuntu-14.04-r-3.2:latest
-	docker push docker.tridentsystems.co.nz/stencila/ubuntu-14.04-r-3.2:latest
 
 %/.docker: %/Dockerfile %/*
 	docker build -t $(REGISTRY)/$* $*
