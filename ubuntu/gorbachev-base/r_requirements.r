@@ -6,7 +6,8 @@ packages <- c(
     "shapefiles", "foreign", "sp", "grid", "lattice", "rgeos", "RColorBrewer",
     "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "ggplot2", "dplyr",
     "tables", "data.table", "tidyr", "gridExtra", "rjags","R2jags","reshape2","mapproj",
-    "cplm","lme4", 'xtable'
+    "cplm", "lme4", 'xtable', 'plyr', 'lubridate', 'reshape2', 'gridExtra', 'scales',
+    'rgdal', 'maptools', 'ggmap', 'Cairo', 'maps', 'tables'
 )
 
 for (p in packages) {
