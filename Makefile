@@ -4,7 +4,8 @@ DOCKERS := \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/stencila-r \
-	ubuntu/kahawai-build
+	ubuntu/kahawai-build \
+	ubuntu/layers-build
 
 BASEIMAGES := \
 	ubuntu 
@@ -34,6 +35,7 @@ ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/stencila-r/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
+ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
