@@ -11,7 +11,7 @@ RUN R --slave < /etc/kahawai-jobserver/r_requirements.r
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
-RUN apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-add-repository multiverse && apt-get update
 RUN apt-get install -y msttcorefonts
 
