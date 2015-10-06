@@ -7,7 +7,8 @@ packages <- c(
     "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "ggplot2", "dplyr",
     "tables", "data.table", "tidyr", "gridExtra", "rjags", "R2jags", "reshape2", 
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'lubridate', 'reshape2', 'gridExtra', 
-    'scales', 'rgdal', 'maptools', 'ggmap', 'Cairo', 'maps', 'tables'
+    'scales', 'rgdal', 'maptools', 'ggmap', 'Cairo', 'maps', 'tables', 'Matching', 
+    'BenfordTests'
 )
 
 for (p in packages) {
