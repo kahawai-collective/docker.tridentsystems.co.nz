@@ -1,5 +1,5 @@
 PyDrive==1.0.1
 
 # For rendering shapefiles
-shapefile
+pyshp
 pngcanvas
