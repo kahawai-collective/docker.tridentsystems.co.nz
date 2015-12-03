@@ -16,3 +16,7 @@ for (p in packages) {
         install.packages(p)
     }
 }
+
+if (!require("INLA", character.only=TRUE)) {
+        install.packages("INLA", repos="http://www.math.ntnu.no/inla/R/testing")
+    }
