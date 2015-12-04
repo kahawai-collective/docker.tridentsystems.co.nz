@@ -17,6 +17,7 @@ for (p in packages) {
     }
 }
 
+# INLA has its own repo...
 if (!require("INLA", character.only=TRUE)) {
         install.packages("INLA", repos="http://www.math.ntnu.no/inla/R/testing")
     }
