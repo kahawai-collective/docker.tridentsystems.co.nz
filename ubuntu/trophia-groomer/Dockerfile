@@ -8,7 +8,7 @@ FROM ubuntu:14.04
 MAINTAINER nokome@trophia.com
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y git python python-psycopg2 \
+RUN apt-get install -y git python python-psycopg2 postgresql-client-common \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
