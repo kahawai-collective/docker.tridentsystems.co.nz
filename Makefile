@@ -4,6 +4,7 @@ DOCKERS := \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/stencila-r \
+	ubuntu/trophia-groomer \
 	ubuntu/kahawai-build \
 	ubuntu/layers-build
 
@@ -33,6 +34,7 @@ ubuntu/texlive/.docker: ubuntu/nz/.docker
 ubuntu/texlive-r/.docker: ubuntu/texlive/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/stencila-r/.docker: ubuntu/gorbachev-base/.docker
+ubuntu/trophia-groomer/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
