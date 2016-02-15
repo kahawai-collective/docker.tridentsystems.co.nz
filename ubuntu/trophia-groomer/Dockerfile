@@ -8,7 +8,7 @@ FROM ubuntu:14.04
 MAINTAINER nokome@trophia.com
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y git python python-psycopg2 postgresql-client \
+RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-client \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -16,4 +16,4 @@ RUN git clone https://github.com/trophia/groomer.git
 
 RUN cd groomer \
   && git pull \
-  && git checkout 5565884
+  && git checkout e831dd5
