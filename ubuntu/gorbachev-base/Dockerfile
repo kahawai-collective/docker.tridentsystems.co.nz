@@ -15,6 +15,14 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-add-repository multiverse && apt-get update
 RUN apt-get install -y msttcorefonts
 
+# Get pandoc from cabal
+RUN add-apt-repository -y ppa:hvr/ghc
+RUN apt-get update
+RUN apt-get install -y cabal-install-1.20 ghc-7.8.4
+ENV PATH=~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:$PATH
+RUN cabal update
+RUN cabal install pandoc
+
 COPY fonts/ /usr/local/share/fonts/
 
 COPY dragonfly-latex-templates_1.7_all.deb /tmp/ 
