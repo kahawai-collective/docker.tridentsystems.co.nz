@@ -22,6 +22,7 @@ RUN apt-get install -y cabal-install-1.20 ghc-7.8.4
 ENV PATH=~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:$PATH
 RUN cabal update
 RUN cabal install pandoc
+RUN cp /root/.cabal/bin/* /usr/local/bin/
 
 COPY fonts/ /usr/local/share/fonts/
 
@@ -29,3 +30,5 @@ COPY dragonfly-latex-templates_1.7_all.deb /tmp/
 COPY trident-latex-templates_1.5_all.deb /tmp/ 
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.7_all.deb
 RUN dpkg -i /tmp/trident-latex-templates_1.5_all.deb
+
+RUN rm /usr/bin/pandoc
