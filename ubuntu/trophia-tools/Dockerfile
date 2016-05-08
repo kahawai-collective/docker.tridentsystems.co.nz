@@ -25,10 +25,10 @@ RUN curl -OL https://github.com/trophia/influ/releases/download/0.9/influ_0.9.ta
 	rm influ_0.9.tar.gz
 
 # Stencila for reporting
-RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.20.tar.gz; \
-	R CMD INSTALL stencila_0.20.tar.gz; \
+RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz; \
+	R CMD INSTALL stencila_0.21.tar.gz; \
 	Rscript -e 'require(stencila); stencila:::install_cli()'; \
-	rm stencila_0.20.tar.gz
+	rm stencila_0.21.tar.gz
 
 # Update groomer to a particular commit
 RUN cd groomer \
