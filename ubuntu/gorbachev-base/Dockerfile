@@ -6,7 +6,7 @@ RUN apt-get install --no-install-recommends -y libgdal1-dev libproj-dev
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 
-# RUN Rscript /etc/kahawai-jobserver/r_requirements.r
+RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
@@ -21,7 +21,7 @@ RUN apt-get update
 RUN apt-get install -y cabal-install-1.22 ghc-7.10.3
 ENV PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
 RUN cabal update
-RUN curl https://www.stackage.org/lts-5.15/cabal.config?global=true >> /root/.cabal/config
+RUN curl https://www.stackage.org/lts-5/cabal.config?global=true >> /root/.cabal/config
 RUN cabal install --global pandoc
 
 COPY fonts/ /usr/local/share/fonts/
