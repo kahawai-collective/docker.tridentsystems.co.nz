@@ -13,21 +13,24 @@ RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-cli
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
+# R packages
+RUN Rscript -e "install.packages(c('Rcpp','devtools','PBSmapping'),repo='http://cran.us.r-project.org/')"
+
 # groomer
 RUN git clone https://github.com/trophia/groomer.git
 
-# R packages
-RUN Rscript -e "install.packages(c('Rcpp','PBSmapping'),repo='http://cran.us.r-project.org/')"
+# analyser
+RUN Rscript -e "devtools:::install_github('trophia/analyser')"
 
 # influ
-RUN curl -OL https://github.com/trophia/influ/releases/download/0.9/influ_0.9.tar.gz; \
-	R CMD INSTALL influ_0.9.tar.gz; \
+RUN curl -OL https://github.com/trophia/influ/releases/download/0.9/influ_0.9.tar.gz ;\
+	R CMD INSTALL influ_0.9.tar.gz ;\
 	rm influ_0.9.tar.gz
 
-# Stencila for reporting
-RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz; \
-	R CMD INSTALL stencila_0.21.tar.gz; \
-	Rscript -e 'require(stencila); stencila:::install_cli()'; \
+# Stencila
+RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz ;\
+	R CMD INSTALL stencila_0.21.tar.gz ;\
+	Rscript -e 'require(stencila); stencila:::install_cli()' ;\
 	rm stencila_0.21.tar.gz
 
 # Update groomer to a particular commit
