@@ -29,7 +29,7 @@ RUN cabal install --global pandoc
 
 COPY fonts/ /usr/local/share/fonts/
 
-COPY dragonfly-latex-templates_1.7_all.deb /tmp/ 
+COPY dragonfly-latex-templates_1.11_all.deb /tmp/
 COPY trident-latex-templates_1.5_all.deb /tmp/ 
-RUN dpkg -i /tmp/dragonfly-latex-templates_1.7_all.deb
+RUN dpkg -i /tmp/dragonfly-latex-templates_1.11_all.deb
 RUN dpkg -i /tmp/trident-latex-templates_1.5_all.deb
