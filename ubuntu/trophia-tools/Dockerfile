@@ -19,13 +19,13 @@ RUN Rscript -e "install.packages(c('Rcpp','devtools','PBSmapping'),repo='http://
 # groomer
 RUN git clone https://github.com/trophia/groomer.git
 
-# analyser
-RUN Rscript -e "devtools:::install_github('trophia/analyser')"
-
 # influ
 RUN curl -OL https://github.com/trophia/influ/releases/download/0.9/influ_0.9.tar.gz ;\
 	R CMD INSTALL influ_0.9.tar.gz ;\
 	rm influ_0.9.tar.gz
+
+# analyser
+RUN Rscript -e "devtools:::install_github('trophia/analyser')"
 
 # Stencila
 RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz ;\
