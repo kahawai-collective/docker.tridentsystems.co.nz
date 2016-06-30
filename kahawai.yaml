@@ -1,1 +1,1 @@
-docker: ubuntu/gorbachev-base
+docker: ubuntu/gorbachev-base:14.04
