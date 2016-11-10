@@ -35,6 +35,7 @@ ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
+ubuntu/ems-build/.docker: ubuntu/nz/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
