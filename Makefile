@@ -5,7 +5,8 @@ DOCKERS := \
 	ubuntu/gorbachev-base \
 	ubuntu/trophia-tools \
 	ubuntu/kahawai-build \
-	ubuntu/layers-build
+	ubuntu/layers-build \
+	ubuntu/ems-build
 
 BASEIMAGES := \
 	ubuntu 
