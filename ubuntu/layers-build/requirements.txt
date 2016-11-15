@@ -1,4 +1,4 @@
-PyDrive==1.0.1
+PyDrive
 
 # For rendering shapefiles
 pyshp
