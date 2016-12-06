@@ -8,7 +8,8 @@ packages <- c(
     "tables", "data.table", "tidyr", "gridExtra", "rjags", "R2jags", "reshape2", 
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'lubridate', 'scales', 'rgdal', 
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'genoud', 'tools', 
-    'utils', 'rgenoud', 'broom','purrr', 'cowplot', 'MASS', 'gridBase'
+    'utils', 'rgenoud', 'broom','purrr', 'cowplot', 'MASS', 'gridBase', 'pryr', 
+    'beanplot', 'mapdata'
 )
 
 for (p in packages) {
