@@ -9,7 +9,7 @@ packages <- c(
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'lubridate', 'scales', 'rgdal', 
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'genoud', 'tools', 
     'utils', 'rgenoud', 'broom','purrr', 'cowplot', 'MASS', 'gridBase', 'pryr', 
-    'beanplot', 'mapdata'
+    'beanplot', 'mapdata', 'rpart'
 )
 
 for (p in packages) {
