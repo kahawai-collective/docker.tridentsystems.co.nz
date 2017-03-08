@@ -1,12 +1,12 @@
 REGISTRY := docker.tridentsystems.co.nz
 DOCKERS := \
+	ubuntu/kahawai-build \
+	ubuntu/layers-build \
+	ubuntu/ems-build \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
-	ubuntu/trophia-tools \
-	ubuntu/kahawai-build \
-	ubuntu/layers-build \
-	ubuntu/ems-build
+	ubuntu/trophia-tools
 
 BASEIMAGES := \
 	ubuntu 
