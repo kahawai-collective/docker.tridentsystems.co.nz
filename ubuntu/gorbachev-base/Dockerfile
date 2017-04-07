@@ -18,14 +18,15 @@ RUN apt-get install -y msttcorefonts
 # RUN apt-get update && apt-get install -y libapparmor1 libsystemd-journal0 libcgmanager0 libnih-dbus1 libnih1 libdbus-1-3 libgcrypt11
  
 
-# Get pandoc from cabal
-RUN add-apt-repository -y ppa:hvr/ghc
-RUN apt-get update
-RUN apt-get install -y cabal-install-1.22 ghc-7.10.3
-ENV PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
-RUN cabal update
-RUN curl https://www.stackage.org/lts-5/cabal.config?global=true >> /root/.cabal/config
-RUN cabal install --global pandoc
+RUN apt-get install -y pandoc
+# # Get pandoc from cabal
+# RUN add-apt-repository -y ppa:hvr/ghc
+# RUN apt-get update
+# RUN apt-get install -y cabal-install-1.22 ghc-7.10.3
+# ENV PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
+# RUN cabal update
+# RUN curl https://www.stackage.org/lts-5/cabal.config?global=true >> /root/.cabal/config
+# RUN cabal install --global pandoc
 
 COPY fonts/ /usr/local/share/fonts/
 
