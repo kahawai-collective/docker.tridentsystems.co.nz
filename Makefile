@@ -6,6 +6,7 @@ DOCKERS := \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
+	ubuntu/jags-stan \
 	ubuntu/trophia-tools
 
 BASEIMAGES := \
@@ -33,6 +34,7 @@ ubuntu/nz/.docker: ubuntu/.official
 ubuntu/texlive/.docker: ubuntu/nz/.docker
 ubuntu/texlive-r/.docker: ubuntu/texlive/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
+ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
