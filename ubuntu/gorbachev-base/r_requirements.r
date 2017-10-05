@@ -4,13 +4,13 @@ options(defaultPackages = c(old, "MASS"), repos = r)
 
 packages <- c(
     "shapefiles", "foreign", "sp", "grid", "lattice", "rgeos", "RColorBrewer",
-    "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "ggplot2", "dplyr",
-    "tables", "data.table", "tidyr", "gridExtra", "rjags", "R2jags", "reshape2",
-    "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'lubridate', 'scales', 'rgdal',
+    "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "tidyverse",
+    "tables", "data.table", "gridExtra", "rjags", "R2jags", "reshape2",
+    "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales', 'rgdal',
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'genoud', 'tools',
-    'utils', 'rgenoud', 'broom','purrr', 'cowplot', 'MASS', 'gridBase', 'pryr',
+    'utils', 'rgenoud', 'broom', 'cowplot', 'MASS', 'gridBase', 'pryr',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
-    'mgcv', 'stringr', 'geosphere', 'dbplyr'
+    'mgcv', 'geosphere', 'dbplyr'
 )
 
 for (p in packages) {
