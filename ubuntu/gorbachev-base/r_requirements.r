@@ -13,11 +13,10 @@ packages <- c(
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce'
 )
 
-for (p in packages) {
-    if (!require(p, character.only=TRUE)) {
-        install.packages(p)
-    }
-}
+update.packages(ask=F)
+
+pkgs2install <- setdiff(packages, library()$results[, 'Package'])
+install.packages(pkgs2install)
 
 # INLA has its own repo...
 if (!require("INLA", character.only=TRUE)) {
