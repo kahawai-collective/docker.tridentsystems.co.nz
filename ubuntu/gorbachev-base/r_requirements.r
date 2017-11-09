@@ -10,7 +10,7 @@ packages <- c(
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'genoud', 'tools',
     'utils', 'rgenoud', 'broom', 'cowplot', 'MASS', 'gridBase', 'pryr',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
-    'mgcv', 'geosphere', 'dbplyr', 'timeline'
+    'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce'
 )
 
 for (p in packages) {
