@@ -12,7 +12,7 @@ packages <- c(
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'rgenoud',
     'broom', 'cowplot', 'MASS', 'gridBase', 'pryr',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
-    'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce'
+    'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit'
 )
 
 update.packages(ask=F)
