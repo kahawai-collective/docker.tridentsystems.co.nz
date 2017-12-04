@@ -17,7 +17,7 @@ RUN apt-add-repository multiverse && apt-get update
 RUN apt-get install -y msttcorefonts
 # libraries necessary to run docker
 # RUN apt-get update && apt-get install -y libapparmor1 libsystemd-journal0 libcgmanager0 libnih-dbus1 libnih1 libdbus-1-3 libgcrypt11
- 
+
 
 RUN apt-get install -y pandoc
 # # Get pandoc from cabal
@@ -35,5 +35,5 @@ COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY trident-latex-templates_1.41_all.deb /tmp/
 RUN dpkg -i /tmp/trident-latex-templates_1.41_all.deb
-COPY mpi-latex-templates_1.14_all.deb /tmp/
-RUN dpkg -i /tmp/mpi-latex-templates_1.14_all.deb
+COPY mpi-latex-templates_1.16_all.deb /tmp/
+RUN dpkg -i /tmp/mpi-latex-templates_1.16_all.deb
