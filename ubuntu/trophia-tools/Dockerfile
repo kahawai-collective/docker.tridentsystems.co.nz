@@ -3,7 +3,7 @@
 #  - groomer : https://github.com/trophia/groomer
 #  - influ : https://github.com/trophia/influ
 
-FROM docker.tridentsystems.co.nz/ubuntu/gorbachev-base:14.04
+FROM docker.tridentsystems.co.nz/ubuntu/gorbachev-base
 
 MAINTAINER nokome@trophia.com
 
