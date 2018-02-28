@@ -28,5 +28,5 @@ install.packages(pkgs2install)
 
 # INLA has its own repo...
 if (!require("INLA", character.only=TRUE)) {
-        install.packages("INLA", repos="http://www.math.ntnu.no/inla/R/testing", dep=TRUE)
+        install.packages("INLA", repos="http://www.math.ntnu.no/inla/R/stable", dep=TRUE)
     }
