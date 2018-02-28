@@ -13,6 +13,7 @@ packages <- c(
     'broom', 'cowplot', 'MASS', 'gridBase', 'pryr',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit'
+    
 )
 
 update.packages(ask=F)
@@ -22,6 +23,10 @@ existing <- tryCatch({
 }, error = function (x) {
     c()
 })
+
+if (!require("INLA", character.only=TRUE)) {   
+    install.packages("INLA", repos="http://www.math.ntnu.no/inla/R/stable", dep=TRUE)
+     }	     
 
 pkgs2install <- setdiff(packages, existing)
 install.packages(pkgs2install)
