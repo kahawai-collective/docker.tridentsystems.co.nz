@@ -25,7 +25,7 @@ RUN curl -OL https://github.com/trophia/influ/releases/download/0.9/influ_0.9.ta
 	rm influ_0.9.tar.gz
 
 # analyser
-RUN Rscript -e "devtools:::install_github('trophia/analyser')"
+RUN Rscript -e "devtools:::install_github('trophia/analyser', ref='a82c5b4')"
 
 # Stencila
 RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz ;\
