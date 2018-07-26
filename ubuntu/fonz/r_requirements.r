@@ -2,7 +2,7 @@ old <- getOption("defaultPackages"); r <- getOption("repos")
 r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
-packages <- c("cluster", "gtools", "PBSMapping")
+packages <- c("cluster", "gtools", "PBSmapping")
 
 existing <- tryCatch({
     library()$results[, 'Package']
