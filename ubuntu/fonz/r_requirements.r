@@ -4,8 +4,6 @@ options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 packages <- c("cluster", "gtools")
 
-update.packages(ask=F)
-
 existing <- tryCatch({
     library()$results[, 'Package']
 }, error = function (x) {
