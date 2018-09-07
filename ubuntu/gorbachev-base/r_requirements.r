@@ -13,7 +13,7 @@ packages <- c(
     'broom', 'cowplot', 'MASS', 'gridBase', 'pryr',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
-    'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB'
+    'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps'
 )
 
 update.packages(ask=F)
