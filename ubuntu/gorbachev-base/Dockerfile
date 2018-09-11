@@ -1,7 +1,7 @@
 FROM docker.tridentsystems.co.nz/ubuntu/texlive-r
 MAINTAINER richard@dragonfly.co.nz
 
-RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client-9.5 git-core python-pygments jags libgdal-dev gdal-bin curl
+RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags libgdal-dev gdal-bin curl
 RUN apt-get install --no-install-recommends -y libgdal1-dev libproj-dev \
     libudunits2-dev libcairo2-dev libxt-dev
 
@@ -20,14 +20,6 @@ RUN apt-get install -y msttcorefonts
 
 
 RUN apt-get install -y pandoc
-# # Get pandoc from cabal
-# RUN add-apt-repository -y ppa:hvr/ghc
-# RUN apt-get update
-# RUN apt-get install -y cabal-install-1.22 ghc-7.10.3
-# ENV PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH
-# RUN cabal update
-# RUN curl https://www.stackage.org/lts-5/cabal.config?global=true >> /root/.cabal/config
-# RUN cabal install --global pandoc
 
 COPY fonts/ /usr/local/share/fonts/
 
