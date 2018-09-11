@@ -1,9 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER chris@dragonfly.co.nz
 
-# use New Zealand mirrors and set timezone to Auckland
-
-RUN sed -i 's/archive/nz.archive/' /etc/apt/sources.list
+# Set timezone & locale
 
 ENV DEBIAN_FRONTEND noninteractive
 
