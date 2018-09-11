@@ -54,8 +54,8 @@ clean:
 	find . -name .docker -delete
 
 ubuntu/.official:
-	docker pull ubuntu:16.04
-	$(call fetchofficial,ubuntu:16.04,$@)
+	docker pull ubuntu:18.04
+	$(call fetchofficial,ubuntu:18.04,$@)
 
 %/.docker: %/Dockerfile %/*
 	docker build -t $(REGISTRY)/$* $*

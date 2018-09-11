@@ -3,7 +3,7 @@ MAINTAINER finlay@dragonfly.co.nz
 
 RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
-                postgresql-client-9.5 \
+                postgresql-client \
                 git-core python-psycopg2
 
 # TODO: something less fragile
