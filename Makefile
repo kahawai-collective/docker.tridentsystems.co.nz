@@ -9,7 +9,8 @@ DOCKERS := \
 	ubuntu/jags-stan \
 	ubuntu/trophia-tools \
 	ubuntu/fonz \
-	ubuntu/inla
+	ubuntu/inla \
+	ubuntu/fsl
 
 BASEIMAGES := \
 	ubuntu 
@@ -40,6 +41,7 @@ ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fonz/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
+ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
 ubuntu/ems-build/.docker: ubuntu/nz/.docker
