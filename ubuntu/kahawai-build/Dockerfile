@@ -3,7 +3,7 @@ MAINTAINER finlay@dragonfly.co.nz
 
 RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
-    postgresql-client s3cmd git-core python-psycopg2
+    postgresql-client s3cmd git-core python-psycopg2 ca-certificates
 
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
