@@ -14,7 +14,7 @@ packages <- c(
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
-    'rstan','brms','Rcpp'
+    'rstan','brms','Rcpp','ggpubr'
 )
 
 update.packages(ask=F)
