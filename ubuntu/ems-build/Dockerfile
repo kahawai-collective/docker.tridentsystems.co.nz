@@ -1,4 +1,5 @@
-FROM docker.tridentsystems.co.nz/ubuntu/nz
+FROM docker.tridentsystems.co.nz/ubuntu/pisces
+
 MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update &&  \

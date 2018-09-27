@@ -34,7 +34,8 @@ deploy: fetch all push
 
 
 ubuntu/nz/.docker: ubuntu/.official
-ubuntu/texlive/.docker: ubuntu/nz/.docker
+ubuntu/pisces/.docker: ubuntu/nz/.docker
+ubuntu/texlive/.docker: ubuntu/pisces/.docker
 ubuntu/texlive-r/.docker: ubuntu/texlive/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
@@ -43,8 +44,8 @@ ubuntu/fonz/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 
-ubuntu/kahawai-build/.docker: ubuntu/nz/.docker
-ubuntu/ems-build/.docker: ubuntu/nz/.docker
+ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
+ubuntu/ems-build/.docker: ubuntu/pisces/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
