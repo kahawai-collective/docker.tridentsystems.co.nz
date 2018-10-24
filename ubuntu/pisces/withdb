@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import re
 import requests
 import subprocess
 import sys
@@ -8,7 +9,7 @@ import sys
 server = os.environ.get("JOB_DB_SERVER", "https://job-db.tridentsystems.co.nz")
 
 try:
-    job_id = int(os.environ.get("JOBID", "1000000"))
+    job_id = int(re.sub('^JobID ', '', os.environ.get("JOBID", "1000000")))
 except:
     job_id = 1000000
 
