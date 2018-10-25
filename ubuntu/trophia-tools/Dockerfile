@@ -15,7 +15,7 @@ RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-cli
   && rm -rf /var/lib/apt/lists/*
 
 # R packages
-RUN Rscript -e "install.packages(c('Rcpp','devtools','PBSmapping'),repo='http://cran.us.r-project.org/')"
+RUN Rscript -e "install.packages(c('devtools'),repo='http://cran.us.r-project.org/')"
 
 # groomer
 RUN git clone https://github.com/trophia/groomer.git
