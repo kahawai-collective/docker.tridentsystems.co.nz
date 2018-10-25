@@ -14,7 +14,7 @@ packages <- c(
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
-    'rstan','brms','Rcpp','ggpubr'
+    'rstan','brms','Rcpp','ggpubr', 'rgdal'
 )
 
 update.packages(ask=F)
@@ -29,9 +29,3 @@ existing <- tryCatch({
 
 pkgs2install <- setdiff(packages, existing)
 install.packages(pkgs2install)
-
-# install older version of rgdal as ubuntu 16.04 has GDAL 1.11.3 and recent
-# rgdal requires > 1.11.4
-
-packageurl <- "https://cran.r-project.org/src/contrib/Archive/rgdal/rgdal_1.2-18.tar.gz"
-install.packages(packageurl, repos=NULL, type="source")
