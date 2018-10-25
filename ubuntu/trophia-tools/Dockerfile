@@ -14,8 +14,9 @@ RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-cli
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# R packages
-RUN Rscript -e "install.packages(c('devtools'),repo='http://cran.us.r-project.org/')"
+# devtools 1.13
+devtools <- "https://cran.r-project.org/src/contrib/Archive/devtools/devtools_1.13.6.tar.gz"
+install.packages(devtools, repos=NULL, type="source")
 
 # groomer
 RUN git clone https://github.com/trophia/groomer.git
