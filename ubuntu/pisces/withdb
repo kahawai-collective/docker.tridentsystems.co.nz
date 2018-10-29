@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+
+import os
+import re
+import requests
+import subprocess
+import sys
+
+server = os.environ.get("JOB_DB_SERVER", "https://job-db.tridentsystems.co.nz")
+
+try:
+    job_id = int(re.sub('^JobID ', '', os.environ.get("JOBID", "1000000")))
+except:
+    job_id = 1000000
+
+dbcodes = ("test-build", "ems-build", "fonzdb-build", "kahawai-build",
+    "layers-build", "vms-build", "ems", "fonzdb", "kahawai", "layers",
+    "moanapaua", "reports-ca5-10", "sampling", "scs", "vms")
+
+secrets = {}
+for code in dbcodes:
+    varname = code.upper().replace("-", "_")
+    if varname in os.environ:
+        secrets[code] = os.environ[varname]
+
+post_data = secrets.copy()
+post_data["job_id"] = job_id
+headers = {"Content-Type": "application/json"}
+
+r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=5)
+
+if r.status_code != 200:
+    print(r)
+    sys.exit(1)
+
+temp_db = r.json().get("temp_db", {})
+
+env = dict(os.environ)
+env["KAHAWAI_DBNAME"] = temp_db.get("dbname")
+env["KAHAWAI_DBUSER"] = temp_db.get("user")
+env["KAHAWAI_DBPASS"] = temp_db.get("password")
+env["KAHAWAI_DBHOST"] = temp_db.get("host")
+env["KAHAWAI_DBPORT"] = temp_db.get("port")
+
+building = r.json().get("build", None)
+if building:
+    print("Building %s database" % building)
+print("Available databases: " + ", ".join(r.json().get("imported", [])))
+
+return_code = subprocess.Popen(sys.argv[1:], env=env).wait()
+
+post_data["temp_db"] = temp_db
+
+if return_code == 0 and building:
+    r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=5)
+else:
+    r = requests.post("%s/db/delete" % server, json=post_data, headers=headers, timeout=5)
+
+if r.status_code == 200:
+    if "message" in r.json():
+        print(r.json().get("message"))
+else:
+    sys.exit(1)

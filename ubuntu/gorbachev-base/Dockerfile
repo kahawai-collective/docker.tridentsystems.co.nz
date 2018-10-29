@@ -3,7 +3,7 @@ MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags libgdal-dev gdal-bin curl
 RUN apt-get install --no-install-recommends -y libgdal-dev libproj-dev \
-    libudunits2-dev libcairo2-dev libxt-dev libssl-dev
+    libudunits2-dev libcairo2-dev libxt-dev libssl-dev libgeos-dev
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 

@@ -10,11 +10,13 @@ MAINTAINER nokome@trophia.com
 # Linux packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-client \
+  libgit2-dev libssh2-1-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# R packages
-RUN Rscript -e "install.packages(c('Rcpp','devtools','PBSmapping'),repo='http://cran.us.r-project.org/')"
+# devtools 1.13
+RUN Rscript -e "install.packages(c('memoise','git2r'), repo='http://cran.us.r-project.org/')"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/devtools/devtools_1.13.6.tar.gz', repos=NULL, type='source')"
 
 # groomer
 RUN git clone https://github.com/trophia/groomer.git
