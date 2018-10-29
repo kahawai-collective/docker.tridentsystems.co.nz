@@ -14,11 +14,7 @@ packages <- c(
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
-<<<<<<< HEAD
-    'rstan','brms','Rcpp','ggpubr','party'
-=======
-    'rstan','brms','Rcpp','ggpubr', 'rgdal'
->>>>>>> b1efa1e7337e2d03a536927543f1cbc07662828e
+    'rstan','brms','Rcpp','ggpubr', 'rgdal','party'
 )
 
 update.packages(ask=F)
