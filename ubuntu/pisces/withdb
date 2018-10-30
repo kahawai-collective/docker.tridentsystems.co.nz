@@ -8,7 +8,7 @@ import sys
 
 command = sys.argv[1:]
 if len(command) < 1:
-    print "no command to run, exiting"
+    sys.stderr.write("no command to run, exiting\n")
     sys.exit(1)
 
 server = os.environ.get("JOB_DB_SERVER", "https://job-db.tridentsystems.co.nz")
@@ -35,12 +35,11 @@ headers = {"Content-Type": "application/json"}
 r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=20)
 
 if r.status_code == 403:
-    print("Request for temporary database refused")
+    sys.stderr.write("Request for temporary database refused\n")
     sys.exit(1)
 
 if r.status_code != 200:
-    print("Request for temporary database failed")
-    print(r)
+    sys.stderr.write("Request for temporary database failed with status %d\n" % r.status_code)
     sys.exit(1)
 
 temp_db = r.json().get("temp_db", {})
@@ -54,10 +53,12 @@ env["KAHAWAI_DBPORT"] = temp_db.get("port")
 
 building = r.json().get("build", None)
 if building:
-    print("Building %s database" % building)
-print("Available databases: " + ", ".join(r.json().get("imported", [])))
+    sys.stderr.write("Building %s database\n" % building)
+sys.stderr.write("Available databases: " + ", ".join(r.json().get("imported", [])) + "\n")
 
-print("Command: " + " ".join(command))
+sys.stderr.write("Command: " + " ".join(command) + "\n")
+sys.stderr.flush()
+
 return_code = subprocess.Popen(command, env=env).wait()
 
 post_data["temp_db"] = temp_db
@@ -69,7 +70,7 @@ else:
 
 if r.status_code == 200:
     if "message" in r.json():
-        print(r.json().get("message"))
+        sys.stderr.write(r.json().get("message") + "\n")
     sys.exit(return_code)
 else:
     sys.exit(1)
