@@ -34,7 +34,12 @@ headers = {"Content-Type": "application/json"}
 
 r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=5)
 
+if r.status_code == 403:
+    print("Request for temporary database refused")
+    sys.exit(1)
+
 if r.status_code != 200:
+    print("Request for temporary database failed")
     print(r)
     sys.exit(1)
 
