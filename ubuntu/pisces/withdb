@@ -70,5 +70,6 @@ else:
 if r.status_code == 200:
     if "message" in r.json():
         print(r.json().get("message"))
+    sys.exit(return_code)
 else:
     sys.exit(1)
