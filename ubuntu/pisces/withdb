@@ -32,7 +32,7 @@ post_data = secrets.copy()
 post_data["job_id"] = job_id
 headers = {"Content-Type": "application/json"}
 
-r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=5)
+r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=20)
 
 if r.status_code == 403:
     print("Request for temporary database refused")
@@ -63,9 +63,9 @@ return_code = subprocess.Popen(command, env=env).wait()
 post_data["temp_db"] = temp_db
 
 if return_code == 0 and building:
-    r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=5)
+    r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=20)
 else:
-    r = requests.post("%s/db/delete" % server, json=post_data, headers=headers, timeout=5)
+    r = requests.post("%s/db/delete" % server, json=post_data, headers=headers, timeout=20)
 
 if r.status_code == 200:
     if "message" in r.json():
