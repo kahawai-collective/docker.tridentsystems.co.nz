@@ -15,6 +15,7 @@ RUN apt-get update && \
         r-base \
         libpq-dev \
         curl \
+        libssl-dev \
         libcurl4-openssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
