@@ -11,7 +11,5 @@ RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /et
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         r-base \
-        r-base-devel && \
+        r-base-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-  
