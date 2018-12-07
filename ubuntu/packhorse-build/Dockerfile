@@ -14,7 +14,8 @@ RUN apt-get update && \
         r-recommended \
         r-base \
         libpq-dev \
-        curl && \
+        curl \
+        libcurl4-openssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
