@@ -11,10 +11,10 @@ RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /et
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         r-base \
-        r-base-dev && \
+        r-base-dev \
+        libcurl4-openssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
     COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 
     RUN Rscript /etc/kahawai-jobserver/r_requirements.r
-    
