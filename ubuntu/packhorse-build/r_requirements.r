@@ -3,7 +3,7 @@ r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 packages <- c(
-    "dplyr", "readxl"
+    "dplyr", "readxl", "aws.s3"
 )
 
 update.packages(ask=F)
