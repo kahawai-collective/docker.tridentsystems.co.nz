@@ -13,7 +13,8 @@ RUN apt-get update && \
         r-base \
         r-base-dev \
         libcurl4-openssl-dev \
-        libssl-dev && \
+        libssl-dev \
+        libxml2-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
     COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
