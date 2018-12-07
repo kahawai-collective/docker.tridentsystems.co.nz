@@ -14,7 +14,7 @@ RUN apt-get update && \
         r-recommended \
         r-base \
         libpq-dev \
-        r-cran-tidyverse && \
+        curl && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
