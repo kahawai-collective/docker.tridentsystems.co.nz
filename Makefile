@@ -3,6 +3,7 @@ DOCKERS := \
 	ubuntu/kahawai-build \
 	ubuntu/layers-build \
 	ubuntu/ems-build \
+	ubuntu/packhorse-build \
 	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
@@ -13,7 +14,7 @@ DOCKERS := \
 	ubuntu/fsl
 
 BASEIMAGES := \
-	ubuntu 
+	ubuntu
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
 REGISTRY_DOCKERS := $(addprefix $(REGISTRY)/,$(DOCKERS))
@@ -47,6 +48,7 @@ ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/pisces/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
+ubuntu/packhorse-build/.docker: ubuntu/kahawai-build/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 

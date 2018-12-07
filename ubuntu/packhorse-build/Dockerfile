@@ -1,4 +1,4 @@
-FROM docker.tridentsystems.co.nz/ubuntu/pisces
+FROM docker.tridentsystems.co.nz/ubuntu/kahawai-build
 MAINTAINER david.middleton@tridentsystems.co.nz
 
 RUN apt-get update && \
