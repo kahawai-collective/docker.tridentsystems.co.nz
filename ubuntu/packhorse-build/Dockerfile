@@ -12,6 +12,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         r-base \
         r-base-dev \
+        postgresql-client \
         libcurl4-openssl-dev \
         libssl-dev \
         libxml2-dev && \
