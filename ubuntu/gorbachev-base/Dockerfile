@@ -25,7 +25,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
-COPY trident-latex-templates_1.41_all.deb /tmp/
-RUN dpkg -i /tmp/trident-latex-templates_1.41_all.deb
+COPY trident-latex-templates_1.5_all.deb /tmp/
+RUN dpkg -i /tmp/trident-latex-templates_1.5_all.deb
 COPY mpi-latex-templates_1.20_all.deb /tmp/
 RUN dpkg -i /tmp/mpi-latex-templates_1.20_all.deb

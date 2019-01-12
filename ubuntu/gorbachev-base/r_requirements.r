@@ -14,7 +14,11 @@ packages <- c(
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
+<<<<<<< HEAD
     'rstan','brms','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis'
+=======
+    'rstan','brms','Rcpp','ggpubr', 'rgdal','party', 'extrafont', 'english'
+>>>>>>> bd3678ebcaf7645804bce5b575404d8d65e189be
 )
 
 update.packages(ask=F)

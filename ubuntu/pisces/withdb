@@ -19,9 +19,10 @@ except:
     job_id = 1000000
 
 dbcodes = ("test-build", "ems-build", "fonzdb-build", "kahawai-build",
-    "layers-build", "sampling-build", "vms-build", "ems", "fonzdb",
-    "kahawai", "layers", "moanapaua", "reports-ca5-10", "sampling",
-    "scs", "vms")
+           "layers-build", "packhorse-build", "sampling-build",
+           "vms-build", "ems", "fonzdb", "kahawai", "layers",
+           "moanapaua", "packhorse", "reports-ca5-10", "sampling",
+           "scs", "vms")
 
 secrets = {}
 for code in dbcodes:
