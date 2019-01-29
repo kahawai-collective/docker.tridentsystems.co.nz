@@ -14,7 +14,7 @@ packages <- c(
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
-    'rstan','brms','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english'
+    'rstan','brms','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english','janitor'
 )
 
 update.packages(ask=F)
