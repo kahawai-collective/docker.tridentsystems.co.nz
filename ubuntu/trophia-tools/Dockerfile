@@ -15,7 +15,7 @@ RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-cli
   && rm -rf /var/lib/apt/lists/*
 
 # devtools 1.13
-RUN Rscript -e "install.packages(c('memoise','git2r'), repo='http://cran.us.r-project.org/')"
+RUN Rscript -e "install.packages(c('proto','memoise','git2r'), repo='http://cran.us.r-project.org/')"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/devtools/devtools_1.13.6.tar.gz', repos=NULL, type='source')"
 
 # groomer
