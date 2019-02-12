@@ -30,9 +30,9 @@ RUN curl -OL https://github.com/trophia/influ/releases/download/0.9/influ_0.9.ta
 RUN Rscript -e "options(warn=2); devtools:::install_github('trophia/analyser', ref='a82c5b4')"
 
 # Stencila
-RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz ;\
-	R CMD INSTALL stencila_0.21.tar.gz ;\
-	Rscript -e 'options(warn=2); require(stencila); stencila:::install_cli()' ;\
+RUN curl -OL http://get.stenci.la/r/src/contrib/stencila_0.21.tar.gz && \
+	R CMD INSTALL stencila_0.21.tar.gz && \
+	Rscript -e 'options(warn=2); require(stencila); stencila:::install_cli()' && \
 	rm stencila_0.21.tar.gz
 
 # Update groomer to a particular commit
