@@ -9,7 +9,8 @@ MAINTAINER nokome@trophia.com
 
 # Linux packages
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y git python python-psycopg2 python-dateutil postgresql-client \
+RUN apt-get update && \
+  apt-get install -y git python python-psycopg2 python-dateutil postgresql-client \
   libgit2-dev libssh2-1-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
