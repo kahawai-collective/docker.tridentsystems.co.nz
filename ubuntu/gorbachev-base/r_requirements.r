@@ -6,7 +6,7 @@ options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 packages <- c(
     "shapefiles", "foreign", "sp", "lattice", "RColorBrewer",
-    "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "tidyverse","readr",
+    "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "tidyverse",
     "tables", "data.table", "gridExtra", "rjags", "R2jags", "reshape2",
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales',
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'rgenoud',
