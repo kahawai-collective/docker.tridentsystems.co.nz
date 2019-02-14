@@ -12,6 +12,7 @@ if len(command) < 1:
     sys.exit(1)
 
 server = os.environ.get("JOB_DB_SERVER", "https://job-db.tridentsystems.co.nz")
+timeout = int(os.environ.get("JOB_DB_REQUEST_TIMEOUT", 60))
 
 try:
     job_id = int(re.sub('^JobID ', '', os.environ.get("JOBID", "1000000")))
@@ -34,7 +35,7 @@ post_data = secrets.copy()
 post_data["job_id"] = job_id
 headers = {"Content-Type": "application/json"}
 
-r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=20)
+r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=timeout)
 
 if r.status_code == 403:
     sys.stderr.write("Request for temporary database refused\n")
@@ -66,9 +67,9 @@ return_code = subprocess.Popen(command, env=env).wait()
 post_data["temp_db"] = temp_db
 
 if return_code == 0 and building:
-    r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=20)
+    r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=timeout)
 else:
-    r = requests.post("%s/db/delete" % server, json=post_data, headers=headers, timeout=20)
+    r = requests.post("%s/db/delete" % server, json=post_data, headers=headers, timeout=timeout)
 
 if r.status_code == 200:
     if "message" in r.json():
