@@ -15,7 +15,7 @@ packages <- c(
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
     'rstan','brms','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english',
-    'janitor','bestglm')
+    'janitor','bestglm','DHARMa','MuMIn')
 
 update.packages(ask=F)
 
