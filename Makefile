@@ -5,11 +5,11 @@ DOCKERS := \
 	ubuntu/ems-build \
 	ubuntu/packhorse-build \
 	ubuntu/r \
+	ubuntu/fonz \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/jags-stan \
 	ubuntu/trophia-tools \
-	ubuntu/fonz \
 	ubuntu/inla \
 	ubuntu/fsl
 
