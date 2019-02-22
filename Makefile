@@ -4,7 +4,7 @@ DOCKERS := \
 	ubuntu/layers-build \
 	ubuntu/ems-build \
 	ubuntu/packhorse-build \
-	ubuntu/texlive \
+	ubuntu/r \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/jags-stan \
@@ -36,8 +36,8 @@ deploy: fetch all push
 
 ubuntu/nz/.docker: ubuntu/.official
 ubuntu/pisces/.docker: ubuntu/nz/.docker
-ubuntu/texlive/.docker: ubuntu/pisces/.docker
-ubuntu/texlive-r/.docker: ubuntu/texlive/.docker
+ubuntu/r/.docker: ubuntu/pisces/.docker
+ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
