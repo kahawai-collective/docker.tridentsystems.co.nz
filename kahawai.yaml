@@ -1,1 +1,1 @@
-docker: "ubuntu/pisces:docker-build"
+docker: "ubuntu/gorbachev-base:14.04"
