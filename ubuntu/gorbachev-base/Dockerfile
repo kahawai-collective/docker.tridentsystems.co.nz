@@ -1,9 +1,9 @@
 FROM docker.tridentsystems.co.nz/ubuntu/texlive-r
 MAINTAINER richard@dragonfly.co.nz
 
-RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags libgdal-dev gdal-bin curl
-RUN apt-get install --no-install-recommends -y libgdal-dev libproj-dev \
-    libudunits2-dev libcairo2-dev libxt-dev libssl-dev libgeos-dev
+RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags gdal-bin curl
+RUN apt-get install --no-install-recommends -y libudunits2-dev libcairo2-dev libxt-dev \
+    libssl-dev
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 

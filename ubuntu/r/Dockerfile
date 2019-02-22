@@ -13,6 +13,6 @@ RUN apt-get update && \
         r-base-dev \
         r-recommended \
         r-base \
-        libpq-dev \
+        libpq-dev libgdal-dev libproj-dev libgeos-dev \
         curl && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
