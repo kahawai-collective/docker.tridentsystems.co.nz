@@ -4,7 +4,7 @@ options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 packages <- c(
     "cluster", "gtools", "PBSmapping", "ggplot2", "mapproj", "reshape", "plyr",
-    "proto", "beanplot", "scales", "gridExtra", "RColorBrewer")
+    "proto", "beanplot", "scales", "gridExtra", "RColorBrewer", "RPostgreSQL")
 
 existing <- tryCatch({
     library()$results[, 'Package']
