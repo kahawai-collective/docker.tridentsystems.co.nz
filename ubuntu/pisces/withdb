@@ -21,7 +21,7 @@ except:
 
 dbcodes = ("test-build", "ems-build", "fonzdb-build", "kahawai-build",
            "layers-build", "packhorse-build", "sampling-build",
-           "vms-build", "ems", "fonzdb", "kahawai", "layers",
+           "vms-build", "ems", "fonzdb", "kahawai", "layers", "moana",
            "moanapaua", "packhorse", "reports-ca5-10", "sampling",
            "scs", "vms")
 
