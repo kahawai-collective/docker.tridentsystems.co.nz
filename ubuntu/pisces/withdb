@@ -25,6 +25,11 @@ dbcodes = set([
     "ems", "fonzdb", "kahawai", "layers", "moana", "moanapaua",
     "oreo", "packhorse", "reports-ca5-10", "sampling", "scs", "vms"])
 
+for dbcode in os.environ.get("PISCES_DB_CODES", "layers").split(","):
+    clean_dbcode = re.sub('[^a-zA-Z0-9_-]+', '', dbcode)
+    if clean_dbcode:
+        dbcodes.add(clean_dbcode)
+
 secrets = {}
 for code in dbcodes:
     varname = code.upper().replace("-", "_")
