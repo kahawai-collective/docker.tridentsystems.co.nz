@@ -19,11 +19,11 @@ try:
 except:
     job_id = 1000000
 
-dbcodes = ("test-build", "ems-build", "fonzdb-build", "kahawai-build",
-           "layers-build", "packhorse-build", "sampling-build",
-           "vms-build", "ems", "fonzdb", "kahawai", "layers", "moana",
-           "moanapaua", "packhorse", "reports-ca5-10", "sampling",
-           "scs", "vms")
+dbcodes = set([
+    "test-build", "ems-build", "fonzdb-build", "kahawai-build",
+    "layers-build", "packhorse-build", "sampling-build", "vms-build",
+    "ems", "fonzdb", "kahawai", "layers", "moana", "moanapaua",
+    "oreo", "packhorse", "reports-ca5-10", "sampling", "scs", "vms"])
 
 secrets = {}
 for code in dbcodes:
