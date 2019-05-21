@@ -1,8 +1,8 @@
-FROM docker.tridentsystems.co.nz/ubuntu/pisces
+FROM docker.tridentsystems.co.nz/ubuntu/gorbachev-base
 
 MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
-    postgresql-client openssh-client mysql-client s3cmd
+    openssh-client mysql-client s3cmd
 
