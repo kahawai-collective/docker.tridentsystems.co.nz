@@ -20,9 +20,9 @@ except:
     job_id = 1000000
 
 dbcodes = set([
-    "test-build", "ems-build", "fonzdb-build", "kahawai-build",
+    "test-build", "ems-build", "ems2-build", "fonzdb-build", "kahawai-build",
     "layers-build", "packhorse-build", "sampling-build", "vms-build",
-    "ems", "fonzdb", "kahawai", "layers", "moana", "moanapaua",
+    "ems", "ems2", "fonzdb", "kahawai", "layers", "moana", "moanapaua",
     "oreo", "packhorse", "reports-ca5-10", "sampling", "scs", "sightings",
     "vms"])
 
