@@ -3,7 +3,8 @@ r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 packages <- c(
-    "dplyr", "readxl", "readr", "stringr", "RPostgreSQL", "aws.s3"
+    "dplyr", "readxl", "readr", "stringr", "RPostgreSQL"
+    # , "aws.s3" # TODO not available for R 3.6.2
 )
 
 update.packages(ask=F)
