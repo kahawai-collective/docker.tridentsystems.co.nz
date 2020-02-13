@@ -10,7 +10,7 @@ packages <- c(
     "tables", "data.table", "gridExtra", "rjags", "R2jags", "reshape2",
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales',
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'rgenoud',
-    'broom', 'cowplot', 'MASS', 'gridBase', 'pryr','boot',
+    'broom', 'cowplot', 'MASS', 'gridBase', 'pryr',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
