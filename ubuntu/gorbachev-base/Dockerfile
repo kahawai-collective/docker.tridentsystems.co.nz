@@ -14,7 +14,7 @@ RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-add-repository multiverse && apt-get update
-RUN apt-get install -y msttcorefonts
+RUN apt-get install -y msttcorefonts libgmp3-dev
 # libraries necessary to run docker
 # RUN apt-get update && apt-get install -y libapparmor1 libsystemd-journal0 libcgmanager0 libnih-dbus1 libnih1 libdbus-1-3 libgcrypt11
 
