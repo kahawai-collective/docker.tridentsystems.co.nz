@@ -31,4 +31,4 @@ install.packages(pkgs2install)
 old_rgeos <- "https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-28.tar.gz"
 install.packages(old_rgeos, repos=NULL, type="source")
 old_foreign <- "https://cran.r-project.org/src/contrib/Archive/foreign/foreign_0.8-77.tar.gz"
-install.packages(old_foreign, repos=NULL, type="source")
+#install.packages(old_foreign, repos=NULL, type="source")
