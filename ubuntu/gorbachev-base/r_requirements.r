@@ -29,7 +29,7 @@ pkgs2install <- setdiff(packages, existing)
 message(sprintf('Installing packages: %s', paste(pkgs2install, collapse=', ')))
 
 
-old_foreign <- "https://cran.r-project.org/src/contrib/Archive/foreign/foreign_0.8-77.tar.gz"
+old_foreign <- "https://cran.r-project.org/src/contrib/Archive/foreign/foreign_0.8-76.tar.gz"
 install.packages(old_foreign, repos=NULL, type="source")
 
 install.packages(pkgs2install)
