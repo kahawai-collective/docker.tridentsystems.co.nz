@@ -26,9 +26,12 @@ existing <- tryCatch({
 })
 
 pkgs2install <- setdiff(packages, existing)
-install.packages(pkgs2install)
 
+## Start with older versions in case they are dependencies of the newer ones
 old_rgeos <- "https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-28.tar.gz"
 install.packages(old_rgeos, repos=NULL, type="source")
 old_foreign <- "https://cran.r-project.org/src/contrib/Archive/foreign/foreign_0.8-77.tar.gz"
-#install.packages(old_foreign, repos=NULL, type="source")
+install.packages(old_foreign, repos=NULL, type="source")
+
+message(sprintf('Installing packages: %s', paste(pkgs2install, collapse=', ')))
+install.packages(pkgs2install)
