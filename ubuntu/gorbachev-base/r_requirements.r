@@ -1,7 +1,7 @@
 # Set the URL for CRAN
 old <- getOption("defaultPackages"); r <- getOption("repos")
 #r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
-r['CRAN'] = 'https://mran.microsoft.com/snapshot/2020-03-25' 
+r['CRAN'] = 'https://mran.microsoft.com/snapshot/2020-03-25'
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 # packages ‘grid’, ‘genoud’, ‘tools’, ‘utils’ are not available (for R version 3.4.2)
@@ -13,7 +13,7 @@ packages <- c(
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales',
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'rgenoud',
     'broom', 'cowplot', 'MASS', 'gridBase', 'pryr', 'proto',
-    'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'GGally', 'gam',
+    'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'tidyxl', 'GGally', 'gam',
     'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
     'rstan','brms','patchwork','tidybayes','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english','coda','runjags',
