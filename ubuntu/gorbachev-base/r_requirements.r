@@ -10,7 +10,7 @@ packages <- c(
     "shapefiles", "sp", "lattice", "RColorBrewer", "foreign",
     "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "tidyverse",
     "tables", "data.table", "gridExtra", "rjags", "R2jags", "reshape2",
-    "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales',
+    "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales', 'ggspatial',
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'rgenoud',
     'broom', 'cowplot', 'MASS', 'gridBase', 'pryr', 'proto',
     'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'tidyxl', 'GGally', 'gam',
