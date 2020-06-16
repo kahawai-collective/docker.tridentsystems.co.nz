@@ -22,9 +22,9 @@ except:
 dbcodes = set([
     "test-build", "ems-build", "ems2-build", "fonzdb-build", "kahawai-build",
     "layers-build", "packhorse-build", "sampling-build", "vms-build",
-    "ems", "ems2", "fonzdb", "kahawai", "layers", "moana", "moanapaua",
-    "oreo", "packhorse", "reports-ca5-10", "sampling", "scs", "sightings",
-    "vms"])
+    "em-admin", "ems", "ems2", "fonzdb", "kahawai", "layers", "moana",
+    "moanapaua", "oreo", "packhorse", "reports-ca5-10", "sampling", "scs",
+    "sightings", "vms"])
 
 for dbcode in os.environ.get("PISCES_DB_CODES", "layers").split(","):
     clean_dbcode = re.sub('[^a-zA-Z0-9_-]+', '', dbcode)
