@@ -18,7 +18,7 @@ packages <- c(
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
     'rstan','brms','patchwork','tidybayes','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english','coda','runjags',
     'janitor','bestglm','DHARMa','MuMIn','arm','ggrepel','truncdist','sf','fields','raster','glm2','sampling','effects',
-    'collapse', 'ggExtra', 'lutz')
+    'collapse', 'ggExtra', 'lutz', 'rsample')
 
 update.packages(ask=F)
 
