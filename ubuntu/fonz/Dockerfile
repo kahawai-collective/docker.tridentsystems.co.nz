@@ -1,4 +1,4 @@
-FROM docker.tridentsystems.co.nz/ubuntu/r
+FROM docker.pisces.net.nz/ubuntu/r
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \

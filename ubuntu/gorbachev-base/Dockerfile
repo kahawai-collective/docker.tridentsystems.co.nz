@@ -1,4 +1,4 @@
-FROM docker.tridentsystems.co.nz/ubuntu/texlive-r
+FROM docker.pisces.net.nz/ubuntu/texlive-r
 MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags gdal-bin curl
