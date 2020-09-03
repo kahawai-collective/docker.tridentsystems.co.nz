@@ -46,7 +46,7 @@ ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
-ubuntu/ems-build/.docker: ubuntu/pisces/.docker
+ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/packhorse-build/.docker: ubuntu/kahawai-build/.docker
 
