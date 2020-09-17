@@ -19,7 +19,7 @@ RUN apt-get install -y msttcorefonts
 # RUN apt-get update && apt-get install -y libapparmor1 libsystemd-journal0 libcgmanager0 libnih-dbus1 libnih1 libdbus-1-3 libgcrypt11
 
 
-RUN apt-get install -y pandoc
+RUN apt-get install -y pandoc jq
 
 COPY fonts/ /usr/local/share/fonts/
 
