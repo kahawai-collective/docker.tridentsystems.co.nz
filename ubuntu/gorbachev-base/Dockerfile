@@ -28,6 +28,6 @@ RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY trident-latex-templates_1.6_all.deb /tmp/
 RUN dpkg -i /tmp/trident-latex-templates_1.6_all.deb
 COPY pisces-latex-templates_0.3_all.deb /tmp/
-RUN dpkg -i /tmp/pisces-latex-templates_0.3_all.deb
+RUN dpkg -i /tmp/pisces-latex-templates_0.31_all.deb
 COPY mpi-latex-templates_1.25_all.deb /tmp/
 RUN dpkg -i /tmp/mpi-latex-templates_1.25_all.deb
