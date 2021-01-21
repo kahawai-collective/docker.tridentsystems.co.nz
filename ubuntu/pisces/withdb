@@ -11,7 +11,7 @@ if len(command) < 1:
     sys.stderr.write("no command to run, exiting\n")
     sys.exit(1)
 
-server = os.environ.get("JOB_DB_SERVER", "https://job-db.pisces.net.nz")
+server = os.environ.get("JOB_DB_SERVER", "https://job-db.kahawai.net.nz")
 timeout = int(os.environ.get("JOB_DB_REQUEST_TIMEOUT", 60))
 
 try:
