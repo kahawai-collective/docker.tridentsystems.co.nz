@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/gorbachev-base
+FROM docker.pisces.net.nz/ubuntu/gorbachev-base
 
 MAINTAINER richard@dragonfly.co.nz
 

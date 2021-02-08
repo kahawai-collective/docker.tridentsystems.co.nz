@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/texlive-r
+FROM docker.pisces.net.nz/ubuntu/texlive-r
 MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags gdal-bin curl
@@ -19,7 +19,7 @@ RUN apt-get install -y msttcorefonts
 # RUN apt-get update && apt-get install -y libapparmor1 libsystemd-journal0 libcgmanager0 libnih-dbus1 libnih1 libdbus-1-3 libgcrypt11
 
 
-RUN apt-get install -y pandoc jq
+RUN apt-get install -y pandoc
 
 COPY fonts/ /usr/local/share/fonts/
 
