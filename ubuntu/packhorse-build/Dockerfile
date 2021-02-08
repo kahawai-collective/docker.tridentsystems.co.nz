@@ -1,5 +1,5 @@
-FROM docker.pisces.net.nz/ubuntu/kahawai-build
-MAINTAINER david.middleton@tridentsystems.co.nz
+FROM docker.kahawai.net.nz/ubuntu/kahawai-build
+MAINTAINER david@pisces.nz
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gnupg && \

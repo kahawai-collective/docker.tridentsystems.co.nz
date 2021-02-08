@@ -1,4 +1,4 @@
-FROM docker.pisces.net.nz/ubuntu/pisces
+FROM docker.kahawai.net.nz/ubuntu/pisces
 MAINTAINER finlay@dragonfly.co.nz
 
 RUN apt-get update &&  \
@@ -8,4 +8,3 @@ RUN apt-get update &&  \
 
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
-
