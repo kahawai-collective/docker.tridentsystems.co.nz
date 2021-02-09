@@ -2,7 +2,7 @@
 
 set -e
 
-ls -l
+ls -l ubuntu/pisces
 
 make deploy
 
