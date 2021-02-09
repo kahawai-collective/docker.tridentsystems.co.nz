@@ -7,5 +7,3 @@ RUN apt-get update &&  \
 COPY withdb /usr/local/bin/
 
 COPY md2sql /usr/local/bin/
-
-RUN chmod 755 /usr/local/bin/md2sql
