@@ -5,4 +5,5 @@ RUN apt-get update &&  \
     python-requests-toolbelt jq
 
 COPY withdb /usr/local/bin/
+
 COPY md2sql /usr/local/bin/
