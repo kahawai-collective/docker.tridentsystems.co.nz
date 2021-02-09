@@ -1,4 +1,4 @@
-REGISTRY := docker.pisces.net.nz
+REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/kahawai-build \
 	ubuntu/layers-build \
