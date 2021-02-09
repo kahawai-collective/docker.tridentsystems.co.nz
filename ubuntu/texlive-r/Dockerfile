@@ -1,4 +1,4 @@
-FROM docker.pisces.net.nz/ubuntu/r
+FROM docker.kahawai.net.nz/ubuntu/r
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends texlive-full wget && \

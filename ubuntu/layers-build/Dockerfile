@@ -1,4 +1,4 @@
-FROM docker.pisces.net.nz/ubuntu/kahawai-build
+FROM docker.kahawai.net.nz/ubuntu/kahawai-build
 MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update &&  \

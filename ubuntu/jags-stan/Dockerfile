@@ -1,4 +1,4 @@
-FROM docker.pisces.net.nz/ubuntu/gorbachev-base
+FROM docker.kahawai.net.nz/ubuntu/gorbachev-base
 MAINTAINER yvan@dragonfly.co.nz
 
 COPY r_requirements.r /r_requirements.r

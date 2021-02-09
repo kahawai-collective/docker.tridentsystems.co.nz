@@ -1,4 +1,4 @@
-FROM docker.pisces.net.nz/ubuntu/pisces
+FROM docker.kahawai.net.nz/ubuntu/pisces
 MAINTAINER finlay@dragonfly.co.nz
 
 RUN apt-get update &&  \
