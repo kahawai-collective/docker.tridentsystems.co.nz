@@ -10,6 +10,7 @@ DOCKERS := \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/jags-stan \
+	ubuntu/stan_2.26 \
 	ubuntu/trophia-tools \
 	ubuntu/inla \
 	ubuntu/fsl
@@ -41,6 +42,7 @@ ubuntu/r/.docker: ubuntu/pisces/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
+ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
