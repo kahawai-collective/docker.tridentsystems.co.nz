@@ -50,7 +50,6 @@ ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docke
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
-ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
 ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
