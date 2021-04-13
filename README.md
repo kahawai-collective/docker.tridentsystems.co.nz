@@ -10,7 +10,9 @@ docker.tridentsystems.co.nz/ubuntu/layers-build
 docker.tridentsystems.co.nz/ubuntu/kahawai-build
 docker.tridentsystems.co.nz/ubuntu/trophia-tools
 docker.tridentsystems.co.nz/ubuntu/gorbachev-base
+docker.tridentsystems.co.nz/ubuntu/gorbachev-base-bleedingedge
 docker.tridentsystems.co.nz/ubuntu/texlive-r
+docker.tridentsystems.co.nz/ubuntu/texlive-r-bleedingedge
 docker.tridentsystems.co.nz/ubuntu/texlive
 ```
 

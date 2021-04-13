@@ -42,18 +42,19 @@ deploy: fetch all push
 ubuntu/nz/.docker: ubuntu/.official
 ubuntu/pisces/.docker: ubuntu/nz/.docker
 ubuntu/r/.docker: ubuntu/pisces/.docker
+ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
+ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
+ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
+ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
 ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 
-ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
-ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
-ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
