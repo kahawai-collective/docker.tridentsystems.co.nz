@@ -6,9 +6,12 @@ DOCKERS := \
 	ubuntu/ems2-build \
 	ubuntu/packhorse-build \
 	ubuntu/r \
+	ubuntu/r-bleedingedge \
 	ubuntu/fonz \
 	ubuntu/texlive-r \
+	ubuntu/texlive-r-bleedingedge \
 	ubuntu/gorbachev-base \
+	ubuntu/gorbachev-base-bleedingedge \
 	ubuntu/jags-stan \
 	ubuntu/stan_2.26 \
 	ubuntu/trophia-tools \
@@ -47,6 +50,10 @@ ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
+
+ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
+ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
+ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
