@@ -15,9 +15,9 @@ DOCKERS := \
 	ubuntu/inla \
 	ubuntu/fsl
 
-#	ubuntu/r-bleedingedge \
-#	ubuntu/texlive-r-bleedingedge \
-# 	ubuntu/gorbachev-base-bleedingedge \
+ubuntu/r-bleedingedge \
+ubuntu/texlive-r-bleedingedge \
+ubuntu/gorbachev-base-bleedingedge \
 
 
 BASEIMAGES := \

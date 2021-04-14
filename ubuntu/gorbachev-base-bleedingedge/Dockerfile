@@ -2,7 +2,7 @@ FROM docker.kahawai.net.nz/ubuntu/texlive-r-bleedingedge
 MAINTAINER richard@dragonfly.co.nz
 
 RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core python-pygments jags gdal-bin curl
-RUN apt-get install --no-install-recommends -y libudunits2-dev libcairo2-dev libxt-dev \
+RUN apt-get install --no-install-recommends -y libudunits2-dev libcairo2-dev libxt-dev libv8-dev \
     libssl-dev libgmp3-dev
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
