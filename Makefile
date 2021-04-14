@@ -13,11 +13,12 @@ DOCKERS := \
 	ubuntu/stan_2.26 \
 	ubuntu/trophia-tools \
 	ubuntu/inla \
+	ubuntu/r-bleedingedge \
+	ubuntu/texlive-r-bleedingedge \
+	ubuntu/gorbachev-base-bleedingedge \
 	ubuntu/fsl
 
-ubuntu/r-bleedingedge \
-ubuntu/texlive-r-bleedingedge \
-ubuntu/gorbachev-base-bleedingedge \
+
 
 
 BASEIMAGES := \
