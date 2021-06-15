@@ -16,7 +16,6 @@ DOCKERS := \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
 	ubuntu/gorbachev-base-bleedingedge \
-	ubuntu/gorbachev-base-test \
 	ubuntu/fsl
 
 
@@ -51,7 +50,6 @@ ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
-ubuntu/gorbachev-base-test/.docker: ubuntu/texlive-r-bleedingedge/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
