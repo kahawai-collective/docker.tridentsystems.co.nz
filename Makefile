@@ -16,6 +16,7 @@ DOCKERS := \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
 	ubuntu/gorbachev-base-bleedingedge \
+	ubuntu/gorbachev-base-test \	
 	ubuntu/fsl
 
 
