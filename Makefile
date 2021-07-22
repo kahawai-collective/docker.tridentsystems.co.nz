@@ -1,3 +1,4 @@
+DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/kahawai-build \
@@ -77,8 +78,8 @@ ubuntu/.official:
 	$(call fetchofficial,ubuntu:18.04,$@)
 
 %/.docker: %/Dockerfile %/*
-	docker build -t $(REGISTRY)/$* $*
-	@$(shell docker inspect --format='{{.Id}}' $(REGISTRY)/$*  > $@)
+	docker build --iidfile $@ -t $(REGISTRY)/$* $*
+	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(DATE)
 
 %/Dockerfile: %/Dockerfile.tmpl includes/df-user.inc includes/nz-locale.inc
 	@cp $< $@
@@ -87,3 +88,4 @@ ubuntu/.official:
 
 $(REGISTRY)/%: %/.docker
 	docker push $(REGISTRY)/$*
+	docker push $(REGISTRY)/$*:$(DATE)
