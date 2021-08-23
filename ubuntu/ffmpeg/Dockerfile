@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/pisces
+FROM docker.kahawai.net.nz/ubuntu/pisces-focal
 MAINTAINER david@pisces.nz
 
 RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core curl ffmpeg libavcodec-extra
