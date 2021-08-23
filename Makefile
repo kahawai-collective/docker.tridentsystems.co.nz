@@ -17,6 +17,7 @@ DOCKERS := \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
 	ubuntu/gorbachev-base-bleedingedge \
+	ubuntu/ffmpeg \
 	ubuntu/fsl
 
 
@@ -47,6 +48,7 @@ ubuntu/nz/.docker: ubuntu/.official
 ubuntu/pisces/.docker: ubuntu/nz/.docker
 ubuntu/r/.docker: ubuntu/pisces/.docker
 ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
+ubuntu/ffmpeg/.docker: ubuntu/pisces/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
