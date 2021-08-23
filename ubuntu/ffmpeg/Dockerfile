@@ -1,8 +1,7 @@
 FROM docker.kahawai.net.nz/ubuntu/pisces
-ENV DEBIAN_FRONTEND noninteractive
 MAINTAINER david@pisces.nz
 
-RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core curl ffmpeg libavcodec-extra58
+RUN apt-get update && apt-get install --no-install-recommends -y postgresql-client git-core curl ffmpeg libavcodec-extra
 
 COPY photoncrypt /usr/local/bin/
 RUN chmod a+x /usr/local/bin/photoncrypt
