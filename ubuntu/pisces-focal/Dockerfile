@@ -1,8 +1,7 @@
 FROM docker.kahawai.net.nz/ubuntu/nz-focal
 
 RUN apt-get update &&  \
-    apt-get install --no-install-recommends -y python-requests awscli s3cmd \
-    python-requests-toolbelt jq
+    apt-get install --no-install-recommends -y awscli s3cmd jq
 
 COPY withdb /usr/local/bin/
 
