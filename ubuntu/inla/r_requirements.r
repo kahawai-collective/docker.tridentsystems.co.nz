@@ -1,2 +1,2 @@
-options(warn=2)
-install.packages("https://inla.r-inla-download.org/R/stable/src/contrib/INLA_18.07.12.tar.gz")
+#options(warn=2)
+install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)

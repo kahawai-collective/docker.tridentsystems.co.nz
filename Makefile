@@ -1,3 +1,4 @@
+DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/kahawai-build \
@@ -16,6 +17,7 @@ DOCKERS := \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
 	ubuntu/gorbachev-base-bleedingedge \
+	ubuntu/ffmpeg \
 	ubuntu/fsl
 
 
@@ -56,7 +58,9 @@ ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
-
+ubuntu/nz-focal/.docker: ubuntu/.official
+ubuntu/pisces-focal/.docker: ubuntu/nz-focal/.docker
+ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
@@ -77,8 +81,8 @@ ubuntu/.official:
 	$(call fetchofficial,ubuntu:18.04,$@)
 
 %/.docker: %/Dockerfile %/*
-	docker build -t $(REGISTRY)/$* $*
-	@$(shell docker inspect --format='{{.Id}}' $(REGISTRY)/$*  > $@)
+	docker build --iidfile $@ -t $(REGISTRY)/$* $*
+	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(DATE)
 
 %/Dockerfile: %/Dockerfile.tmpl includes/df-user.inc includes/nz-locale.inc
 	@cp $< $@
@@ -87,3 +91,4 @@ ubuntu/.official:
 
 $(REGISTRY)/%: %/.docker
 	docker push $(REGISTRY)/$*
+	docker push $(REGISTRY)/$*:$(DATE)
