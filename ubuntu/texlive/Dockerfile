@@ -42,3 +42,5 @@ RUN apt-get update && \
 
 RUN apt-add-repository multiverse && apt-get update
 RUN apt-get install -y msttcorefonts
+
+COPY fonts/ /usr/local/share/fonts/
