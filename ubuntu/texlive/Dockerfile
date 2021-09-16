@@ -4,6 +4,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends texlive-full wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN apt-add-repository multiverse && apt-get update
 RUN apt-get install -y msttcorefonts
 
 RUN apt-get update && \
