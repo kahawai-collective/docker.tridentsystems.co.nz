@@ -8,6 +8,7 @@ DOCKERS := \
 	ubuntu/packhorse-build \
 	ubuntu/r \
 	ubuntu/fonz \
+	ubuntu/texlive \
 	ubuntu/texlive-r \
 	ubuntu/gorbachev-base \
 	ubuntu/jags-stan \
@@ -46,6 +47,7 @@ deploy: fetch all push
 
 ubuntu/nz/.docker: ubuntu/.official
 ubuntu/pisces/.docker: ubuntu/nz/.docker
+ubuntu/texlive/.docker: ubuntu/pisces/.docker
 ubuntu/r/.docker: ubuntu/pisces/.docker
 ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker

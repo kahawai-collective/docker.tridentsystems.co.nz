@@ -4,6 +4,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends texlive-full wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN apt-get install -y msttcorefonts
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends libautovivification-perl \
     libclass-accessor-perl libdata-compare-perl libdata-dump-perl libdata-uniqid-perl \
