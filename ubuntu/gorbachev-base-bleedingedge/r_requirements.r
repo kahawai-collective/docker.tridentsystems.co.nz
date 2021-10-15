@@ -37,8 +37,8 @@ message(sprintf('Installing packages: %s', paste(pkgs2install, collapse=', ')))
 #install.packages(old_foreign, repos=NULL, type="source")
 
 install.packages(pkgs2install)
-remotes::install_github('clauswilke/multiscales')
-# devtools::install_github("clauswilke/multiscales")
+# remotes::install_github('clauswilke/multiscales')
+devtools::install_github("clauswilke/multiscales")
 
 
 old_rgeos <- "https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-28.tar.gz"
