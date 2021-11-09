@@ -3,9 +3,9 @@ FROM python:3.10
 # Set timezone & locale
 
 #ENV DEBIAN_FRONTEND noninteractive
-#
-#RUN apt-get update && apt-get install -y tzdata locales && \
-#    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN apt-get update && apt-get install -y tzdata locales && \
+    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo "Pacific/Auckland" > /etc/timezone
 RUN ln -fs /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
