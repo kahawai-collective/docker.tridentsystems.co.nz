@@ -19,13 +19,15 @@ DOCKERS := \
 	ubuntu/texlive-r-bleedingedge \
 	ubuntu/gorbachev-base-bleedingedge \
 	ubuntu/ffmpeg \
-	ubuntu/fsl
+	ubuntu/fsl \
+	python/scikit
 
 
 
 
 BASEIMAGES := \
-	ubuntu
+	ubuntu \
+	python
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
 REGISTRY_DOCKERS := $(addprefix $(REGISTRY)/,$(DOCKERS))
@@ -70,6 +72,8 @@ ubuntu/ems2-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/packhorse-build/.docker: ubuntu/kahawai-build/.docker
 
+python/scikit/.docker: python/.official
+
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
 
@@ -81,6 +85,10 @@ clean:
 ubuntu/.official:
 	docker pull ubuntu:18.04
 	$(call fetchofficial,ubuntu:18.04,$@)
+
+python/.official:
+	docker pull python:3.10
+	$(call fetchofficial,python:3.10,$@)
 
 %/.docker: %/Dockerfile %/*
 	docker build --iidfile $@ -t $(REGISTRY)/$* $*
