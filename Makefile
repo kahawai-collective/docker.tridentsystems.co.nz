@@ -20,7 +20,8 @@ DOCKERS := \
 	ubuntu/gorbachev-base-bleedingedge \
 	ubuntu/ffmpeg \
 	ubuntu/fsl \
-	python/scikit
+	python/scikit \
+	python/pytorch
 
 
 
@@ -72,7 +73,9 @@ ubuntu/ems2-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/packhorse-build/.docker: ubuntu/kahawai-build/.docker
 
-python/scikit/.docker: python/.official
+python/nz/.docker: python/.official
+python/scikit/.docker: python/nz/.docker
+python/pytorch/.docker: python/nz/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
