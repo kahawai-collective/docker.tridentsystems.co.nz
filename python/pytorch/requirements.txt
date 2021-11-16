@@ -3,3 +3,4 @@ torch
 torchvision
 pillow
 boto3
+pycocotools
