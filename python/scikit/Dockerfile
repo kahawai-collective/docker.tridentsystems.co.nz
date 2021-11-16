@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/nz
+FROM docker.kahawai.net.nz/python/nz
 
 COPY requirements.txt /etc/kahawai-jobserver/requirements.txt
 
