@@ -5,3 +5,4 @@ pillow
 boto3
 pycocotools
 scipy
+fpdf
