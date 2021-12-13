@@ -1,28 +1,27 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-  ubuntu/ffmpeg
-	# ubuntu/kahawai-build \
-	# ubuntu/layers-build \
-	# ubuntu/ems-build \
-	# ubuntu/ems2-build \
-	# ubuntu/packhorse-build \
-	# ubuntu/r \
-	# ubuntu/fonz \
-	# ubuntu/texlive \
-	# ubuntu/texlive-r \
-	# ubuntu/gorbachev-base \
-	# ubuntu/jags-stan \
-	# ubuntu/stan_2.26 \
-	# ubuntu/trophia-tools \
-	# ubuntu/inla \
-	# ubuntu/r-bleedingedge \
-	# ubuntu/texlive-r-bleedingedge \
-	# ubuntu/gorbachev-base-bleedingedge \
-	# ubuntu/ffmpeg \
-	# ubuntu/fsl \
-	# python/scikit \
-	# python/pytorch
+	ubuntu/kahawai-build \
+	ubuntu/layers-build \
+	ubuntu/ems-build \
+	ubuntu/ems2-build \
+	ubuntu/packhorse-build \
+	ubuntu/r \
+	ubuntu/fonz \
+	ubuntu/texlive \
+	ubuntu/texlive-r \
+	ubuntu/gorbachev-base \
+	ubuntu/jags-stan \
+	ubuntu/stan_2.26 \
+	ubuntu/trophia-tools \
+	ubuntu/inla \
+	ubuntu/r-bleedingedge \
+	ubuntu/texlive-r-bleedingedge \
+	ubuntu/gorbachev-base-bleedingedge \
+	ubuntu/ffmpeg \
+	ubuntu/fsl \
+	python/scikit \
+	python/pytorch
 
 
 
