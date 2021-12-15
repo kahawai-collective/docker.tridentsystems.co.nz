@@ -36,7 +36,7 @@ ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
-ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
+#ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
