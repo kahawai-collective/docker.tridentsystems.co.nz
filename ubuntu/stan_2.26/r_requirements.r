@@ -4,4 +4,5 @@ options(defaultPackages = c(old, "MASS"), repos = r)
 
 remotes::install_github("stan-dev/cmdstanr")
 install.packages("brms")
-
+require(cmdstanr)
+install_cmdstan()
