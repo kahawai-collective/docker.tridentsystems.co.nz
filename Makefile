@@ -1,6 +1,7 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
+  ubuntu/bookdown \
 	ubuntu/ffmpeg \
 	ubuntu/stan_2.26 \
 	ubuntu/kahawai-build \
@@ -64,6 +65,7 @@ ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/nz-focal/.docker: ubuntu/.official
 ubuntu/pisces-focal/.docker: ubuntu/nz-focal/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
+ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
