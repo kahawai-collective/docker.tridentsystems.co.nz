@@ -20,5 +20,7 @@ COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
+RUN Rscript -e "tinytex::install_tinytex()"
+
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
