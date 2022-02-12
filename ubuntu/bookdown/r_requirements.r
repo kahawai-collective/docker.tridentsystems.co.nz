@@ -6,7 +6,7 @@ options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 packages <- c('tidyverse','bookdown')
 
-update.packages(ask=F)
+#update.packages(ask=F)
 
 existing <- tryCatch({
     library()$results[, 'Package']
