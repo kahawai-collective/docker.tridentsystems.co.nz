@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     libpng-dev \
     libssl-dev \
+    libcurl4-openssl-dev \
     libxml2-dev \
     netbase \
     r-base \
