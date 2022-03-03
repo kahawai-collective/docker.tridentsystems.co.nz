@@ -1,7 +1,9 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-  # ubuntu/bookdown \
+  r-base/r-scraper
+	#  \
+	# ubuntu/bookdown \
 	# ubuntu/ffmpeg \
 	# ubuntu/stan_2.26 \
 	# ubuntu/kahawai-build \
@@ -23,8 +25,8 @@ DOCKERS := \
 	# ubuntu/gorbachev-base-bleedingedge \
 	# ubuntu/fsl \
 	# python/scikit \
-	# python/pytorch \
-	r-base/r-scraper
+	# python/pytorch
+
 
 BASEIMAGES := \
 	ubuntu \
@@ -79,7 +81,7 @@ python/nz/.docker: python/.official
 python/scikit/.docker: python/nz/.docker
 python/pytorch/.docker: python/nz/.docker
 
-r-base/nz/.docker: python/.official
+r-base/nz/.docker: r-base/.official
 r-base/r-scraper/.docker: r-base/nz/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
