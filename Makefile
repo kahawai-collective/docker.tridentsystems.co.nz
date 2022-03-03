@@ -23,7 +23,7 @@ DOCKERS := \
 	# ubuntu/gorbachev-base-bleedingedge \
 	# ubuntu/fsl \
 	# python/scikit \
-	# python/pytorch
+	# python/pytorch \
 	r-base/r-scraper
 
 BASEIMAGES := \
