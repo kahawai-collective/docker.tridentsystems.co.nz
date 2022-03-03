@@ -4,7 +4,7 @@ r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
 #r['CRAN'] = 'https://mran.microsoft.com/snapshot/2020-03-25'
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
-packages <- c('tidyverse','polite','snakecase')
+packages <- c('tidyverse', 'polite', 'snakecase', 'aws.s3')
 
 #update.packages(ask=F)
 
