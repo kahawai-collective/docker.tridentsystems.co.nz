@@ -3,7 +3,8 @@ MAINTAINER david@pisces.nz
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     libcurl4-openssl-dev \
-    libxml2-dev
+    libxml2-dev \
+    libssl-dev
 
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 
