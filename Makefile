@@ -29,7 +29,8 @@ DOCKERS := \
 
 BASEIMAGES := \
 	ubuntu \
-	python
+	python \
+	r-base
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
 REGISTRY_DOCKERS := $(addprefix $(REGISTRY)/,$(DOCKERS))
@@ -68,7 +69,6 @@ ubuntu/nz-focal/.docker: ubuntu/.official
 ubuntu/pisces-focal/.docker: ubuntu/nz-focal/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
-ubuntu/r-scraper/.docker: ubuntu/pisces-focal/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
@@ -79,6 +79,9 @@ ubuntu/packhorse-build/.docker: ubuntu/kahawai-build/.docker
 python/nz/.docker: python/.official
 python/scikit/.docker: python/nz/.docker
 python/pytorch/.docker: python/nz/.docker
+
+r-base/nz/.docker: python/.official
+r-base/r-scraper/.docker: r-base/nz/.docker
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
@@ -95,6 +98,10 @@ ubuntu/.official:
 python/.official:
 	docker pull python:3.10
 	$(call fetchofficial,python:3.10,$@)
+
+r-base/.official:
+	docker pull r-base:4.1.2
+	$(call fetchofficial,r-base:4.1.2,$@)
 
 %/.docker: %/Dockerfile %/*
 	docker build --iidfile $@ -t $(REGISTRY)/$* $*
