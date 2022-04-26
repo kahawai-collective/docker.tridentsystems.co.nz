@@ -19,7 +19,7 @@ packages <- c(
     'rstan','brms','patchwork','tidybayes','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english','coda','runjags',
     'janitor','bestglm','DHARMa','MuMIn','arm','ggrepel','truncdist','sf','fields','raster','glm2','sampling','effects',
     'collapse', 'ggExtra', 'lutz', 'rsample', 'lwgeom', 'multimode',
-    'bookdown')
+    'bookdown', 'rpostgis')
 
 update.packages(ask=F)
 
