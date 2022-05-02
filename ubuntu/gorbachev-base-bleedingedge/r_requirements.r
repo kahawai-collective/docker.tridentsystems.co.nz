@@ -1,7 +1,7 @@
 # Set the URL for CRAN
 old <- getOption("defaultPackages"); r <- getOption("repos")
 # r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
-r['CRAN'] = 'https://mran.microsoft.com/snapshot/2021-06-01'
+r['CRAN'] = 'https://mran.microsoft.com/snapshot/2022-02-01'
 
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
