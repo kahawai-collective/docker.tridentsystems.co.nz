@@ -39,6 +39,7 @@ message(sprintf('Installing packages: %s', paste(pkgs2install, collapse=', ')))
 
 install.packages(pkgs2install)
 remotes::install_github('clauswilke/multiscales')
+remotes::install_github("rspatial/terra")
 
 old_rgeos <- "https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-28.tar.gz"
 install.packages(old_rgeos, repos=NULL, type="source")
