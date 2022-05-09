@@ -1,7 +1,8 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/r-focal
+	ubuntu/r-focal \
+	ubuntu/texlive-r-focal	
 	# ubuntu/bookdown \
 	# ubuntu/ffmpeg \
 	# ubuntu/stan_2.26 \
