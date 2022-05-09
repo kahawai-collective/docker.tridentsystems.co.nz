@@ -91,7 +91,8 @@ RUN apt-get update && \
                                                r-cran-coda \
                                                r-cran-runjags \
                                                r-cran-janitor \
-                                               r-cran-bestglm
+                                               r-cran-bestglm \
+                                               r-cran-DHARMa \
                                                r-cran-MuMIn \
                                                r-cran-arm \
                                                r-cran-ggrepel \
@@ -117,7 +118,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-# r-cran-DHARMa \
+#
 
 #COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 #RUN Rscript /etc/kahawai-jobserver/r_requirements.r
