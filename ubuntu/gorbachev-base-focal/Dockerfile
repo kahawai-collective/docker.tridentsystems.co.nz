@@ -16,7 +16,7 @@ RUN apt-get update && \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-
+# Packages provided by https://launchpad.net/~c2d4u.team
 RUN apt-get update && \
     apt-get install -y --no-install-recommends r-cran-rstan \
                                                r-cran-tidyverse \
@@ -86,36 +86,47 @@ RUN apt-get update && \
                                                r-cran-bookdown \
                                                r-cran-geos \
                                                r-cran-rpostgis \
+                                               r-cran-r2jags \
+                                               r-cran-ggspatial \
+                                               r-cran-cairo \
+                                               r-cran-matching \
+                                               r-cran-benfordtests \
+                                               r-cran-gridbase \
+                                               r-cran-ggally \
+                                               r-cran-kableextra \
+                                               r-cran-glmmtmb \
+                                               r-cran-pbsmapping \
+                                               r-cran-colorramps \
+                                               r-cran-dharma \
+                                               r-cran-mumin \
+                                               r-cran-ggextra \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-#                                               r-cran-RColorBrewer \
-#                                               r-cran-RPostgreSQL \
-#                                               r-cran-gridExtra \
 #                                               r-cran-R2jags \
 #                                               r-cran-ggspatial \
 #                                               r-cran-Cairo \
 #                                               r-cran-Matching \
 #                                               r-cran-BenfordTests \
 #                                               r-cran-gridBase \
-#                                               r-cran-beanplot \
-#                                               r-cran-tidyxl \
 #                                               r-cran-GGally \
-#                                               r-cran-timeline \
-#                                               r-cran-CheckDigit \
 #                                               r-cran-kableExtra \
-#                                               r-cran-lunar \
 #                                               r-cran-glmmTMB \
 #                                               r-cran-PBSmapping \
 #                                               r-cran-colorRamps \
-#                                               r-cran-tidybayes \
-#                                               r-cran-Rcpp \
 #                                               r-cran-DHARMa \
 #                                               r-cran-MuMIn \
 #                                               r-cran-ggExtra \
+
+#                                               r-cran-beanplot \
+#                                               r-cran-tidyxl \
+#                                               r-cran-timeline \
+#                                               r-cran-CheckDigit \
+#                                               r-cran-lunar \
+#                                               r-cran-tidybayes \
 #                                               r-cran-multimode \
-#                                               r-cran-MASS \
+
 
 
 #COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
