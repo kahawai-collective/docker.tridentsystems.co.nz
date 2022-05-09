@@ -9,13 +9,14 @@ RUN apt-get update && \
 
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+RUN sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        libpq-dev libudunits2-dev libgdal-dev libgeos-dev libproj-dev \
         r-base-dev \
         r-recommended \
         r-base \
-        libpq-dev libgdal-dev libproj-dev libgeos-dev \
         curl && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

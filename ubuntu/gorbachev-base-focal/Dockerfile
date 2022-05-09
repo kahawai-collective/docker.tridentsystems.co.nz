@@ -22,8 +22,6 @@ RUN apt-get update && \
                                                r-cran-tidyverse \
                                                r-cran-shapefiles \
                                                r-cran-sp \
-                                               r-cran-lattice \
-                                               r-cran-foreign \
                                                r-cran-maptools \
                                                r-cran-knitr \
                                                r-cran-rjson \
@@ -46,12 +44,10 @@ RUN apt-get update && \
                                                r-cran-pryr \
                                                r-cran-proto \
                                                r-cran-mapdata \
-                                               r-cran-rpart \
                                                r-cran-caret \
                                                r-cran-openxlsx \
                                                r-cran-readxl \
                                                r-cran-gam \
-                                               r-cran-mgcv \
                                                r-cran-geosphere \
                                                r-cran-dbplyr \
                                                r-cran-ggforce \
@@ -75,6 +71,7 @@ RUN apt-get update && \
                                                r-cran-truncdist \
                                                r-cran-sf \
                                                r-cran-fields \
+                                               r-cran-terra \
                                                r-cran-raster \
                                                r-cran-glm2 \
                                                r-cran-sampling \
@@ -87,6 +84,7 @@ RUN apt-get update && \
                                                r-cran-colorspace \
                                                r-cran-remotes \
                                                r-cran-bookdown \
+                                               r-cran-geos \
                                                r-cran-rpostgis \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
