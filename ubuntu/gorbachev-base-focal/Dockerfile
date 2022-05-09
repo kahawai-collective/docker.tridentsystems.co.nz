@@ -43,7 +43,6 @@ RUN apt-get update && \
                                                r-cran-rgenoud \
                                                r-cran-broom \
                                                r-cran-cowplot \
-                                               r-cran-MASS \
                                                r-cran-pryr \
                                                r-cran-proto \
                                                r-cran-mapdata \
@@ -118,7 +117,7 @@ RUN apt-get update && \
 #                                               r-cran-MuMIn \
 #                                               r-cran-ggExtra \
 #                                               r-cran-multimode \
-
+#                                               r-cran-MASS \
 
 
 #COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
