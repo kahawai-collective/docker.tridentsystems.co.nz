@@ -23,18 +23,14 @@ RUN apt-get update && \
                                                r-cran-shapefiles \
                                                r-cran-sp \
                                                r-cran-lattice \
-                                               r-cran-RColorBrewer \
                                                r-cran-foreign \
                                                r-cran-maptools \
-                                               r-cran-RPostgreSQL \
                                                r-cran-knitr \
                                                r-cran-rjson \
                                                r-cran-pander \
                                                r-cran-tables \
                                                r-cran-data.table \
-                                               r-cran-gridExtra \
                                                r-cran-rjags \
-                                               r-cran-R2jags \
                                                r-cran-reshape2 \
                                                r-cran-mapproj \
                                                r-cran-cplm \
@@ -42,46 +38,29 @@ RUN apt-get update && \
                                                r-cran-xtable \
                                                r-cran-plyr \
                                                r-cran-scales \
-                                               r-cran-ggspatial \
                                                r-cran-ggmap \
-                                               r-cran-Cairo \
                                                r-cran-maps \
-                                               r-cran-Matching \
-                                               r-cran-BenfordTests \
                                                r-cran-rgenoud \
                                                r-cran-broom \
                                                r-cran-cowplot \
                                                r-cran-MASS \
-                                               r-cran-gridBase \
                                                r-cran-pryr \
                                                r-cran-proto \
-                                               r-cran-beanplot \
                                                r-cran-mapdata \
                                                r-cran-rpart \
                                                r-cran-caret \
                                                r-cran-openxlsx \
                                                r-cran-readxl \
-                                               r-cran-tidyxl \
-                                               r-cran-GGally \
                                                r-cran-gam \
                                                r-cran-mgcv \
                                                r-cran-geosphere \
                                                r-cran-dbplyr \
-                                               r-cran-timeline \
                                                r-cran-ggforce \
-                                               r-cran-CheckDigit \
                                                r-cran-tinytex \
-                                               r-cran-kableExtra \
                                                r-cran-fuzzyjoin \
-                                               r-cran-lunar \
                                                r-cran-gamlss \
-                                               r-cran-glmmTMB \
-                                               r-cran-PBSmapping \
-                                               r-cran-colorRamps \
                                                r-cran-brms \
                                                r-cran-patchwork \
-                                               r-cran-tidybayes \
-                                               r-cran-Rcpp \
                                                r-cran-ggpubr \
                                                r-cran-rgdal \
                                                r-cran-party \
@@ -92,8 +71,6 @@ RUN apt-get update && \
                                                r-cran-runjags \
                                                r-cran-janitor \
                                                r-cran-bestglm \
-                                               r-cran-DHARMa \
-                                               r-cran-MuMIn \
                                                r-cran-arm \
                                                r-cran-ggrepel \
                                                r-cran-truncdist \
@@ -104,21 +81,45 @@ RUN apt-get update && \
                                                r-cran-sampling \
                                                r-cran-effects \
                                                r-cran-collapse \
-                                               r-cran-ggExtra \
                                                r-cran-lutz \
                                                r-cran-rsample \
                                                r-cran-lwgeom \
                                                r-cran-ggnewscale \
                                                r-cran-colorspace \
                                                r-cran-remotes \
-                                               r-cran-multimode \
                                                r-cran-bookdown \
                                                r-cran-rpostgis \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-#
+#                                               r-cran-RColorBrewer \
+#                                               r-cran-RPostgreSQL \
+#                                               r-cran-gridExtra \
+#                                               r-cran-R2jags \
+#                                               r-cran-ggspatial \
+#                                               r-cran-Cairo \
+#                                               r-cran-Matching \
+#                                               r-cran-BenfordTests \
+#                                               r-cran-gridBase \
+#                                               r-cran-beanplot \
+#                                               r-cran-tidyxl \
+#                                               r-cran-GGally \
+#                                               r-cran-timeline \
+#                                               r-cran-CheckDigit \
+#                                               r-cran-kableExtra \
+#                                               r-cran-lunar \
+#                                               r-cran-glmmTMB \
+#                                               r-cran-PBSmapping \
+#                                               r-cran-colorRamps \
+#                                               r-cran-tidybayes \
+#                                               r-cran-Rcpp \
+#                                               r-cran-DHARMa \
+#                                               r-cran-MuMIn \
+#                                               r-cran-ggExtra \
+#                                               r-cran-multimode \
+
+
 
 #COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 #RUN Rscript /etc/kahawai-jobserver/r_requirements.r
