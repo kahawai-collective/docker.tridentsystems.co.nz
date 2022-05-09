@@ -20,11 +20,14 @@ DOCKERS := \
 	ubuntu/inla \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
-	ubuntu/gorbachev-base-bleedingedge \
+	ubuntu/r-focal \
 	ubuntu/fsl \
 	python/scikit \
 	python/pytorch \
   r-base/r-scraper
+
+
+#	ubuntu/gorbachev-base-bleedingedge \
 
 BASEIMAGES := \
 	ubuntu \
@@ -54,6 +57,7 @@ ubuntu/pisces/.docker: ubuntu/nz/.docker
 ubuntu/texlive/.docker: ubuntu/pisces/.docker
 ubuntu/r/.docker: ubuntu/pisces/.docker
 ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
+ubuntu/r-focal/.docker: ubuntu/pisces-focal/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
