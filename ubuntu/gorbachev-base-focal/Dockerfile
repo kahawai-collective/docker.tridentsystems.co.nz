@@ -77,8 +77,7 @@ RUN apt-get update && \
                                                r-cran-gamlss \
                                                r-cran-glmmTMB \
                                                r-cran-PBSmapping \
-                                               r-cran-colorRamps',
-                                               r-cran-rstan \
+                                               r-cran-colorRamps \
                                                r-cran-brms \
                                                r-cran-patchwork \
                                                r-cran-tidybayes \
