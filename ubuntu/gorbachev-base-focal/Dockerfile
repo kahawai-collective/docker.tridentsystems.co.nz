@@ -17,7 +17,8 @@ RUN apt-get update && \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Packages provided by https://launchpad.net/~c2d4u.team
+# Where available, install required R packages from the deb
+# packages provided by https://launchpad.net/~c2d4u.team
 RUN apt-get update && \
     apt-get install -y --no-install-recommends r-cran-rstan \
                                                r-cran-tidyverse \
@@ -105,26 +106,16 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-
-#                                               r-cran-beanplot \
-#                                               r-cran-tidyxl \
-#                                               r-cran-timeline \
-#                                               r-cran-CheckDigit \
-#                                               r-cran-lunar \
-#                                               r-cran-tidybayes \
-#                                               r-cran-multimode \
-
-
-
-#COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
-#RUN Rscript /etc/kahawai-jobserver/r_requirements.r
+# For R packages that are not available as deb packages, install from CRAN
+COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
+RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
-RUN apt-add-repository multiverse && apt-get update
 
+RUN apt-add-repository multiverse && apt-get update
 # from http://askubuntu.com/a/25614
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 RUN apt-get install -y --no-install-recommends \
