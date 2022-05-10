@@ -2,7 +2,7 @@ FROM docker.kahawai.net.nz/ubuntu/nz-focal
 
 RUN apt-get update &&  \
     apt-get install --no-install-recommends -y awscli s3cmd \
-    python-is-python3 python3-requests python3-requests-toolbelt jq
+    python-is-python3 python3-requests python3-requests-toolbelt python3-yaml jq
 
 COPY withdb /usr/local/bin/
 
