@@ -13,6 +13,7 @@ RUN apt-get update && \
                                                libv8-dev \
                                                libssl-dev \
                                                libgmp3-dev \
+                                               pandoc \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -104,20 +105,6 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-#                                               r-cran-R2jags \
-#                                               r-cran-ggspatial \
-#                                               r-cran-Cairo \
-#                                               r-cran-Matching \
-#                                               r-cran-BenfordTests \
-#                                               r-cran-gridBase \
-#                                               r-cran-GGally \
-#                                               r-cran-kableExtra \
-#                                               r-cran-glmmTMB \
-#                                               r-cran-PBSmapping \
-#                                               r-cran-colorRamps \
-#                                               r-cran-DHARMa \
-#                                               r-cran-MuMIn \
-#                                               r-cran-ggExtra \
 
 #                                               r-cran-beanplot \
 #                                               r-cran-tidyxl \
@@ -136,16 +123,18 @@ RUN apt-get update && \
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
-# RUN apt-add-repository multiverse && apt-get update
-# RUN apt-get install -y msttcorefonts
-# RUN apt-get install -y pandoc
+RUN apt-add-repository multiverse && apt-get update
 
-# COPY fonts/ /usr/local/share/fonts/
+# from http://askubuntu.com/a/25614
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+RUN apt-get install -y --no-install-recommends
+   fontconfig \
+   ttf-mscorefonts-installer \
+   && \
+  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 # RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
-# COPY trident-latex-templates_1.6_all.deb /tmp/
-# RUN dpkg -i /tmp/trident-latex-templates_1.6_all.deb
 # COPY pisces-latex-templates_0.32_all.deb /tmp/
 # RUN dpkg -i /tmp/pisces-latex-templates_0.32_all.deb
 # COPY mpi-latex-templates_1.31_all.deb /tmp/
