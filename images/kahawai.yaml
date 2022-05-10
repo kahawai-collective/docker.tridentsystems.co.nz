@@ -1,1 +1,1 @@
-docker: docker.kahawai.net.nz/ubuntu/pisces-focal
+docker: docker.kahawai.net.nz/ubuntu/pisces:2022-05-10
