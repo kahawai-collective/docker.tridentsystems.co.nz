@@ -3,7 +3,11 @@ REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/r-focal \
 	ubuntu/texlive-r-focal \
-	ubuntu/gorbachev-base-focal
+	ubuntu/gorbachev-base-focal \
+	ubuntu/r-bleedingedge \
+	ubuntu/texlive-r-bleedingedge \
+ 	ubuntu/gorbachev-base-bleedingedge
+
 	# ubuntu/bookdown \
 	# ubuntu/ffmpeg \
 	# ubuntu/stan_2.26 \
@@ -21,16 +25,13 @@ DOCKERS := \
 	# ubuntu/stan_2.26 \
 	# ubuntu/trophia-tools \
 	# ubuntu/inla \
-	# ubuntu/r-bleedingedge \
-	# ubuntu/texlive-r-bleedingedge \
-	# ubuntu/r-focal \
 	# ubuntu/fsl \
 	# python/scikit \
 	# python/pytorch \
   # r-base/r-scraper
 
 
-#	ubuntu/gorbachev-base-bleedingedge \
+
 
 BASEIMAGES := \
 	ubuntu \
