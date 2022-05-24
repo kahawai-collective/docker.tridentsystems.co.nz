@@ -73,6 +73,7 @@ RUN apt-get update && \
                                                r-cran-truncdist \
                                                r-cran-sf \
                                                r-cran-fields \
+                                               r-cran-dbscan \
                                                r-cran-terra \
                                                r-cran-raster \
                                                r-cran-glm2 \
