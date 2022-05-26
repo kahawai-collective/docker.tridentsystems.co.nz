@@ -103,6 +103,7 @@ RUN apt-get update && \
                                                r-cran-dharma \
                                                r-cran-mumin \
                                                r-cran-ggextra \
+                                               r-cran-rcpproll \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
