@@ -1,6 +1,10 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
+  ubuntu/r \
+  ubuntu/texlive \
+  ubuntu/texlive-r \
+  ubuntu/gorbachev-base \
 	ubuntu/r-focal \
 	ubuntu/texlive-r-focal \
 	ubuntu/gorbachev-base-focal \
@@ -16,11 +20,7 @@ DOCKERS := \
 	# ubuntu/ems-build \
 	# ubuntu/ems2-build \
 	# ubuntu/packhorse-build \
-	# ubuntu/r \
 	# ubuntu/fonz \
-	# ubuntu/texlive \
-	# ubuntu/texlive-r \
-	# ubuntu/gorbachev-base \
 	# ubuntu/jags-stan \
 	# ubuntu/stan_2.26 \
 	# ubuntu/trophia-tools \

@@ -29,8 +29,8 @@
 #RUN dpkg -i /tmp/trident-latex-templates_1.6_all.deb
 #COPY pisces-latex-templates_0.32_all.deb /tmp/
 #RUN dpkg -i /tmp/pisces-latex-templates_0.32_all.deb
-#COPY mpi-latex-templates_1.31_all.deb /tmp/
-#RUN dpkg -i /tmp/mpi-latex-templates_1.31_all.deb
+#COPY mpi-latex-templates_1.4_all.deb /tmp/
+#RUN dpkg -i /tmp/mpi-latex-templates_1.4_all.deb
 #
 #
 FROM docker.kahawai.net.nz/ubuntu/texlive-r-bleedingedge
@@ -165,5 +165,5 @@ COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY pisces-latex-templates_0.32_all.deb /tmp/
 RUN dpkg -i /tmp/pisces-latex-templates_0.32_all.deb
-COPY mpi-latex-templates_1.31_all.deb /tmp/
-RUN dpkg -i /tmp/mpi-latex-templates_1.31_all.deb
+COPY mpi-latex-templates_1.4_all.deb /tmp/
+RUN dpkg -i /tmp/mpi-latex-templates_1.4_all.deb
