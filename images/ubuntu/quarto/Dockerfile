@@ -8,7 +8,14 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends r-cran-jsonlite \
                                                r-cran-rmarkdown \
                                                r-cran-tidyverse \
-                                               r-cran-kableextra \                                               
+                                               r-cran-kableextra \
+                                               r-cran-patchwork \
+                                               r-cran-ggpubr \
+                                               r-cran-english \
+                                               r-cran-cowplot \
+                                               r-cran-sf \
+                                               r-cran-glm2 \
+                                               r-cran-raster \                                                                                                                                                                                                                                                                                                                                                                                        
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
