@@ -10,7 +10,8 @@ DOCKERS := \
 	ubuntu/gorbachev-base-focal \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
- 	ubuntu/gorbachev-base-bleedingedge
+ 	ubuntu/gorbachev-base-bleedingedge \
+	ubuntu/quarto
 
 	# ubuntu/bookdown \
 	# ubuntu/ffmpeg \
@@ -66,6 +67,7 @@ ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
+ubuntu/quarto/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 #ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
