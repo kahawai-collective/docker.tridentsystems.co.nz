@@ -2,7 +2,8 @@ FROM docker.kahawai.net.nz/ubuntu/r-bleedingedge
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends wget \
-                                               postgresql-client && \
+                                               postgresql-client \
+                                               git-core && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
