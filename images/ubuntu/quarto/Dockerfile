@@ -19,7 +19,8 @@ RUN apt-get update && \
                                                r-cran-glm2 \
                                                r-cran-raster \
                                                r-cran-rpostgis \
-                                               r-cran-scales \                                               
+                                               r-cran-scales \
+                                               r-cran-lwgeom \                                                                                              
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
