@@ -17,6 +17,7 @@ RUN apt-get update && \
                                                r-cran-sf \
                                                r-cran-glm2 \
                                                r-cran-raster \
+                                               r-cran-rpostgis \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
