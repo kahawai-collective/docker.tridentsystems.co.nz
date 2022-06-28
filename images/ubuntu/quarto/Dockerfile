@@ -1,7 +1,8 @@
 FROM docker.kahawai.net.nz/ubuntu/r-bleedingedge
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends wget && \
+    apt-get install -y --no-install-recommends wget \
+                                               postgresql-client && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
@@ -15,7 +16,7 @@ RUN apt-get update && \
                                                r-cran-cowplot \
                                                r-cran-sf \
                                                r-cran-glm2 \
-                                               r-cran-raster \                                                                                                                                                                                                                                                                                                                                                                                        
+                                               r-cran-raster \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
