@@ -25,7 +25,8 @@ RUN apt-get update && \
                                                r-cran-data.table \
                                                r-cran-collapse \
                                                r-cran-proto \
-                                               r-cran-gridbase \                                                                                               
+                                               r-cran-gridbase \
+                                               r-cran-xtable \                                                                                               
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
