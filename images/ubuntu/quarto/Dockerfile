@@ -22,7 +22,10 @@ RUN apt-get update && \
                                                r-cran-scales \
                                                r-cran-lwgeom \
                                                r-cran-ggrepel \
-                                               r-cran-data.table \                                                                                              
+                                               r-cran-data.table \
+                                               r-cran-collapse \
+                                               r-cran-proto \
+                                               r-cran-gridbase \                                                                                               
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
