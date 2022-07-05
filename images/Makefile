@@ -5,6 +5,7 @@ DOCKERS := \
   ubuntu/texlive \
   ubuntu/texlive-r \
   ubuntu/gorbachev-base \
+	ubuntu/trophia-tools \
 	ubuntu/r-focal \
 	ubuntu/texlive-r-focal \
 	ubuntu/gorbachev-base-focal \
