@@ -104,6 +104,7 @@ RUN apt-get update && \
                                                r-cran-mumin \
                                                r-cran-ggextra \
                                                r-cran-rcpproll \
+                                               r-cran-flextable \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
