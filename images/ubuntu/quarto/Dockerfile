@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/r-bleedingedge
+FROM docker.kahawai.net.nz/ubuntu/r-focal
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends wget \
@@ -26,7 +26,7 @@ RUN apt-get update && \
                                                r-cran-collapse \
                                                r-cran-proto \
                                                r-cran-gridbase \
-                                               r-cran-xtable \                                                                                               
+                                               r-cran-xtable \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
