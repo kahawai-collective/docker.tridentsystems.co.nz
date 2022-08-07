@@ -1,8 +1,9 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/ffmpeg
-	# \
+	ubuntu/r-bleedingedge \
+	ubuntu/quarto
+  #	ubuntu/ffmpeg \
   # ubuntu/r \
   # ubuntu/texlive \
   # ubuntu/texlive-r \
@@ -11,10 +12,9 @@ DOCKERS := \
 	# ubuntu/r-focal \
 	# ubuntu/texlive-r-focal \
 	# ubuntu/gorbachev-base-focal \
-	# ubuntu/r-bleedingedge \
 	# ubuntu/texlive-r-bleedingedge \
  	# ubuntu/gorbachev-base-bleedingedge \
-	# ubuntu/quarto
+
 
 	# ubuntu/bookdown \
 	# ubuntu/stan_2.26 \
