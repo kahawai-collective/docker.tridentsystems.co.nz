@@ -1,20 +1,17 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/r-focal \
-	ubuntu/quarto
-  #	ubuntu/ffmpeg \
+	ubuntu/r-bleedingedge \
+	ubuntu/texlive-r-bleedingedge \
+ 	ubuntu/gorbachev-base-bleedingedge
+
   # ubuntu/r \
   # ubuntu/texlive \
   # ubuntu/texlive-r \
   # ubuntu/gorbachev-base \
 	# ubuntu/trophia-tools \
-	# ubuntu/r-bleedingedge \
 	# ubuntu/texlive-r-focal \
 	# ubuntu/gorbachev-base-focal \
-	# ubuntu/texlive-r-bleedingedge \
- 	# ubuntu/gorbachev-base-bleedingedge \
-
 
 	# ubuntu/bookdown \
 	# ubuntu/stan_2.26 \
@@ -31,8 +28,10 @@ DOCKERS := \
 	# ubuntu/fsl \
 	# python/scikit \
 	# python/pytorch \
-  # r-base/r-scraper
-
+  # r-base/r-scraper \
+  #	ubuntu/ffmpeg \
+	# ubuntu/r-focal \
+	# ubuntu/quarto
 
 
 
