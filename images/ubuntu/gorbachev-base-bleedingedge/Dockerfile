@@ -105,6 +105,7 @@ RUN apt-get update && \
                                                r-cran-ggextra \
                                                r-cran-rcpproll \
                                                r-cran-flextable \
+                                               r-cran-gert \
                                                r-cran-usethis \
                                                r-cran-devtools \
                                                && \
