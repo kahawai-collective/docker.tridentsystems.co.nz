@@ -4,7 +4,7 @@ MAINTAINER david@pisces.nz
 RUN apt-get update && \
     apt-get install -y --no-install-recommends postgresql-client \
                                                git-core \
-                                               libgit \
+                                               libgit2-dev \
                                                python-pygments \
                                                jags \
                                                gdal-bin \
