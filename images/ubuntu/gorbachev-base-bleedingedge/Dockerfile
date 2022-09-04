@@ -4,7 +4,6 @@ MAINTAINER david@pisces.nz
 RUN apt-get update && \
     apt-get install -y --no-install-recommends postgresql-client \
                                                git-core \
-                                               libgit2-dev \
                                                python-pygments \
                                                jags \
                                                gdal-bin \
@@ -106,9 +105,6 @@ RUN apt-get update && \
                                                r-cran-ggextra \
                                                r-cran-rcpproll \
                                                r-cran-flextable \
-                                               r-cran-gert \
-                                               r-cran-usethis \
-                                               r-cran-devtools \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
