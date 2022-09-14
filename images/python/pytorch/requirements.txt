@@ -7,3 +7,4 @@ pycocotools
 scipy
 fpdf
 pandas
+opencv-python-headless
