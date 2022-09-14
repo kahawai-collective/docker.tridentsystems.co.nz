@@ -1,9 +1,10 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/r-bleedingedge \
-	ubuntu/texlive-r-bleedingedge \
- 	ubuntu/gorbachev-base-bleedingedge
+	python/pytorch
+	# ubuntu/r-bleedingedge \
+	# ubuntu/texlive-r-bleedingedge \
+ 	# ubuntu/gorbachev-base-bleedingedge
 
   # ubuntu/r \
   # ubuntu/texlive \
@@ -27,7 +28,6 @@ DOCKERS := \
 	# ubuntu/inla \
 	# ubuntu/fsl \
 	# python/scikit \
-	# python/pytorch \
   # r-base/r-scraper \
   #	ubuntu/ffmpeg \
 	# ubuntu/r-focal \
