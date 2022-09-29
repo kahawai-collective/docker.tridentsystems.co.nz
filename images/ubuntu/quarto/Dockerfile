@@ -27,6 +27,7 @@ RUN apt-get update && \
                                                r-cran-proto \
                                                r-cran-gridbase \
                                                r-cran-xtable \
+                                               r-cran-janitor \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

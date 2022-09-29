@@ -1,7 +1,8 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	python/pytorch
+  ubuntu/quarto
+	# python/pytorch
 	# ubuntu/r-bleedingedge \
 	# ubuntu/texlive-r-bleedingedge \
  	# ubuntu/gorbachev-base-bleedingedge
