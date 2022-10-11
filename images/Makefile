@@ -64,6 +64,7 @@ ubuntu/texlive/.docker: ubuntu/pisces/.docker
 ubuntu/r/.docker: ubuntu/pisces/.docker
 ubuntu/r-bleedingedge/.docker: ubuntu/pisces/.docker
 ubuntu/r-focal/.docker: ubuntu/pisces-focal/.docker
+ubuntu/r-jammy/.docker: ubuntu/pisces-jammy/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
@@ -76,7 +77,9 @@ ubuntu/fonz/.docker: ubuntu/r/.docker
 ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/nz-focal/.docker: ubuntu/.official
+ubuntu/nz-jammy/.docker: ubuntu/.official
 ubuntu/pisces-focal/.docker: ubuntu/nz-focal/.docker
+ubuntu/pisces-jammy/.docker: ubuntu/nz-jammy/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
 
