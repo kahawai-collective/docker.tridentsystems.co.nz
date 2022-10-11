@@ -36,3 +36,4 @@ RUN apt-get update && \
 RUN wget -q -P/tmp/ https://github.com$(wget -O- -q https://github.com/quarto-dev/quarto-cli/releases/latest | sed -ne 's/^.*"\([^"]*quarto[^"]*linux-amd64\.deb\)".*/\1/p')
 RUN dpkg -i /tmp/quarto-*-linux-amd64.deb
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN quarto install tool tinytex
