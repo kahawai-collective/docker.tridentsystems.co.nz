@@ -33,8 +33,7 @@ RUN apt-get update && \
 
 # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
 RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
-      | jq '.assets[] | select(.name|match("linux-amd64.deb$")) | .browser_download_url' \
-      | tr -d '"' \
+      | jq -r '.assets[] | select(.name|match("linux-amd64.deb$")) | .browser_download_url' \
       | wget  -P/tmp/ -qi -
 
 RUN dpkg -i /tmp/quarto-*-linux-amd64.deb
