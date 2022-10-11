@@ -3,7 +3,10 @@ FROM docker.kahawai.net.nz/ubuntu/pisces-jammy
 # Following approach from https://cloud.r-project.org/bin/linux/ubuntu/ as at 9 May 2022
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends software-properties-common dirmngr wget && \
+    apt-get install -y --no-install-recommends software-properties-common \
+                                               dirmngr \
+                                               wget
+                                               gpg-agent && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
