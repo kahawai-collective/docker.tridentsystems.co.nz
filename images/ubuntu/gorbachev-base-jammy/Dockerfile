@@ -67,7 +67,6 @@ RUN apt-get update && \
                                                r-cran-coda \
                                                r-cran-runjags \
                                                r-cran-janitor \
-                                               r-cran-bestglm \
                                                r-cran-arm \
                                                r-cran-ggrepel \
                                                r-cran-truncdist \
@@ -106,6 +105,9 @@ RUN apt-get update && \
                                                r-cran-rcpproll \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Packages unavailable for jammy (to date):
+# r-cran-bestglm \
 
 
 # For R packages that are not available as deb packages, install from CRAN
