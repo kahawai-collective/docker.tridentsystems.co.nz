@@ -2,8 +2,10 @@ DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
   ubuntu/r-jammy \
-  ubuntu/quarto
-	#  \
+	ubuntu/texlive-r-jammy \
+	ubuntu/gorbachev-base-jammy
+	# \
+  # ubuntu/quarto
 	# ubuntu/r-bleedingedge \
 	# ubuntu/texlive-r-bleedingedge \
  	# ubuntu/gorbachev-base-bleedingedge \
@@ -69,8 +71,10 @@ ubuntu/r-focal/.docker: ubuntu/pisces-focal/.docker
 ubuntu/r-jammy/.docker: ubuntu/pisces-jammy/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
+ubuntu/texlive-r-jammy/.docker: ubuntu/r-jammy/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
+ubuntu/gorbachev-base-jammy/.docker: ubuntu/texlive-r-jammy/.docker
 ubuntu/quarto/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 #ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
