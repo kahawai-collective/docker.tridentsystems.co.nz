@@ -5,11 +5,11 @@ DOCKERS := \
   ubuntu/r-jammy \
 	ubuntu/texlive-r-jammy \
 	ubuntu/gorbachev-base-jammy \
-  ubuntu/quarto
+  ubuntu/quarto \
 	ubuntu/r-bleedingedge \
 	ubuntu/texlive-r-bleedingedge \
  	ubuntu/gorbachev-base-bleedingedge
-	
+
 	# \
   # ubuntu/r \
   # ubuntu/texlive \
@@ -38,8 +38,6 @@ DOCKERS := \
   #	ubuntu/ffmpeg \
 	# ubuntu/r-focal \
 	# python/pytorch
-
-
 
 BASEIMAGES := \
 	ubuntu \
