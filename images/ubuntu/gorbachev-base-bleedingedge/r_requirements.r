@@ -29,3 +29,7 @@ install.packages(pkgs2install,
 # Non-CRAN packages
 remotes::install_github('clauswilke/multiscales',
                         lib = install_loc)
+
+
+install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/")
+cmdstanr::install_cmdstan()

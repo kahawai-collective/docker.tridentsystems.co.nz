@@ -105,6 +105,7 @@ RUN apt-get update && \
                                                r-cran-ggextra \
                                                r-cran-rcpproll \
                                                r-cran-flextable \
+                                               r-cran-multimode \                                               
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
