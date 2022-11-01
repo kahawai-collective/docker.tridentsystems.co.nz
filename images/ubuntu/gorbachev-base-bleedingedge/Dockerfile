@@ -105,12 +105,13 @@ RUN apt-get update && \
                                                r-cran-ggextra \
                                                r-cran-rcpproll \
                                                r-cran-flextable \
-                                               r-cran-multimode \                                               
+                                               r-cran-multimode \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 # For R packages that are not available as deb packages, install from CRAN
+ENV CMDSTAN /usr/local/lib/R/site-library/cmdstan
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
