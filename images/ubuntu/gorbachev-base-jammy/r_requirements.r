@@ -1,6 +1,8 @@
 # Set the URL for CRAN
 cran_nz <- "http://cran.stat.auckland.ac.nz"
 
+install_loc <- "/usr/lib/R/site-library"
+
 packages <- c(
     'beanplot',
     'tidyxl',
@@ -19,11 +21,13 @@ existing <- tryCatch({
 pkgs2install <- setdiff(packages, existing)
 message(sprintf('Installing packages: %s', paste(pkgs2install, collapse=', ')))
 install.packages(pkgs2install,
+                 lib = install_loc,
                  repos = cran_nz)
 
 
 # Non-CRAN packages
-remotes::install_github('clauswilke/multiscales')
+remotes::install_github('clauswilke/multiscales',
+                        lib = install_loc)
 
 
 install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc)
