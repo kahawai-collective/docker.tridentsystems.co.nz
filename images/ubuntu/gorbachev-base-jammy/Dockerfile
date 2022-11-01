@@ -112,6 +112,7 @@ RUN apt-get update && \
 
 
 # For R packages that are not available as deb packages, install from CRAN
+RUN mkdir -p -v /usr/local/lib/R/site-library/cmdstan
 ENV CMDSTAN /usr/local/lib/R/site-library/cmdstan
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
