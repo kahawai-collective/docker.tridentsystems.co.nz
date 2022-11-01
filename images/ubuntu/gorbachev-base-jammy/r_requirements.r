@@ -26,5 +26,5 @@ install.packages(pkgs2install,
 remotes::install_github('clauswilke/multiscales')
 
 
-install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/")
+install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc)
 cmdstanr::install_cmdstan()
