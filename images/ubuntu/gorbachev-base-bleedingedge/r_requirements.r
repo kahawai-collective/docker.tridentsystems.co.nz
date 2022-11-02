@@ -1,3 +1,6 @@
+
+install_loc <- "/usr/lib/R/site-library"
+
 # Set the URL for CRAN
 cmdstan_install_loc <- Sys.getenv("CMDSTAN")
 install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc)
@@ -6,8 +9,6 @@ cmdstanr::install_cmdstan(dir = cmdstan_install_loc)
 system("apt remove -y libtbb2")
 
 cran_nz <- "http://cran.stat.auckland.ac.nz"
-
-install_loc <- "/usr/lib/R/site-library"
 
 packages <- c(
     'beanplot',
