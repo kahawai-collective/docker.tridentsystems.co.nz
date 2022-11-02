@@ -1,4 +1,10 @@
 # Set the URL for CRAN
+cmdstan_install_loc <- Sys.getenv("CMDSTAN")
+install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc)
+cmdstanr::install_cmdstan(dir = cmdstan_install_loc)
+
+system("apt remove -y libtbb2")
+
 cran_nz <- "http://cran.stat.auckland.ac.nz"
 
 install_loc <- "/usr/lib/R/site-library"
@@ -10,7 +16,9 @@ packages <- c(
     'CheckDigit',
     'lunar',
     'tidybayes',
-    'multimode')
+    'multimode',
+    'brms',
+    'posterior')
 
 
 existing <- tryCatch({
@@ -31,6 +39,3 @@ remotes::install_github('clauswilke/multiscales',
                         lib = install_loc)
 
 
-cmdstan_install_loc <- Sys.getenv("CMDSTAN")
-install.packages("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc)
-cmdstanr::install_cmdstan(dir = cmdstan_install_loc)
