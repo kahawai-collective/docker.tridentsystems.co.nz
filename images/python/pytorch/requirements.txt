@@ -8,3 +8,4 @@ scipy
 fpdf
 pandas
 opencv-python-headless
+scikit-learn
