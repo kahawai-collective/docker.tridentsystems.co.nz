@@ -3,7 +3,8 @@ FROM docker.kahawai.net.nz/ubuntu/r-jammy
 RUN apt-get update && \
     apt-get install -y --no-install-recommends wget \
                                                postgresql-client \
-                                               git-core && \
+                                               git-core \
+                                               python3-pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
