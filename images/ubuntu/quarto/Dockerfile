@@ -8,7 +8,7 @@ RUN apt-get update && \
                                                python3-matplotlib \
                                                python3-sklearn \
                                                libxshmfence-dev \
-                                               dumb-init
+                                               dumb-init \
                                                nodejs \
                                                npm && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
