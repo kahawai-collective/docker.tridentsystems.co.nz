@@ -6,7 +6,8 @@ RUN apt-get update && \
                                                git-core \
                                                python3-pip \
                                                python3-matplotlib \
-                                               python3-sklearn && \
+                                               python3-sklearn \
+                                               libxshmfence-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
