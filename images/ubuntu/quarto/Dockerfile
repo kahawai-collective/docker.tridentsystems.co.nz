@@ -31,7 +31,7 @@ RUN apt-get update && \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN python3 -m pip install jupyter
+RUN pip3 install --no-cache-dir jupyter
 
 # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
 RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
