@@ -8,7 +8,9 @@ RUN apt-get update && \
                                                python3-matplotlib \
                                                python3-sklearn \
                                                libxshmfence-dev \
-                                               dumb-init && \
+                                               dumb-init
+                                               nodejs \
+                                               npm && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
@@ -39,6 +41,7 @@ RUN apt-get update && \
 
 # Following https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker per https://quarto.org/docs/authoring/diagrams.html#chrome-install
 # Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
+# Requires dumb-init package loaded above: https://github.com/Yelp/dumb-init
 RUN apt-get update \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
@@ -57,4 +60,6 @@ RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
 RUN dpkg -i /tmp/quarto-*-linux-amd64.deb
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN quarto install tool tinytex
-#RUN quarto tools install chromium
+
+# For converting revealjs to PDF: https://github.com/astefanutti/decktape
+RUN npm install -g decktape
