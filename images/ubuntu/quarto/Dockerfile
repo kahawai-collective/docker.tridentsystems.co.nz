@@ -4,7 +4,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends wget \
                                                postgresql-client \
                                                git-core \
-                                               python3-pip && \
+                                               python3-pip \
+                                               python3-matplotlib && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
