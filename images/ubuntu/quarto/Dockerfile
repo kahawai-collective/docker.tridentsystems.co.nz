@@ -61,5 +61,5 @@ RUN dpkg -i /tmp/quarto-*-linux-amd64.deb
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN quarto install tool tinytex
 
-# For converting revealjs to PDF: https://github.com/astefanutti/decktape
+# For converting revealjs to PDF: https://github.com/astefanutti/decktape (requires nodejs and npm installed above)
 RUN npm install -g decktape
