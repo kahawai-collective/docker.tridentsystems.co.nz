@@ -31,6 +31,8 @@ RUN apt-get update && \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN python3 -m pip install jupyter
+
 # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
 RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
       | jq -r '.assets[] | select(.name|match("linux-amd64.deb$")) | .browser_download_url' \
