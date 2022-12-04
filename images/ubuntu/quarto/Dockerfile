@@ -59,9 +59,14 @@ RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
       | wget  -P/tmp/ -qi -
 
 RUN dpkg -i /tmp/quarto-*-linux-amd64.deb
-RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN quarto install tool tinytex --quiet
-RUN quarto install extension quarto-ext/lightbox --no-prompt
+
 
 # For converting revealjs to PDF: https://github.com/astefanutti/decktape (requires nodejs and npm installed above)
 RUN npm install -g decktape
+
+# Lightbox: https://github.com/biati-digital/glightbox
+RUN npm install -g glightbox
+
+RUN quarto install extension quarto-ext/lightbox --no-prompt
