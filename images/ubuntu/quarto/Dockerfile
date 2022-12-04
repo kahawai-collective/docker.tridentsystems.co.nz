@@ -35,6 +35,7 @@ RUN apt-get update && \
                                                r-cran-gridbase \
                                                r-cran-xtable \
                                                r-cran-janitor \
+                                               r-cran-reticulate \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
