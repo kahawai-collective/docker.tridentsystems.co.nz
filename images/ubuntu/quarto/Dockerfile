@@ -10,7 +10,8 @@ RUN apt-get update && \
                                                libxshmfence-dev \
                                                dumb-init \
                                                nodejs \
-                                               npm && \
+                                               npm \
+                                               ghostscript && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get update && \
