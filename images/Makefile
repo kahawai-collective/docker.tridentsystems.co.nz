@@ -1,7 +1,11 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/quarto
+  ubuntu/r-jammy \
+	ubuntu/texlive-r-jammy \
+	ubuntu/gorbachev-base-jammy
+
+	#ubuntu/quarto
 
   # ubuntu/kahawai-build \
   # ubuntu/r-jammy \
