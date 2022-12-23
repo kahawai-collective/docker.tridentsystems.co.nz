@@ -131,6 +131,8 @@ RUN apt-get install -y --no-install-recommends \
        && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY fonts/ /usr/local/share/fonts/
+
 COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY pisces-latex-templates_0.33_all.deb /tmp/
