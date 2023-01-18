@@ -1,7 +1,8 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-  ubuntu/fonz-focal
+	python/flightdata
+  #ubuntu/fonz-focal
   #ubuntu/r-jammy \
 	#ubuntu/texlive-r-jammy \
 	#ubuntu/gorbachev-base-jammy
@@ -106,6 +107,7 @@ ubuntu/packhorse-build/.docker: ubuntu/kahawai-build/.docker
 python/nz/.docker: python/.official
 python/scikit/.docker: python/nz/.docker
 python/pytorch/.docker: python/nz/.docker
+python/flightdata/.docker: python/nz/.docker
 
 r-base/nz/.docker: r-base/.official
 r-base/r-scraper/.docker: r-base/nz/.docker
