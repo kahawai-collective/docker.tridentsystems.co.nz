@@ -1,14 +1,12 @@
 DATE ?= $(shell date +%Y-%m-%d)
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	python/flightdata
-  #ubuntu/fonz-focal
-  #ubuntu/r-jammy \
-	#ubuntu/texlive-r-jammy \
-	#ubuntu/gorbachev-base-jammy
+	ubuntu/r-jammy \
+	ubuntu/texlive-r-jammy \
+	ubuntu/gorbachev-base-jammy
 
 	#ubuntu/quarto
-
+  #ubuntu/fonz-focal
   # ubuntu/kahawai-build \
   # ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
@@ -45,7 +43,8 @@ DOCKERS := \
   # r-base/r-scraper \
   #	ubuntu/ffmpeg \
 	# ubuntu/r-focal \
-	# python/pytorch
+	# python/pytorch \
+	# python/flightdata	
 
 BASEIMAGES := \
 	ubuntu \
