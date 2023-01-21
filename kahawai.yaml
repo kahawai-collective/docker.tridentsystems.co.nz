@@ -1,2 +1,2 @@
-docker: "ubuntu/gorbachev-base:14.04"
+docker: "ubuntu/gorbachev-base"
 requires: ["mpi-latex-templates-local"]
