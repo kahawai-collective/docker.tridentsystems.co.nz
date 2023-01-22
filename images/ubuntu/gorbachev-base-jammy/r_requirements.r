@@ -18,8 +18,7 @@ packages <- c(
     'lunar',
     'tidybayes',
     'brms',
-    'posterior',
-    'flextable')
+    'posterior')
 
 
 existing <- tryCatch({
