@@ -21,7 +21,8 @@ packages <- c(
     'posterior',
     'stars',
     'aws.s3',
-    'aws.signature')
+    'aws.signature',
+    'ggforce')
 
 
 existing <- tryCatch({
