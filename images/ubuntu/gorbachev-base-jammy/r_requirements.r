@@ -18,7 +18,10 @@ packages <- c(
     'lunar',
     'tidybayes',
     'brms',
-    'posterior')
+    'posterior',
+    'stars',
+    'aws.s3',
+    'aws.signature')
 
 
 existing <- tryCatch({
