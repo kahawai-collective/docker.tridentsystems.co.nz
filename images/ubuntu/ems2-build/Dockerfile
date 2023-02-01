@@ -5,4 +5,7 @@ RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
     curl \
     parallel \
-    moreutils
+    moreutils \
+    python3-pip
+
+RUN pip install demjson   
