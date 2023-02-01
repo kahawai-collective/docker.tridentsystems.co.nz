@@ -19,10 +19,7 @@ packages <- c(
     'tidybayes',
     'brms',
     'posterior',
-    'stars',
-    'aws.s3',
-    'aws.signature',
-    'ggforce')
+    'aws.s3')
 
 
 existing <- tryCatch({

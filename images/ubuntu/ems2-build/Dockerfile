@@ -5,8 +5,4 @@ RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
     curl \
     parallel \
-    moreutils \
-    python3-setuptools \
-    python3-pip
-
-RUN pip3 install --no-cache-dir demjson   
+    moreutils  

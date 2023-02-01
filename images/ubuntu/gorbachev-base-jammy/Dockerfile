@@ -105,6 +105,9 @@ RUN apt-get update && \
                                                r-cran-rcpproll \
                                                r-cran-flextable \
                                                r-cran-multimode \
+                                               r-cran-ggforce \
+                                               r-cran-stars \
+                                               r-cran-aws.signature \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
