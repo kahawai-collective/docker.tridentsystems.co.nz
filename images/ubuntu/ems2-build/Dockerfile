@@ -8,4 +8,4 @@ RUN apt-get update &&  \
     moreutils \
     python3-pip
 
-RUN pip install demjson   
+RUN pip3 install --no-cache-dir demjson   
