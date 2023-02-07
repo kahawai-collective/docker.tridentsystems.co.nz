@@ -19,7 +19,8 @@ packages <- c(
     'tidybayes',
     'brms',
     'posterior',
-    'aws.s3')
+    'aws.s3',
+    'emojifont')
 
 
 existing <- tryCatch({
