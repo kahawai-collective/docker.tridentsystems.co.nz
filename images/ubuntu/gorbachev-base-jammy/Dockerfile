@@ -14,6 +14,7 @@ RUN apt-get update && \
                                                libssl-dev \
                                                libgmp3-dev \
                                                pandoc \
+                                               fonts-font-awesome \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
