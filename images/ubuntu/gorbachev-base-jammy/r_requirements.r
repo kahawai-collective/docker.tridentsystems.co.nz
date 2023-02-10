@@ -18,6 +18,7 @@ packages <- c(
     'lunar',
     'tidybayes',
     'brms',
+    'StanHeaders'
     'posterior',
     'aws.s3',
     'emojifont')
