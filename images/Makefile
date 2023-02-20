@@ -101,7 +101,7 @@ ubuntu/pisces-jammy/.docker: ubuntu/nz-jammy/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
 
-ubuntu/kahawai-build/.docker: ubuntu/pisces-jammy/.docker
+ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/ems2-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker
