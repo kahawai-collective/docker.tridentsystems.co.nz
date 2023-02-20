@@ -3,7 +3,7 @@ MAINTAINER finlay@dragonfly.co.nz
 
 RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
-    postgresql-client awscli s3cmd unzip git python-psycopg2 ca-certificates \
+    postgresql-client awscli s3cmd unzip git-core python3-psycopg2 ca-certificates \
     python3-unicodecsv xlsx2csv
 
 
