@@ -1,8 +1,9 @@
 DATE ?= $(shell date +%Y-%m-%d)
+HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/kahawai-build
-	
+
     # ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
 	# ubuntu/gorbachev-base-jammy
@@ -137,6 +138,7 @@ r-base/.official:
 %/.docker: %/Dockerfile %/*
 	docker build --iidfile $@ -t $(REGISTRY)/$* $*
 	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(DATE)
+	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(HASH)
 
 %/Dockerfile: %/Dockerfile.tmpl includes/df-user.inc includes/nz-locale.inc
 	@cp $< $@
@@ -146,3 +148,4 @@ r-base/.official:
 $(REGISTRY)/%: %/.docker
 	docker push $(REGISTRY)/$*
 	docker push $(REGISTRY)/$*:$(DATE)
+	docker push $(REGISTRY)/$*:$(HASH)	
