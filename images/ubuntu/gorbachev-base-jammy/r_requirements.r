@@ -21,7 +21,8 @@ packages <- c(
     'StanHeaders',
     'posterior',
     'aws.s3',
-    'emojifont')
+    'emojifont',
+    'chron')
 
 
 existing <- tryCatch({
