@@ -2,7 +2,8 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/kahawai-build
+	ubuntu/gorbachev-base-bleedingedge
+	#ubuntu/kahawai-build
 
     # ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
