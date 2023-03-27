@@ -137,3 +137,7 @@ COPY pisces-latex-templates_0.32_all.deb /tmp/
 RUN dpkg -i /tmp/pisces-latex-templates_0.32_all.deb
 COPY mpi-latex-templates_1.42_all.deb /tmp/
 RUN dpkg -i /tmp/mpi-latex-templates_1.42_all.deb
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends cargo
+RUN Rscript -e "install.packages('gganimate','magick','gifski','DiagrammeR','DiagrammeRsvg','rsvg','transformr')
