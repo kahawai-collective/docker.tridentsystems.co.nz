@@ -22,7 +22,8 @@ packages <- c(
     'posterior',
     'aws.s3',
     'emojifont',
-    'chron')
+    'transformr',
+    'diagrammer')
 
 
 existing <- tryCatch({

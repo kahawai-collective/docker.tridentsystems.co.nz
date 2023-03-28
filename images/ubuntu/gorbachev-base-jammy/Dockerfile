@@ -109,6 +109,12 @@ RUN apt-get update && \
                                                r-cran-ggforce \
                                                r-cran-stars \
                                                r-cran-aws.signature \
+                                               r-cran-chron \
+                                               r-cran-gganimate \
+                                               r-cran-magick \
+                                               r-cran-diagrammer \
+                                               r-cran-diagrammersvg \
+                                               r-cran-rsvg \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
