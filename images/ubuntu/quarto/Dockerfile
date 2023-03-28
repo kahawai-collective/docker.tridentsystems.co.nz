@@ -37,6 +37,7 @@ RUN apt-get update && \
                                                r-cran-xtable \
                                                r-cran-janitor \
                                                r-cran-reticulate \
+                                               r-cran-chron \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
