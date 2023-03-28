@@ -2,7 +2,8 @@ FROM docker.kahawai.net.nz/ubuntu/texlive-r-jammy
 MAINTAINER david@pisces.nz
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends postgresql-client \
+    apt-get install -y --no-install-recommends cargo \
+                                               postgresql-client \
                                                git-core \
                                                python3-pygments \
                                                jags \
