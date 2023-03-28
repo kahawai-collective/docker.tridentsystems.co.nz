@@ -23,7 +23,9 @@ packages <- c(
     'aws.s3',
     'emojifont',
     'transformr',
-    'diagrammer')
+    'diagrammer',
+    'gifski'
+)
 
 
 existing <- tryCatch({
