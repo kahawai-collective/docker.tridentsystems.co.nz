@@ -38,6 +38,7 @@ RUN apt-get update && \
                                                r-cran-janitor \
                                                r-cran-reticulate \
                                                r-cran-chron \
+                                               r-cran-dbscan \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
