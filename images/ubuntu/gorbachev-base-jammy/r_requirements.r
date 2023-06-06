@@ -24,7 +24,8 @@ packages <- c(
     'emojifont',
     'transformr',
     'diagrammer',
-    'gifski'
+    'gifski',
+    'nngeo'
 )
 
 
