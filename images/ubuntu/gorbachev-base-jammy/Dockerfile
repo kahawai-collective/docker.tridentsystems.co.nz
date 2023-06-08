@@ -23,9 +23,9 @@ RUN apt-get update && \
 # packages provided by https://launchpad.net/~c2d4u.team
 RUN apt-get update && \
     apt-get install -y --no-install-recommends r-cran-rstan \
-                                               r-cran-tidyverse \
+                                               #r-cran-tidyverse \
                                                r-cran-shapefiles \
-                                               r-cran-sp \
+                                               #r-cran-sp \
                                                r-cran-maptools \
                                                r-cran-knitr \
                                                r-cran-rjson \
