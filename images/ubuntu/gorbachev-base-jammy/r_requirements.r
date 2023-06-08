@@ -25,7 +25,8 @@ packages <- c(
     'transformr',
     'diagrammer',
     'gifski',
-    'nngeo'
+    'nngeo',
+    'tidyterra'
 )
 
 
