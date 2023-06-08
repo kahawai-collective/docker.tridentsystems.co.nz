@@ -116,6 +116,7 @@ RUN apt-get update && \
                                                r-cran-diagrammer \
                                                r-cran-diagrammersvg \
                                                r-cran-rsvg \
+                                               r-cran-ncdf4 \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
