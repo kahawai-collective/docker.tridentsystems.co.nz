@@ -11,6 +11,9 @@ system("apt remove -y libtbb2")
 cran_nz <- "http://cran.stat.auckland.ac.nz"
 
 packages <- c(
+    'rgdal',
+    'geos',
+    'sf',
     'beanplot',
     'tidyxl',
     'timeline',

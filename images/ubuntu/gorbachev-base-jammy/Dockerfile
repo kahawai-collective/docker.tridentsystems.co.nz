@@ -61,7 +61,7 @@ RUN apt-get update && \
                                                r-cran-brms \
                                                r-cran-patchwork \
                                                r-cran-ggpubr \
-                                               r-cran-rgdal \
+                                               #r-cran-rgdal \
                                                r-cran-party \
                                                r-cran-extrafont \
                                                r-cran-viridis \
@@ -72,7 +72,7 @@ RUN apt-get update && \
                                                r-cran-arm \
                                                r-cran-ggrepel \
                                                r-cran-truncdist \
-                                               r-cran-sf \
+                                               #r-cran-sf \
                                                r-cran-fields \
                                                r-cran-dbscan \
                                                r-cran-terra \
@@ -88,7 +88,7 @@ RUN apt-get update && \
                                                r-cran-colorspace \
                                                r-cran-remotes \
                                                r-cran-bookdown \
-                                               r-cran-geos \
+                                               #r-cran-geos \
                                                r-cran-rpostgis \
                                                r-cran-r2jags \
                                                r-cran-ggspatial \
