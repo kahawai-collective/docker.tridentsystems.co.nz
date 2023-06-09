@@ -23,9 +23,9 @@ RUN apt-get update && \
 # packages provided by https://launchpad.net/~c2d4u.team
 RUN apt-get update && \
     apt-get install -y --no-install-recommends r-cran-rstan \
-                                               #r-cran-tidyverse \
+                                               r-cran-tidyverse \
                                                r-cran-shapefiles \
-                                               #r-cran-sp \
+                                               r-cran-sp \
                                                r-cran-maptools \
                                                r-cran-knitr \
                                                r-cran-rjson \
@@ -61,7 +61,7 @@ RUN apt-get update && \
                                                r-cran-brms \
                                                r-cran-patchwork \
                                                r-cran-ggpubr \
-                                               #r-cran-rgdal \
+                                               r-cran-rgdal \
                                                r-cran-party \
                                                r-cran-extrafont \
                                                r-cran-viridis \
@@ -72,7 +72,7 @@ RUN apt-get update && \
                                                r-cran-arm \
                                                r-cran-ggrepel \
                                                r-cran-truncdist \
-                                               #r-cran-sf \
+                                               r-cran-sf \
                                                r-cran-fields \
                                                r-cran-dbscan \
                                                r-cran-terra \
@@ -88,7 +88,7 @@ RUN apt-get update && \
                                                r-cran-colorspace \
                                                r-cran-remotes \
                                                r-cran-bookdown \
-                                               #r-cran-geos \
+                                               r-cran-geos \
                                                r-cran-rpostgis \
                                                r-cran-r2jags \
                                                r-cran-ggspatial \
