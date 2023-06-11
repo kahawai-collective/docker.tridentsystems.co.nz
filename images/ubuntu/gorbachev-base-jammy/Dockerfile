@@ -117,6 +117,8 @@ RUN apt-get update && \
                                                r-cran-diagrammersvg \
                                                r-cran-rsvg \
                                                r-cran-ncdf4 \
+                                               r-cran-rnaturalearth \
+                                               r-cran-rnaturalearthdata \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
