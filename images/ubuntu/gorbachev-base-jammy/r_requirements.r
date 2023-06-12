@@ -47,4 +47,5 @@ install.packages(pkgs2install,
 remotes::install_github('clauswilke/multiscales',
                         lib = install_loc)
 
-
+devtools::install_github("lifewatch/sdmpredictors", 
+                         lib = install_loc)
