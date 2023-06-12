@@ -119,6 +119,7 @@ RUN apt-get update && \
                                                r-cran-ncdf4 \
                                                r-cran-rnaturalearth \
                                                r-cran-rnaturalearthdata \
+                                               r-cran-sdmpredictors \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
