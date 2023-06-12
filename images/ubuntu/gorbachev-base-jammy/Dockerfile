@@ -120,7 +120,6 @@ RUN apt-get update && \
                                                r-cran-rnaturalearth \
                                                r-cran-rnaturalearthdata \
                                                r-cran-devtools \
-                                               r-cran-rattle \
                                                r-cran-rpart.plot \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
