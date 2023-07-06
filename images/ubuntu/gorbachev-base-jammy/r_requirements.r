@@ -26,7 +26,8 @@ packages <- c(
     'diagrammer',
     'gifski',
     'nngeo',
-    'tidyterra'
+    'tidyterra',
+    'parallel'
 )
 
 
