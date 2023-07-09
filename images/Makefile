@@ -2,35 +2,31 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/r-jammy \
-	ubuntu/texlive-r-jammy \
-	ubuntu/gorbachev-base-jammy
+    react-native-android/noto-dev
 
-    #ubuntu/quarto
+	# ubuntu/r-jammy \
+	# ubuntu/texlive-r-jammy \
+	# ubuntu/gorbachev-base-jammy
 
-	#ubuntu/kahawai-build
-
-  #ubuntu/fonz-focal
-  # ubuntu/kahawai-build \
-  # ubuntu/r-jammy \
+    # ubuntu/quarto \
+	# ubuntu/kahawai-build \
+    # ubuntu/fonz-focal \
+    # ubuntu/kahawai-build \
+    # ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
 	# ubuntu/gorbachev-base-jammy \
-  # ubuntu/quarto \
+    # ubuntu/quarto \
 	# ubuntu/r-bleedingedge \
 	# ubuntu/texlive-r-bleedingedge \
- 	# ubuntu/gorbachev-base-bleedingedge
+ 	# ubuntu/gorbachev-base-bleedingedge \
 	# ubuntu/ems2-build \
-
-	# \
-  # ubuntu/r \
-  # ubuntu/texlive \
-  # ubuntu/texlive-r \
-  # ubuntu/gorbachev-base
-
+    # ubuntu/r \
+    # ubuntu/texlive \
+    # ubuntu/texlive-r \
+    # ubuntu/gorbachev-base \
 	# ubuntu/trophia-tools \
 	# ubuntu/texlive-r-focal \
 	# ubuntu/gorbachev-base-focal \
-
 	# ubuntu/bookdown \
 	# ubuntu/stan_2.26 \
 	# ubuntu/kahawai-build \
@@ -45,8 +41,8 @@ DOCKERS := \
 	# ubuntu/inla \
 	# ubuntu/fsl \
 	# python/scikit \
-  # r-base/r-scraper \
-  #	ubuntu/ffmpeg \
+    # r-base/r-scraper \
+    # ubuntu/ffmpeg \
 	# ubuntu/r-focal \
 	# python/pytorch \
 	# python/flightdata	
@@ -54,7 +50,8 @@ DOCKERS := \
 BASEIMAGES := \
 	ubuntu \
 	python \
-	r-base
+	r-base \
+	react-native-android
 
 DOCKER_TARGETS := $(addsuffix /.docker,$(DOCKERS))
 REGISTRY_DOCKERS := $(addprefix $(REGISTRY)/,$(DOCKERS))
@@ -116,6 +113,9 @@ python/flightdata/.docker: python/nz/.docker
 r-base/nz/.docker: r-base/.official
 r-base/r-scraper/.docker: r-base/nz/.docker
 
+react-native-android/noto-dev/.docker: react-native-android/.official
+
+
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
 
@@ -135,6 +135,10 @@ python/.official:
 r-base/.official:
 	docker pull r-base:4.1.2
 	$(call fetchofficial,r-base:4.1.2,$@)
+
+react-native-android/.official:
+	docker pull react-native-android:5.4
+	$(call fetchofficial,react-native-android:5.4,$@)
 
 %/.docker: %/Dockerfile %/*
 	docker build --iidfile $@ -t $(REGISTRY)/$* $*
