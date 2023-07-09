@@ -137,7 +137,7 @@ r-base/.official:
 	$(call fetchofficial,r-base:4.1.2,$@)
 
 react-native-android/.official:
-	docker pull react-native-android:5.4
+	docker pull reactnativecommunity/react-native-android:5.4
 	$(call fetchofficial,react-native-android:5.4,$@)
 
 %/.docker: %/Dockerfile %/*
