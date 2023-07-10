@@ -46,7 +46,7 @@ mkdir -p $TEMP_PATH
 (cp -r `ls -A | grep -v "node_modules"` $TEMP_PATH) & showLoading "[NOTO]: Making Copy"
 
 cd $TEMP_PATH
-#yarn & showLoading "[NOTO]: Installing JS Dependencies"
+yarn & showLoading "[NOTO]: Installing JS Dependencies"
 
 yarn sync:config & showLoading "[NOTO]: Syncing configurations"
 yarn generate:icons & showLoading "[NOTO]: Generating icons"
