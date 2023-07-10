@@ -23,7 +23,7 @@ echo "[NOTO]: Starting Build"
 cd $APP_PATH
 mkdir -p $TEMP_PATH
 echo "[NOTO]: Making Copy"
-cp -r `ls -A | grep -v "node_modules"` $TEMP_PATH
+cp --verbose -r `ls -A | grep -v "node_modules"` $TEMP_PATH
 
 cd $TEMP_PATH
 echo "[NOTO]: Installing JS Dependencies"
