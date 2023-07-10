@@ -19,44 +19,28 @@ OUTPUT_APK_PATH=android/app/build/outputs/apk/release/
 OUTPUT_BUNDLE_PATH=android/app/build/outputs/bundle/release/
 LANE=${1:-build}
 
-showLoading() {
-  mypid=$!
-  loadingText=$1
-
-  echo -ne "$loadingText\r"
-
-  while kill -0 $mypid 2>/dev/null; do
-    echo -ne "$loadingText.\r"
-    sleep 0.5
-    echo -ne "$loadingText..\r"
-    sleep 0.5
-    echo -ne "$loadingText...\r"
-    sleep 0.5
-    echo -ne "\r\033[K"
-    echo -ne "$loadingText\r"
-    sleep 0.5
-  done
-
-  echo "$loadingText...FINISHED"
-}
-
 echo "[NOTO]: Starting Build"
 cd $APP_PATH
 mkdir -p $TEMP_PATH
-(cp -r `ls -A | grep -v "node_modules"` $TEMP_PATH) & showLoading "[NOTO]: Making Copy"
+echo "[NOTO]: Making Copy"
+cp -r `ls -A | grep -v "node_modules"` $TEMP_PATH
 
 cd $TEMP_PATH
-yarn & showLoading "[NOTO]: Installing JS Dependencies"
+echo "[NOTO]: Installing JS Dependencies"
+yarn
 
-yarn sync:config & showLoading "[NOTO]: Syncing configurations"
-yarn generate:icons & showLoading "[NOTO]: Generating icons"
+echo "[NOTO]: Syncing configurations"
+yarn sync:config
+echo "[NOTO]: Generating icons"
+yarn generate:icons
 
 export $(cat .env | xargs)
 
 cd $TEMP_PATH/android
 rm Gemfile.lock
 bundle install
-(bundle exec fastlane $LANE) & showLoading "[NOTO]: Running Fastlane Lane $LANE"
+echo "[NOTO]: Running Fastlane Lane $LANE"
+bundle exec fastlane $LANE
 
 if [ -d "$APP_RELEASE_PATH" ]; then
   rm -rf $APP_RELEASE_PATH
@@ -66,13 +50,15 @@ mkdir -p $APP_RELEASE_PATH
 DIR="$TEMP_PATH/$OUTPUT_APK_PATH"
 if [ -d "$DIR" ]; then
   cd $DIR
-  (cp -r `ls -A` $APP_RELEASE_PATH) & showLoading "[NOTO]: Copying Release APK to $APP_RELEASE_PATH"
+  echo "[NOTO]: Copying Release APK to $APP_RELEASE_PATH"
+  cp -r `ls -A` $APP_RELEASE_PATH
 fi
 
 DIR="$TEMP_PATH/$OUTPUT_BUNDLE_PATH"
 if [ -d "$DIR" ]; then
   cd $DIR
-  (cp -r `ls -A` $APP_RELEASE_PATH) & showLoading "[NOTO]: Copying Release AAB"
+  echo "[NOTO]: Copying Release AAB"
+  cp -r `ls -A` $APP_RELEASE_PATH
 fi
 
 
