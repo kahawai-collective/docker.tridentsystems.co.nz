@@ -137,8 +137,8 @@ r-base/.official:
 	$(call fetchofficial,r-base:4.1.2,$@)
 
 react-native-android/.official:
-	docker pull reactnativecommunity/react-native-android:5.0
-	$(call fetchofficial,reactnativecommunity/react-native-android:5.0,$@)
+	docker pull reactnativecommunity/react-native-android:5.3
+	$(call fetchofficial,reactnativecommunity/react-native-android:5.3,$@)
 
 %/.docker: %/Dockerfile %/*
 	docker build --iidfile $@ -t $(REGISTRY)/$* $*

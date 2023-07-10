@@ -1,4 +1,4 @@
-FROM reactnativecommunity/react-native-android:5.0
+FROM reactnativecommunity/react-native-android:5.3
 
 # Work directory
 
