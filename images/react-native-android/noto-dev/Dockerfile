@@ -18,7 +18,7 @@ RUN apt-get update && apt-get -y install ruby-dev
 # Need g++ and make to build gem native extension (which fastlane is)
 RUN apt-get install -y g++ make
 # Installing bundle
-RUN gem install bundle
+RUN gem install bundle:2.2.32
 # Installing fastlane
 RUN gem install fastlane
 
