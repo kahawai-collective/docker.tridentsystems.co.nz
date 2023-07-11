@@ -41,5 +41,3 @@ RUN echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl 
 
 # Work directory
 COPY ./build-android.sh /build-android.sh
-COPY ./build-android1.sh /build-android1.sh
-COPY ./build-android2.sh /build-android2.sh
