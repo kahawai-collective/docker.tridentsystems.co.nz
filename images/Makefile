@@ -2,7 +2,9 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-    react-native-android/noto-dev
+    react-native-android/noto-stable
+
+    # react-native-android/noto-dev
 
 	# ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
@@ -114,7 +116,7 @@ r-base/nz/.docker: r-base/.official
 r-base/r-scraper/.docker: r-base/nz/.docker
 
 react-native-android/noto-dev/.docker: react-native-android/.official
-
+react-native-android/noto-stable/.docker: react-native-android/.official
 
 fetchofficial = @$(if $(filter-out $(shell cat $@ 2>/dev/null), $(shell docker inspect --format='{{.Id}}' $(1))), docker inspect --format='{{.Id}}' $(1)  > $(2))
 
