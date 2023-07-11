@@ -29,6 +29,8 @@ cd $TEMP_PATH
 echo "[NOTO]: Installing JS Dependencies"
 yarn
 
+diff -r /code/app/noto /tmp/app > /output/post_yarn_diff.txt
+
 echo "[NOTO]: Syncing configurations"
 yarn sync:config
 echo "[NOTO]: Generating icons"
