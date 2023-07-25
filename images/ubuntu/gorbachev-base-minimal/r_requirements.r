@@ -32,3 +32,6 @@ install.packages(pkgs2install)
 
 old_rgeos <- "https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-28.tar.gz"
 install.packages(old_rgeos, repos=NULL, type="source")
+
+library(remotes)
+remotes::install_github("laresbernardo/lares")
