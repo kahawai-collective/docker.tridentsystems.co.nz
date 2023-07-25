@@ -5,7 +5,7 @@ DOCKERS := \
     ubuntu/r \
     ubuntu/texlive \
     ubuntu/texlive-r \
-    ubuntu/gorbachev-base
+    ubuntu/gorbachev-base-minimal
 
 
 	# ubuntu/r-jammy \
@@ -94,6 +94,7 @@ ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/texlive-r-jammy/.docker: ubuntu/r-jammy/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
+ubuntu/gorbachev-base-minimal/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 ubuntu/gorbachev-base-jammy/.docker: ubuntu/texlive-r-jammy/.docker
 ubuntu/quarto/.docker: ubuntu/r-bleedingedge/.docker
