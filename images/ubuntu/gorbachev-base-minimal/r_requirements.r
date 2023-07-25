@@ -11,7 +11,7 @@ options(defaultPackages = c(old, "MASS"), repos = r)
 packages <- c(
     "RColorBrewer",
     "RPostgreSQL", "knitr", "pander", "tidyverse",
-    "remotes", 'httr')
+    "remotes", 'httr', 'yaml')
 
 update.packages(ask=F)
 
