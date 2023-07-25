@@ -3,7 +3,7 @@ old <- getOption("defaultPackages"); r <- getOption("repos")
 r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
 # https://techcommunity.microsoft.com/t5/azure-sql-blog/microsoft-r-application-network-retirement/ba-p/3707161
 #r['CRAN'] = 'https://mran.microsoft.com/snapshot/2020-03-25'
-options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
+options(defaultPackages = c(old, "MASS"), repos = r)
 
 # packages ‘grid’, ‘genoud’, ‘tools’, ‘utils’ are not available (for R version 3.4.2)
 # packages ‘lattice’, ‘foreign’, ‘rjson’, ‘MASS’, ‘gam’, ‘timeline’, ‘MuMIn’ are not available (for R version 3.6.3)
@@ -20,7 +20,7 @@ packages <- c(
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
     'rstan','brms','patchwork','tidybayes','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english','coda','runjags',
     'janitor','bestglm','DHARMa','arm','ggrepel','truncdist','sf','fields','raster','glm2','sampling','effects',
-    'collapse', 'ggExtra', 'lutz', 'rsample', 'lwgeom', 'multimode','flextable',
+    'collapse', 'ggExtra', 'lutz', 'rsample', 'lwgeom', 'multimode',
     'bookdown', 'rpostgis', 'terra', 'stars')
 
 update.packages(ask=F)
