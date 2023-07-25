@@ -1,23 +1,25 @@
 # Set the URL for CRAN
 old <- getOption("defaultPackages"); r <- getOption("repos")
 r["CRAN"] <- "http://cran.stat.auckland.ac.nz"
+# https://techcommunity.microsoft.com/t5/azure-sql-blog/microsoft-r-application-network-retirement/ba-p/3707161
 #r['CRAN'] = 'https://mran.microsoft.com/snapshot/2020-03-25'
 options(defaultPackages = c(old, "MASS"), repos = r, warn=2)
 
 # packages ‘grid’, ‘genoud’, ‘tools’, ‘utils’ are not available (for R version 3.4.2)
+# packages ‘lattice’, ‘foreign’, ‘rjson’, ‘MASS’, ‘gam’, ‘timeline’, ‘MuMIn’ are not available (for R version 3.6.3)
 
 packages <- c(
-    "shapefiles", "sp", "lattice", "RColorBrewer", "foreign",
-    "maptools", "RPostgreSQL", "knitr", "rjson", "pander", "tidyverse",
+    "shapefiles", "sp", "RColorBrewer",
+    "maptools", "RPostgreSQL", "knitr", "pander", "tidyverse",
     "tables", "data.table", "gridExtra", "rjags", "R2jags", "reshape2",
     "mapproj", "cplm", "lme4", 'xtable', 'plyr', 'scales', 'ggspatial',
     'ggmap', 'Cairo', 'maps', 'Matching', 'BenfordTests', 'rgenoud',
-    'broom', 'cowplot', 'MASS', 'gridBase', 'pryr', 'proto',
-    'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'tidyxl', 'GGally', 'gam',
-    'mgcv', 'geosphere', 'dbplyr', 'timeline', 'ggforce', 'CheckDigit', 'tinytex',
+    'broom', 'cowplot', 'gridBase', 'pryr', 'proto',
+    'beanplot', 'mapdata', 'rpart', 'caret', 'openxlsx', 'readxl', 'tidyxl', 'GGally',
+    'mgcv', 'geosphere', 'dbplyr', 'ggforce', 'CheckDigit', 'tinytex',
     'kableExtra', 'fuzzyjoin','lunar','gamlss','glmmTMB','PBSmapping','colorRamps',
     'rstan','brms','patchwork','tidybayes','Rcpp','ggpubr', 'rgdal','party', 'extrafont','viridis','english','coda','runjags',
-    'janitor','bestglm','DHARMa','MuMIn','arm','ggrepel','truncdist','sf','fields','raster','glm2','sampling','effects',
+    'janitor','bestglm','DHARMa','arm','ggrepel','truncdist','sf','fields','raster','glm2','sampling','effects',
     'collapse', 'ggExtra', 'lutz', 'rsample', 'lwgeom', 'multimode','flextable',
     'bookdown', 'rpostgis', 'terra', 'stars')
 
