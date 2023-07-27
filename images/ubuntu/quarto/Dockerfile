@@ -24,6 +24,7 @@ RUN apt-get update && \
                                                r-cran-english \
                                                r-cran-cowplot \
                                                r-cran-sf \
+                                               r-cran-sfheaders \
                                                r-cran-glm2 \
                                                r-cran-raster \
                                                r-cran-rpostgis \
@@ -39,6 +40,9 @@ RUN apt-get update && \
                                                r-cran-reticulate \
                                                r-cran-chron \
                                                r-cran-dbscan \
+                                               r-cran-gghighlight \
+                                               r-cran-ggspatial \
+                                               r-cran-viridis \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
