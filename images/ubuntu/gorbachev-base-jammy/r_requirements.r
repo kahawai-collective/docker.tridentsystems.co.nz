@@ -1,9 +1,9 @@
 
 install_loc <- "/usr/lib/R/site-library"
 
-cmdstan_install_loc <- Sys.getenv("CMDSTAN")
-remotes::install_version("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc, version = '0.5.3')
-cmdstanr::install_cmdstan(dir = cmdstan_install_loc)
+# cmdstan_install_loc <- Sys.getenv("CMDSTAN")
+# remotes::install_version("cmdstanr", repos = "https://mc-stan.org/r-packages/", lib = install_loc, version = '0.5.3')
+# cmdstanr::install_cmdstan(dir = cmdstan_install_loc)
 
 system("apt remove -y libtbb2")
 
