@@ -40,11 +40,15 @@ RUN apt-get update && \
                                                r-cran-reticulate \
                                                r-cran-chron \
                                                r-cran-dbscan \
-                                               r-cran-gghighlight \
                                                r-cran-ggspatial \
                                                r-cran-viridis \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+# For R packages that are not available as deb packages, install from CRAN
+COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
+RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 
 # Following https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker per https://quarto.org/docs/authoring/diagrams.html#chrome-install
