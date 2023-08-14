@@ -50,3 +50,6 @@ remotes::install_github('clauswilke/multiscales',
 
 devtools::install_github("lifewatch/sdmpredictors", 
                          lib = install_loc)
+
+remotes::install_github("ropensci/rnaturalearthhires", 
+                         lib = install_loc)
