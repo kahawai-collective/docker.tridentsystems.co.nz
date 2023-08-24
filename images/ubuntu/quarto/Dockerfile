@@ -36,7 +36,6 @@ RUN apt-get update && \
                                                r-cran-proto \
                                                r-cran-gridbase \
                                                r-cran-xtable \
-                                               r-cran-tidybayes \
                                                r-cran-brms \
                                                r-cran-janitor \
                                                r-cran-reticulate \

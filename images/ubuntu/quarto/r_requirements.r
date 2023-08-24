@@ -5,7 +5,8 @@ install_loc <- "/usr/lib/R/site-library"
 cran_nz <- "http://cran.stat.auckland.ac.nz"
 
 packages <- c(
-    'gghighlight'
+    'gghighlight',
+    'tidybayes'
 )
 
 
