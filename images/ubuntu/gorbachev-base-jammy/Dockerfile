@@ -135,6 +135,22 @@ COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 
+# see https://github.com/stan-dev/rstan/issues/1007
+RUN Rscript -e "install.packages(c('BH', 'StanHeaders', 'rstan', 'rstantools', 'shinystan', 'Rcpp', 'RcppEigen', 'RcppParallel', 'inline', 'loo', 'pkgbuild'), repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
+
+# see https://github.com/JBris/stan-cmdstanr-gpu-docker/blob/main/Dockerfile
+ARG CMDSTAN_VERSION=2.33.1
+RUN cd /usr/local/lib/R/site-library && rmdir cmdstan && \
+    wget --progress dot https://github.com/stan-dev/cmdstan/releases/download/v${CMDSTAN_VERSION}/cmdstan-${CMDSTAN_VERSION}.tar.gz && \
+    tar xzf cmdstan-${CMDSTAN_VERSION}.tar.gz && \
+    mv cmdstan-${CMDSTAN_VERSION} cmdstan && \
+    cd cmdstan && \
+    make build
+
+RUN Rscript -e "install.packages('cmdstanr', repos = c('https://mc-stan.org/r-packages/', getOption('repos')), dependencies = TRUE)"
+RUN Rscript -e "cmdstanr::check_cmdstan_toolchain() ; cmdstanr::cmdstan_path() ; cmdstanr::cmdstan_version()"
+
+
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 

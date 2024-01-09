@@ -53,3 +53,25 @@ devtools::install_github("lifewatch/sdmpredictors",
 
 remotes::install_github("ropensci/rnaturalearthhires", 
                          lib = install_loc)
+
+# install CmdStanR
+# see https://github.com/stan-dev/cmdstanr/issues/695
+
+existing[grep('[sS]tan', existing)]
+
+# cmdstan_install_loc <- Sys.getenv("CMDSTAN")
+# cmdstan_install_loc
+
+# dir.create(cmdstan_install_loc, showWarnings = FALSE)
+
+# install.packages("cmdstanr",
+#                  repos = c("https://mc-stan.org/r-packages/"))
+
+# library(cmdstanr)
+
+# cmdstanr::check_cmdstan_toolchain()
+
+# cmdstanr::install_cmdstan(dir = cmdstan_install_loc)
+
+# cmdstanr::cmdstan_path()
+# cmdstanr::cmdstan_version()
