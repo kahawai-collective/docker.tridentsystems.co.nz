@@ -136,7 +136,7 @@ RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 
 # see https://github.com/stan-dev/rstan/issues/1007
-RUN Rscript -e "install.packages(c('BH', 'StanHeaders', 'rstan', 'rstantools', 'shinystan', 'Rcpp', 'RcppEigen', 'RcppParallel', 'inline', 'loo', 'pkgbuild'), repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
+RUN Rscript -e "install.packages(c('BH', 'StanHeaders', 'rstan', 'rstantools', 'brms', 'shinystan', 'Rcpp', 'RcppEigen', 'RcppParallel', 'inline', 'loo', 'pkgbuild'), repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
 
 # see https://github.com/JBris/stan-cmdstanr-gpu-docker/blob/main/Dockerfile
 ARG CMDSTAN_VERSION=2.33.1
