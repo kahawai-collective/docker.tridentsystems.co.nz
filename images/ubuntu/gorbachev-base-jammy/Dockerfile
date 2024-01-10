@@ -172,3 +172,9 @@ COPY pisces-latex-templates_0.35_all.deb /tmp/
 RUN dpkg -i /tmp/pisces-latex-templates_0.35_all.deb
 COPY mpi-latex-templates_1.55_all.deb /tmp/
 RUN dpkg -i /tmp/mpi-latex-templates_1.55_all.deb
+
+# required for the assessment diagnostics
+RUN apt update && \
+    apt install -y nodejs && \
+    apt install -y node-gyp && \
+    apt install -y npm libxslt1-dev
