@@ -177,4 +177,5 @@ RUN dpkg -i /tmp/mpi-latex-templates_1.55_all.deb
 RUN apt update && \
     apt install -y nodejs && \
     apt install -y node-gyp && \
-    apt install -y npm libxslt1-dev
+    apt install -y npm libxslt1-dev && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
