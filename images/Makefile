@@ -110,6 +110,7 @@ ubuntu/pisces-focal/.docker: ubuntu/nz-focal/.docker
 ubuntu/pisces-jammy/.docker: ubuntu/nz-jammy/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
+ubuntu/paua-jammy/.docker: ubuntu/gorbachev-base-jammy/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
