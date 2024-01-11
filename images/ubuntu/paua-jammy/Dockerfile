@@ -13,7 +13,8 @@ ARG PAUUSER
 ARG PAU
 
 ENV GH_TOKEN=$PAU
-RUN gh auth login --with-token < echo $GH_TOKEN
+RUN echo $GH_TOKEN | gh auth login --with-token
+RUN gh environment && gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
 
