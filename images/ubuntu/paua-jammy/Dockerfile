@@ -12,18 +12,20 @@ RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 ARG PAUUSER
 ARG PAU
 
+# TODO: ask Richard for help with this
+
 # see https://cli.github.com/manual/gh_help_environment
-# Is this necessary since "GH_TOKEN" is defined?
+# Q: where to set the GH username?
+# Is this necessary since "GH_TOKEN" can be defined in the environment?
 # RUN echo ${PAU} | gh auth login --with-token
 # RUN export GH_TOKEN=${PAU} && gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
 
 # see https://stackoverflow.com/questions/2466735/how-to-sparsely-checkout-only-one-single-file-from-a-git-repository/52270527/#52270527
-RUN cd /usr/local/lib/R/site-library/paua.sam && \
-    export GH_TOKEN=${PAU} && \
-    git clone --depth=1 --no-checkout --filter=blob:none https://github.com/kahawai-collective/PAUA-Stock-Assessment-Model.git gitcopy && \
-    cd gitcopy && \
-    git checkout main -- ASSESSMENTS/QMA_dev.R && \
-    cp ASSESSMENTS/QMA_dev.R ../ && \
-    cd .. && rm -r gitcopy && pwd && ls -la
+# RUN cd /usr/local/lib/R/site-library/paua.sam && \
+#     git clone --depth=1 --no-checkout --filter=blob:none https://github.com/kahawai-collective/PAUA-Stock-Assessment-Model.git gitcopy && \
+#     cd gitcopy && \
+#     git checkout main -- ASSESSMENTS/QMA_dev.R && \
+#     cp ASSESSMENTS/QMA_dev.R ../ && \
+#     cd .. && rm -r gitcopy && pwd && ls -la
