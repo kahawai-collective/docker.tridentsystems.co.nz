@@ -15,17 +15,16 @@ ARG PAU
 ENV GH_TOKEN=$PAU
 
 # see https://cli.github.com/manual/gh_help_environment
-# Is the next line necessary since "GH_TOKEN" is defined?
+# Is this necessary since "GH_TOKEN" is defined?
 # RUN echo ${GH_TOKEN} | gh auth login --with-token
-
-RUN export GH_TOKEN=${GH_TOKEN} && gh auth status
+# RUN export GH_TOKEN=${GH_TOKEN} && gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
 
 # see https://stackoverflow.com/revisions/52270527/6
-# RUN cd /usr/local/lib/R/site-library/paua.sam && \
-#     git clone --depth=1 --no-checkout --filter=blob:none https://github.com/kahawai-collective/PAUA-Stock-Assessment-Model.git gitcopy && \
-#     cd gitcopy && \
-#     git checkout main -- ASSESSMENTS/QMA_dev.R && \
-#     cp ASSESSMENTS/QMA_dev.R ../ && \
-#     cd .. && rm -r gitcopy && pwd && ls -la
+RUN cd /usr/local/lib/R/site-library/paua.sam && \
+    git clone --depth=1 --no-checkout --filter=blob:none https://${GH_TOKEN}:github.com/kahawai-collective/PAUA-Stock-Assessment-Model.git gitcopy && \
+    cd gitcopy && \
+    git checkout main -- ASSESSMENTS/QMA_dev.R && \
+    cp ASSESSMENTS/QMA_dev.R ../ && \
+    cd .. && rm -r gitcopy && pwd && ls -la
