@@ -12,9 +12,10 @@ RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 ARG PAUUSER
 ENV PAUUN=$PAUUSER
 ARG PAU
-ENV PAUPW=$PAU
+ENV PAUTOKEN=$PAU
 
 # TODO: make file with GH credentials
+RUN echo $PAUTOKEN > gh auth login --with-token
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
 
