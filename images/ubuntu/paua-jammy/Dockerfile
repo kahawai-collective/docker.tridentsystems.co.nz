@@ -9,8 +9,8 @@ RUN apt-get update && \
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
-ARG PAUUSER
-ARG PAU
+ENV PAUUSER
+ENV PAU
 
 # TODO: ask Richard for help with this
 
@@ -19,6 +19,13 @@ ARG PAU
 # Is this necessary since "GH_TOKEN" can be defined in the environment?
 # RUN echo ${PAU} | gh auth login --with-token
 # RUN export GH_TOKEN=${PAU} && gh auth status
+
+RUN mkdir -p -v ~/.config/gh && \
+    cp hosts.yml ~/.config/gh &&
+    cd ~/.config/gh && \
+    sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
+    sed -i "s/GHUSER/$PAUUSER/" hosts.hml
+RUN gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
 
