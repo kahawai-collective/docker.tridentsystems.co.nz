@@ -9,8 +9,8 @@ RUN apt-get update && \
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
-ENV PAUUSER=${PAUUSER}
-ENV PAU=${PAU}
+ARG PAUUSER
+ARG PAU
 
 # see https://cli.github.com/manual/gh_help_environment
 # Q: where to set the GH username?
