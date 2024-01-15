@@ -10,18 +10,18 @@ COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 ARG PAUUSER
-ARG PAU
+ARG PAUTOKEN
 
 # see https://cli.github.com/manual/gh_help_environment
 # Q: where to set the GH username?
 # Is this necessary since "GH_TOKEN" can be defined in the environment?
-# RUN echo ${PAU} | gh auth login --with-token
-# RUN export GH_TOKEN=${PAU} && gh auth status
+# RUN echo ${PAUTOKEN} | gh auth login --with-token
+# RUN export GH_TOKEN=${PAUTOKEN} && gh auth status
 
 RUN mkdir -p -v /root/.config/gh
 COPY *.yml /root/.config/gh/
 RUN cd /root/.config/gh/ && \
-    sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
+    sed -i "s/GHTOKEN/$PAUTOKEN/" hosts.yml && \
     sed -i "s/GHUSER/$PAUUSER/" hosts.yml && \
     pwd && ls -la
 
