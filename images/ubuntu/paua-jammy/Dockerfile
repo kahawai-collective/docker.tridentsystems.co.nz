@@ -23,7 +23,6 @@ COPY *.yml /root/.config/gh/
 RUN cd /root/.config/gh/ && pwd && ls -la && \
     sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
     sed -i "s/GHUSER/$PAUUSER/" hosts.yml
-RUN gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
 
