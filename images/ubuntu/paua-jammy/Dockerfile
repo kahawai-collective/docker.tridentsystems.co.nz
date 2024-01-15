@@ -12,19 +12,16 @@ RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 ENV PAUUSER=${PAUUSER}
 ENV PAU=${PAU}
 
-# TODO: ask Richard for help with this
-
 # see https://cli.github.com/manual/gh_help_environment
 # Q: where to set the GH username?
 # Is this necessary since "GH_TOKEN" can be defined in the environment?
 # RUN echo ${PAU} | gh auth login --with-token
 # RUN export GH_TOKEN=${PAU} && gh auth status
 
+RUN sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
+    sed -i "s/GHUSER/$PAUUSER/" hosts.hml
 RUN mkdir -p -v ~/.config/gh
 COPY *.yml ~/.config/gh/
-RUN cd ~/.config/gh && \
-    sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
-    sed -i "s/GHUSER/$PAUUSER/" hosts.hml
 RUN gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
