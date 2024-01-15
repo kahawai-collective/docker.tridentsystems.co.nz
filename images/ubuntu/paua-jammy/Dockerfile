@@ -21,8 +21,7 @@ ENV PAU=${PAU}
 # RUN export GH_TOKEN=${PAU} && gh auth status
 
 RUN mkdir -p -v ~/.config/gh && \
-    cp config.yml ~/.config/gh && \
-    cp hosts.yml ~/.config/gh && \
+    cp config.yml hosts.yml ~/.config/gh && \
     cd ~/.config/gh && \
     sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
     sed -i "s/GHUSER/$PAUUSER/" hosts.hml
