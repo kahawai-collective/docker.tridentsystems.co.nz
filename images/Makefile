@@ -154,11 +154,6 @@ react-native-android/.official:
 	docker pull reactnativecommunity/react-native-android:5.2
 	$(call fetchofficial,reactnativecommunity/react-native-android:5.2,$@)
 
-ubuntu/paua-jammy/.docker: %/Dockerfile %/*
-	docker build --build-arg PAUUSER=$(PAUUSER) --build-arg PAUTOKEN=$(PAU) --iidfile $@ -t $(REGISTRY)/$* $*
-	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(DATE)
-	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(HASH)
-
 %/.docker: %/Dockerfile %/*
 	docker build --iidfile $@ -t $(REGISTRY)/$* $*
 	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(DATE)
