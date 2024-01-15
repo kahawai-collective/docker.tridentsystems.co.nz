@@ -1,0 +1,3 @@
+[submodule "images/ubuntu/paua-jammy/COMMON"]
+	path = images/ubuntu/paua-jammy/COMMON
+	url = git@github.com:kahawai-collective/PAU-COMMON.git
