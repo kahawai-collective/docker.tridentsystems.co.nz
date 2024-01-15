@@ -1,11 +1,6 @@
 FROM docker.kahawai.net.nz/ubuntu/gorbachev-base-jammy
 MAINTAINER david@pisces.nz
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends gh \
-                                               && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
