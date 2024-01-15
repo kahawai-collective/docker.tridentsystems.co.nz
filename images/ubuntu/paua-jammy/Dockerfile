@@ -18,11 +18,11 @@ ENV PAU=${PAU}
 # RUN echo ${PAU} | gh auth login --with-token
 # RUN export GH_TOKEN=${PAU} && gh auth status
 
-RUN pwd && ls -la && \
-    sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
-    sed -i "s/GHUSER/$PAUUSER/" hosts.hml
 RUN mkdir -p -v ~/.config/gh
 COPY *.yml ~/.config/gh/
+RUN cd ~/.config/gh/ && pwd && ls -la && \
+    sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
+    sed -i "s/GHUSER/$PAUUSER/" hosts.hml
 RUN gh auth status
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
