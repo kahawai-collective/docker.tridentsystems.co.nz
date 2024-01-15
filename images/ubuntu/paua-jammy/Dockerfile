@@ -9,8 +9,8 @@ RUN apt-get update && \
 COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
-ENV PAUUSER
-ENV PAU
+ENV PAUUSER=${PAUUSER}
+ENV PAU=${PAU}
 
 # TODO: ask Richard for help with this
 
