@@ -22,7 +22,7 @@ RUN mkdir -p -v /root/.config/gh
 COPY *.yml /root/.config/gh/
 RUN cd /root/.config/gh/ && \
     sed -i "s/GHTOKEN/$PAU/" hosts.yml && \
-    sed -i "s/GHUSER/$PAUUSER/" hosts.yml \
+    sed -i "s/GHUSER/$PAUUSER/" hosts.yml && \
     pwd && ls -la
 
 RUN mkdir -p -v /usr/local/lib/R/site-library/paua.sam
