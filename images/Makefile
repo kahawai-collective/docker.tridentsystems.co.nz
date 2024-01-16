@@ -4,18 +4,17 @@ REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/r-jammy \
 	ubuntu/texlive-r-jammy \
-	ubuntu/gorbachev-base-jammy \
-	ubuntu/quarto \
-	ubuntu/paua-jammy
+	ubuntu/gorbachev-base-jammy
+	
+	# \
+	#ubuntu/quarto \
+	#ubuntu/paua-jammy
 
 
     # ubuntu/r \
     # ubuntu/texlive \
     # ubuntu/texlive-r \
     # ubuntu/gorbachev-base-minimal
-
-	# ubuntu/texlive-r-jammy \
-	# ubuntu/gorbachev-base-jammy
 
 #    react-native-android/noto-stable
     # react-native-android/noto-dev
