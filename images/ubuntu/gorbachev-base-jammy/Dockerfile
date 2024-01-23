@@ -139,7 +139,7 @@ RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 RUN Rscript -e "install.packages(c('BH', 'StanHeaders', 'rstan', 'rstantools', 'brms', 'shinystan', 'Rcpp', 'RcppEigen', 'RcppParallel', 'inline', 'loo', 'pkgbuild'), repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
 
 # see https://github.com/JBris/stan-cmdstanr-gpu-docker/blob/main/Dockerfile
-ARG CMDSTAN_VERSION=2.33.1
+ARG CMDSTAN_VERSION=2.34.1
 RUN cd /usr/local/lib/R/site-library && rmdir cmdstan && \
     wget --progress dot https://github.com/stan-dev/cmdstan/releases/download/v${CMDSTAN_VERSION}/cmdstan-${CMDSTAN_VERSION}.tar.gz && \
     tar xzf cmdstan-${CMDSTAN_VERSION}.tar.gz && \
