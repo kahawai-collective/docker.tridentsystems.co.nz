@@ -121,6 +121,7 @@ RUN apt-get update && \
                                                r-cran-rnaturalearthdata \
                                                r-cran-devtools \
                                                r-cran-rpart.plot \
+                                               r-cran-hexbin \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
