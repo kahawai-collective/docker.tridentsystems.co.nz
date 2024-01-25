@@ -32,3 +32,8 @@ install.packages(pkgs2install,
 install.packages('shinydashboard',
                  repos = c('https://cloud.r-project.org/src/contrib', getOption('repos')),
                  dependencies = TRUE)
+
+# to update ragg
+# see https://stackoverflow.com/questions/68753250/getting-the-error-graphics-api-version-mismatch
+update.packages(ask = FALSE, checkBuilt = TRUE,
+                repos = c('https://cloud.r-project.org/src/contrib', getOption('repos')))
