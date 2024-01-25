@@ -30,6 +30,7 @@ install.packages(pkgs2install,
 
 # for the R Shiny app
 install.packages('shinydashboard',
+                 lib = install_loc,
                  repos = c('https://cloud.r-project.org/src/contrib', getOption('repos')),
                  dependencies = TRUE)
 
