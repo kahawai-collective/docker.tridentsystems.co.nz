@@ -27,3 +27,8 @@ message(sprintf('Installing packages: %s', paste(pkgs2install, collapse=', ')))
 install.packages(pkgs2install,
                  lib = install_loc,
                  repos = c(cran_nz, getOption('repos')))
+
+# for the R Shiny app
+install.packages('shinydashboard',
+                 repos = c('https://cloud.r-project.org/src/contrib', getOption('repos')),
+                 dependencies = TRUE)
