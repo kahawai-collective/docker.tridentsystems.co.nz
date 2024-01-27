@@ -16,6 +16,7 @@ RUN apt-get update && \
                                                libgmp3-dev \
                                                pandoc \
                                                fonts-font-awesome \
+                                               qpdf \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
