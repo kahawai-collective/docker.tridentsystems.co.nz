@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/texlive-r-jammy
+FROM docker.kahawai.net.nz/ubuntu/texlive-r-jammy:2024-01-27
 MAINTAINER david@pisces.nz
 
 RUN apt-get update && \
@@ -9,7 +9,7 @@ RUN apt-get update && \
                                                jags \
                                                gdal-bin \
                                                libudunits2-dev \
-#                                               libimage-exiftool-perl \
+                                               libimage-exiftool-perl \
                                                libcairo2-dev \
                                                libxt-dev \
                                                libv8-dev \
