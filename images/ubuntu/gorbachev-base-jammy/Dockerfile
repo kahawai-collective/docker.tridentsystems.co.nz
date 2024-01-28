@@ -9,6 +9,7 @@ RUN apt-get update && \
                                                jags \
                                                gdal-bin \
                                                libudunits2-dev \
+#                                               libimage-exiftool-perl \
                                                libcairo2-dev \
                                                libxt-dev \
                                                libv8-dev \
@@ -17,8 +18,8 @@ RUN apt-get update && \
                                                pandoc \
                                                fonts-font-awesome \
                                                qpdf \
-                                               optipng \
-                                               pngquant \
+#                                               optipng \
+#                                               pngquant \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
