@@ -17,6 +17,7 @@ RUN apt-get update && \
                                                pandoc \
                                                fonts-font-awesome \
                                                qpdf \
+                                               libimage-exiftool-perl \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
