@@ -9,7 +9,6 @@ RUN apt-get update && \
                                                jags \
                                                gdal-bin \
                                                libudunits2-dev \
-                                               libimage-exiftool-perl \
                                                libcairo2-dev \
                                                libxt-dev \
                                                libv8-dev \
