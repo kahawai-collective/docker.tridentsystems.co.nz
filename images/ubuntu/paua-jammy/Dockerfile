@@ -3,7 +3,7 @@ MAINTAINER david@pisces.nz
 
 # Does this update R to the most recent version?
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends
+    apt-get install -y --no-install-recommends \
       	libharfbuzz-dev \
         libfribidi-dev \
         r-base-dev \
