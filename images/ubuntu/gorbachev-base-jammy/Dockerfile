@@ -15,6 +15,7 @@ RUN apt-get update && \
                                                libv8-dev \
                                                libssl-dev \
                                                libgmp3-dev \
+                                               libglpk-dev \
                                                pandoc \
                                                fonts-font-awesome \
                                                qpdf \
