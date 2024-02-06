@@ -29,7 +29,7 @@ install.packages(pkgs2install,
                  repos = c(cran_nz, getOption('repos')))
 
 # for the R Shiny app
-install.packages('shinydashboard',
+install.packages(c('shinydashboard', 'shinycssloaders'),
                  lib = install_loc,
                  repos = c('https://cloud.r-project.org/src/contrib', getOption('repos')),
                  dependencies = TRUE)
