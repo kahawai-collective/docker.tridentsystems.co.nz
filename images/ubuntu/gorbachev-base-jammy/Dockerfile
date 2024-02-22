@@ -177,8 +177,8 @@ COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY pisces-latex-templates_0.35_all.deb /tmp/
 RUN dpkg -i /tmp/pisces-latex-templates_0.35_all.deb
-COPY mpi-latex-templates_1.57_all.deb /tmp/
-RUN dpkg -i /tmp/mpi-latex-templates_1.57_all.deb
+COPY mpi-latex-templates_1.58_all.deb /tmp/
+RUN dpkg -i /tmp/mpi-latex-templates_1.58_all.deb
 
 # required for the assessment diagnostics
 RUN apt update && \
