@@ -8,6 +8,7 @@ RUN apt-get update && \
                                                python3-matplotlib \
                                                python3-sklearn \
                                                libxshmfence-dev \
+                                               texlive-full \
                                                dumb-init \
                                                nodejs \
                                                npm \
