@@ -5,7 +5,8 @@ DOCKERS := \
 	ubuntu/r-jammy \
 	ubuntu/texlive-r-jammy \
 	ubuntu/gorbachev-base-jammy \
-	ubuntu/paua-jammy
+	ubuntu/paua-jammy \
+	ubuntu/quarto
 	
 	# \
 	#ubuntu/quarto \
