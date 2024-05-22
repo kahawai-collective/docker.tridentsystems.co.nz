@@ -6,4 +6,4 @@ RUN pip3 install --upgrade pip setuptools wheel
 RUN pip install oceanum pyreadr rpy2
 RUN apt autoremove
 
-RUN Rscript -e "install.packages(c('dismo','gbm','terra','suncalc'))"
+RUN Rscript -e "install.packages(c('dismo','gbm','terra','suncalc','sf'))"
