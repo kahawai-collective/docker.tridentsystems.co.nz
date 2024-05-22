@@ -4,5 +4,6 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN pip3 install --upgrade pip setuptools wheel
 RUN pip install oceanum pyreadr rpy2
+RUN apt install libgeos-dev
 
 RUN Rscript -e "install.packages(c('dismo','gbm','terra','suncalc'))"
