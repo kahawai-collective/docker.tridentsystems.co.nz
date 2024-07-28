@@ -11,4 +11,4 @@ COPY requirements.txt /etc/kahawai-jobserver/requirements.txt
 #RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir -r /etc/kahawai-jobserver/requirements.txt
 
-COPY ../../ubuntu/pisces-jammy/withdb /usr/local/bin/
+COPY withdb /usr/local/bin/
