@@ -1,9 +1,21 @@
 FROM docker.kahawai.net.nz/python/nz
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends postgresql-client \
-                                               git-core \
-                                               && \
+RUN apt-get update &&  \
+    apt-get install --no-install-recommends -y 
+    awscli \
+    s3cmd \
+    python-is-python3 \
+    python3-requests \
+    python3-requests-toolbelt \
+    python3-yaml \
+    jq \
+    curl \
+    wget \
+    git-core \
+    dirmngr \
+    software-properties-common \
+    gpg-agent \
+    postgresql-client && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY requirements.txt /etc/kahawai-jobserver/requirements.txt
