@@ -1,7 +1,7 @@
 FROM docker.kahawai.net.nz/python/nz
 
 RUN apt-get update &&  \
-    apt-get install --no-install-recommends -y 
+    apt-get install --no-install-recommends -y \
     awscli \
     s3cmd \
     python-is-python3 \
