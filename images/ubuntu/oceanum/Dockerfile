@@ -8,5 +8,5 @@ RUN apt autoremove -y
 
 RUN Rscript -e "install.packages(c('dismo','gbm','terra','suncalc','sf','Matrix'))"
 RUN Rscript -e "install.packages('INLA',repos=c(getOption('repos'),INLA='https://inla.r-inla-download.org/R/stable'), dep=TRUE)"
-RUN Rscript -e "install.packages('inlabru')"
+RUN Rscript -e "install.packages('inlabru','MultiscaleDTM')"
 
