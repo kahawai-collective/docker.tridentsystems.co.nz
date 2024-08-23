@@ -1,0 +1,86 @@
+#!/usr/bin/env python
+
+import os
+import re
+import requests
+import subprocess
+import sys
+
+command = sys.argv[1:]
+if len(command) < 1:
+    sys.stderr.write("no command to run, exiting\n")
+    sys.exit(1)
+
+server = os.environ.get("JOB_DB_SERVER", "https://job-db.kahawai.net.nz")
+timeout = int(os.environ.get("JOB_DB_REQUEST_TIMEOUT", 60))
+
+try:
+    job_id = int(re.sub('^JobID ', '', os.environ.get("JOBID", "1000000")))
+except:
+    job_id = 1000000
+
+dbcodes = set([
+    "test-build", "ems-build", "ems2-build", "fonzdb-build", "kahawai-build",
+    "layers-build", "packhorse-build", "sampling-build", "vms-build",
+    "em-admin", "em-snapshots", "ems", "ems2", "fonzdb", "kahawai", "layers",
+    "moana", "moanapaua", "oreo", "packhorse", "pauaboard", "reports-ca5-10",
+    "sampling", "scs", "sightings", "vms", "demitto", "visum", "snappy",
+    "ems3", "ems3-build", "pelagics", "gpr", "gpr-build", "pelco-sfff"])
+
+for dbcode in os.environ.get("PISCES_DB_CODES", "layers").split(","):
+    clean_dbcode = re.sub('[^a-zA-Z0-9_-]+', '', dbcode)
+    if clean_dbcode:
+        dbcodes.add(clean_dbcode)
+
+secrets = {}
+for code in dbcodes:
+    varname = code.upper().replace("-", "_")
+    if varname in os.environ:
+        secrets[code] = os.environ[varname]
+
+post_data = secrets.copy()
+post_data["job_id"] = job_id
+headers = {"Content-Type": "application/json"}
+
+r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=timeout)
+
+if r.status_code == 403:
+    sys.stderr.write("Request for temporary database refused\n")
+    sys.exit(1)
+
+if r.status_code != 200:
+    sys.stderr.write("Request for temporary database failed with status %d\n" % r.status_code)
+    sys.exit(1)
+
+temp_db = r.json().get("temp_db", {})
+
+env = dict(os.environ)
+env["KAHAWAI_DBNAME"] = temp_db.get("dbname")
+env["KAHAWAI_DBUSER"] = temp_db.get("user")
+env["KAHAWAI_DBPASS"] = temp_db.get("password")
+env["KAHAWAI_DBHOST"] = temp_db.get("host")
+env["KAHAWAI_DBPORT"] = temp_db.get("port")
+
+building = r.json().get("build", None)
+if building:
+    sys.stderr.write("Building %s database\n" % building)
+sys.stderr.write("Available databases: " + ", ".join(r.json().get("imported", [])) + "\n")
+
+sys.stderr.write("Command: " + " ".join(command) + "\n")
+sys.stderr.flush()
+
+return_code = subprocess.Popen(command, env=env).wait()
+
+post_data["temp_db"] = temp_db
+
+if return_code == 0 and building:
+    r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=timeout)
+else:
+    r = requests.post("%s/db/delete" % server, json=post_data, headers=headers, timeout=timeout)
+
+if r.status_code == 200:
+    if "message" in r.json():
+        sys.stderr.write(r.json().get("message") + "\n")
+    sys.exit(return_code)
+else:
+    sys.exit(1)

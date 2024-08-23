@@ -2,7 +2,9 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/gorbachev-base-jammy
+	ubuntu/kahawai-noble
+	
+	#ubuntu/gorbachev-base-jammy
 	#ubuntu/oceanum
 	#python/pytorch
 
@@ -109,8 +111,10 @@ ubuntu/inla/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/fsl/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/nz-focal/.docker: ubuntu/.official
 ubuntu/nz-jammy/.docker: ubuntu/.official
+ubuntu/nz-noble/.docker: ubuntu/.noble
 ubuntu/pisces-focal/.docker: ubuntu/nz-focal/.docker
 ubuntu/pisces-jammy/.docker: ubuntu/nz-jammy/.docker
+ubuntu/kahawai-noble/.docker: ubuntu/nz-noble/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
 ubuntu/paua-jammy/.docker: ubuntu/gorbachev-base-jammy/.docker
@@ -143,6 +147,10 @@ clean:
 ubuntu/.official:
 	docker pull ubuntu:18.04
 	$(call fetchofficial,ubuntu:18.04,$@)
+
+ubuntu/.noble:
+	docker pull ubuntu:24.04
+	$(call fetchofficial,ubuntu:24.04,$@)
 
 python/.official:
 	docker pull python:3.10
