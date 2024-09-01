@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/texlive-r-jammy:2024-01-27
+FROM docker.kahawai.net.nz/ubuntu/texlive-r-jammy
 MAINTAINER david@pisces.nz
 
 RUN apt-get update && \
