@@ -2,7 +2,8 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/r-noble
+	ubuntu/r-noble \
+	ubuntu/texlive-r-noble
 
     # ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
@@ -101,6 +102,7 @@ ubuntu/r-noble/.docker: ubuntu/kahawai-noble/.docker
 ubuntu/texlive-r/.docker: ubuntu/r/.docker
 ubuntu/texlive-r-bleedingedge/.docker: ubuntu/r-bleedingedge/.docker
 ubuntu/texlive-r-jammy/.docker: ubuntu/r-jammy/.docker
+ubuntu/texlive-r-noble/.docker: ubuntu/r-noble/.docker
 ubuntu/gorbachev-base/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-minimal/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
