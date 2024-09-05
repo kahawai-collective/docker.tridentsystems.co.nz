@@ -32,7 +32,7 @@ RUN echo "Pin-Priority: 700"  >> /etc/apt/preferences.d/99cranapt
 
 RUN apt install --yes --no-install-recommends python3-dbus python3-gi python3-apt
 RUN Rscript -e 'install.packages("bspm")'
-ARG RHOME=$(R RHOME)
+ENV RHOME=$(R RHOME)
 RUN echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site
 RUN echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site
 
