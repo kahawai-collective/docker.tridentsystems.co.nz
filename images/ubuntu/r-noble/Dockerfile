@@ -22,8 +22,7 @@ RUN echo "deb [arch=amd64] https://cloud.r-project.org/bin/linux/ubuntu noble-cr
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
      67C2D66C4B1D4339 51716619E084DAB9
 RUN apt update -qq
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt install --yes --no-install-recommends r-base-core
+RUN DEBIAN_FRONTEND=noninteractive apt install --yes --no-install-recommends r-base-core
 
 RUN echo "Package: *" > /etc/apt/preferences.d/99cranapt
 RUN echo "Pin: release o=CRAN-Apt Project" >> /etc/apt/preferences.d/99cranapt
@@ -32,7 +31,8 @@ RUN echo "Pin-Priority: 700"  >> /etc/apt/preferences.d/99cranapt
 
 RUN apt install --yes --no-install-recommends python3-dbus python3-gi python3-apt
 RUN Rscript -e 'install.packages("bspm")'
-ENV RHOME=$(R RHOME)
+#ENV RHOME=$(R RHOME)
+ARG RHOME=/usr/lib/R
 RUN echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site
 RUN echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site
 
