@@ -1,25 +1,39 @@
-FROM docker.kahawai.net.nz/ubuntu/kahawai-jammy
+FROM docker.kahawai.net.nz/ubuntu/kahawai-noble
 
-# Following approach from https://cloud.r-project.org/bin/linux/ubuntu/ as at 9 May 2022
+# Following approach from https://https://eddelbuettel.github.io/r2u/ as at 5 September 2024
 
-RUN apt-get update &&  \
-    apt-get install -y --no-install-recommends libssl-dev libssh2-1-dev libcurl4-openssl-dev libxml2-dev && \
+RUN apt update -qq &&  \
+    apt install --yes --no-install-recommends ca-certificates gnupg && \
     apt upgrade --yes && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN wget -q -O- https://eddelbuettel.github.io/r2u/assets/dirk_eddelbuettel_key.asc \
+     | tee -a /etc/apt/trusted.gpg.d/cranapt_key.asc
 
-RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
-RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-#RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-RUN add-apt-repository ppa:ubuntugis/ppa
+RUN echo "deb [arch=amd64] https://r2u.stat.illinois.edu/ubuntu noble main" \
+     > /etc/apt/sources.list.d/cranapt.list
+RUN apt update -qq
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        libpq-dev libudunits2-dev libgdal-dev libgeos-dev libproj-dev \
-        r-base-dev \
-        r-recommended \
-        r-base && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN wget -q -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
+     | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 
-RUN add-apt-repository ppa:c2d4u.team/c2d4u4.0+
-RUN apt-get update
+RUN echo "deb [arch=amd64] https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" \
+     > /etc/apt/sources.list.d/cran_r.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
+     67C2D66C4B1D4339 51716619E084DAB9
+RUN apt update -qq
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt install --yes --no-install-recommends r-base-core
+
+RUN echo "Package: *" > /etc/apt/preferences.d/99cranapt
+RUN echo "Pin: release o=CRAN-Apt Project" >> /etc/apt/preferences.d/99cranapt
+RUN echo "Pin: release l=CRAN-Apt Packages" >> /etc/apt/preferences.d/99cranapt
+RUN echo "Pin-Priority: 700"  >> /etc/apt/preferences.d/99cranapt
+
+RUN apt install --yes --no-install-recommends python3-{dbus,gi,apt}
+RUN Rscript -e 'install.packages("bspm")'
+ARG RHOME=$(R RHOME)
+RUN echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site
+RUN echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
