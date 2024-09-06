@@ -22,7 +22,10 @@ RUN echo "deb [arch=amd64] https://cloud.r-project.org/bin/linux/ubuntu noble-cr
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
      67C2D66C4B1D4339 51716619E084DAB9
 RUN apt update -qq
-RUN DEBIAN_FRONTEND=noninteractive apt install --yes --no-install-recommends r-base-core
+RUN DEBIAN_FRONTEND=noninteractive apt install --yes --no-install-recommends \
+      r-base-core \
+      r-base-dev \
+      r-recommended
 
 RUN echo "Package: *" > /etc/apt/preferences.d/99cranapt
 RUN echo "Pin: release o=CRAN-Apt Project" >> /etc/apt/preferences.d/99cranapt
