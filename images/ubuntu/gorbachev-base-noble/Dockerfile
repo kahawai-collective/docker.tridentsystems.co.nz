@@ -67,7 +67,7 @@ RUN apt-get update && \
                                                r-cran-brms \
                                                r-cran-patchwork \
                                                r-cran-ggpubr \
-                                               r-cran-rgdal \
+                                               #r-cran-rgdal \
                                                r-cran-party \
                                                r-cran-extrafont \
                                                r-cran-viridis \
