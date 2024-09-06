@@ -12,5 +12,7 @@ RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zi
     && rm -rf aws awscliv2.zip
 
 COPY withdb /usr/local/bin/
+RUN chmod a+x /usr/local/bin/withdb
 
 COPY md2sql /usr/local/bin/
+RUN chmod a+x /usr/local/bin/md2sql
