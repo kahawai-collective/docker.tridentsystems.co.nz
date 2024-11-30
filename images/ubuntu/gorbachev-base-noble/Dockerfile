@@ -161,16 +161,6 @@ RUN apt-get update && \
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
-
-RUN apt-add-repository multiverse && apt-get update
-# from http://askubuntu.com/a/25614
-RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
-RUN apt-get install -y --no-install-recommends \
-       fontconfig \
-       ttf-mscorefonts-installer \
-       && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 COPY fonts/ /usr/local/share/fonts/
 
 COPY dragonfly-latex-templates_1.13_all.deb /tmp/

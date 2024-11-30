@@ -32,6 +32,15 @@ RUN apt-get update && \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN apt-add-repository multiverse && apt-get update
+# from http://askubuntu.com/a/25614
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+RUN apt-get install -y --no-install-recommends \
+       fontconfig \
+       ttf-mscorefonts-installer \
+       && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends biber && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
