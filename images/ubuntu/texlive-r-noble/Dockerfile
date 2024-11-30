@@ -41,6 +41,8 @@ RUN apt-get install -y --no-install-recommends \
        && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY fonts/ /usr/local/share/fonts/
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends biber && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

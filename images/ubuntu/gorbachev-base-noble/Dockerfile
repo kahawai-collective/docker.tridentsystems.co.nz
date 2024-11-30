@@ -161,8 +161,6 @@ RUN apt-get update && \
 # TODO: something less fragile
 RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
-COPY fonts/ /usr/local/share/fonts/
-
 COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY pisces-latex-templates_0.35_all.deb /tmp/
