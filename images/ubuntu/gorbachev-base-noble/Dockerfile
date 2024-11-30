@@ -128,6 +128,7 @@ RUN apt-get update && \
                                                r-cran-devtools \
                                                r-cran-rpart.plot \
                                                r-cran-hexbin \
+                                               r-cran-ksgeneral \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -163,10 +164,10 @@ RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
 COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
-COPY pisces-latex-templates_0.35_all.deb /tmp/
-RUN dpkg -i /tmp/pisces-latex-templates_0.35_all.deb
-COPY mpi-latex-templates_1.61_all.deb /tmp/
-RUN dpkg -i /tmp/mpi-latex-templates_1.61_all.deb
+COPY pisces-latex-templates_0.36_all.deb /tmp/
+RUN dpkg -i /tmp/pisces-latex-templates_0.36_all.deb
+COPY mpi-latex-templates_1.62_all.deb /tmp/
+RUN dpkg -i /tmp/mpi-latex-templates_1.62_all.deb
 
 # required for the assessment diagnostics
 RUN apt update && \
