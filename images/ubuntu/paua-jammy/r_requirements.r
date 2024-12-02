@@ -12,7 +12,11 @@ packages <- c(
     'corpcor',
     'flextable',
     'equatags',
-    'reactable'
+    'reactable',
+    'aws.s3',
+    'aws.signature',
+    'tidyverse',
+    'data.table'
 )
 
 
