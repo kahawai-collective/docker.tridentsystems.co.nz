@@ -22,6 +22,7 @@ RUN apt-get update && \
                                                optipng \
                                                pngquant \
                                                cmake \
+                                               p7zip-full \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
