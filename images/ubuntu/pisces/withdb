@@ -25,7 +25,8 @@ dbcodes = set([
     "em-admin", "em-snapshots", "ems", "ems2", "fonzdb", "kahawai", "layers",
     "moana", "moanapaua", "oreo", "packhorse", "pauaboard", "reports-ca5-10",
     "sampling", "scs", "sightings", "vms", "demitto", "visum", "snappy",
-    "ems3", "ems3-build", "pelagics", "gpr", "gpr-build", "pelco-sfff"])
+    "ems3", "ems3-build", "pelagics", "gpr", "gpr-build", "pelco-sfff,
+    "qualitas", "portus""])
 
 for dbcode in os.environ.get("PISCES_DB_CODES", "layers").split(","):
     clean_dbcode = re.sub('[^a-zA-Z0-9_-]+', '', dbcode)
