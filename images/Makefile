@@ -2,9 +2,11 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/r-noble \
-	ubuntu/texlive-r-noble \
-	ubuntu/gorbachev-base-noble
+	python/qc-reports	
+
+	# ubuntu/r-noble \
+	# ubuntu/texlive-r-noble \
+	# ubuntu/gorbachev-base-noble
 
 	# ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
@@ -139,6 +141,7 @@ python/nz/.docker: python/.official
 python/scikit/.docker: python/nz/.docker
 python/pytorch/.docker: python/nz/.docker
 python/flightdata/.docker: python/nz/.docker
+python/qc-reports/.docker: python/nz/.docker
 
 r-base/nz/.docker: r-base/.official
 r-base/r-scraper/.docker: r-base/nz/.docker
@@ -163,8 +166,8 @@ ubuntu/.noble:
 	$(call fetchofficial,ubuntu:24.04,$@)
 
 python/.official:
-	docker pull python:3.10
-	$(call fetchofficial,python:3.10,$@)
+	docker pull python:3.13.2
+	$(call fetchofficial,python:3.13.2,$@)
 
 r-base/.official:
 	docker pull r-base:4.1.2
