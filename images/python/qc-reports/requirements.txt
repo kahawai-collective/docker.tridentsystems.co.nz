@@ -1,4 +1,6 @@
-requests
+boto3
+html5lib
 openpyxl
 psycopg2
 pillow
+requests
