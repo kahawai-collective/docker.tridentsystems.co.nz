@@ -5,6 +5,8 @@ RUN apt-get update &&  \
     awscli \
     s3cmd \
     python-is-python3 \
+    python3-boto3 \
+    python3-html5lib \
     python3-requests \
     python3-requests-toolbelt \
     python3-yaml \
