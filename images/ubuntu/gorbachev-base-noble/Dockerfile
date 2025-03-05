@@ -131,6 +131,7 @@ RUN apt-get update && \
                                                r-cran-hexbin \
                                                r-cran-ksgeneral \
                                                r-cran-officer \
+                                               r-cran-anytime \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
