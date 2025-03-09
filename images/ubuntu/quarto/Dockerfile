@@ -64,7 +64,8 @@ RUN apt-get update \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install pipx
+RUN apt-get update \
+    && apt-get install pipx
 RUN pipx install jupyter
 
 # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
