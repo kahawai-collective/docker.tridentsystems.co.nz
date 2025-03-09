@@ -114,7 +114,7 @@ ubuntu/gorbachev-base-minimal/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 ubuntu/gorbachev-base-jammy/.docker: ubuntu/texlive-r-jammy/.docker
 ubuntu/gorbachev-base-noble/.docker: ubuntu/texlive-r-noble/.docker
-ubuntu/quarto/.docker: ubuntu/r-bleedingedge/.docker
+ubuntu/quarto/.docker: ubuntu/r-noble/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 #ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
