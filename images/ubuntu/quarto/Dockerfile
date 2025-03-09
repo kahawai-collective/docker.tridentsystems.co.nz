@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/r-jammy
+FROM docker.kahawai.net.nz/ubuntu/r-noble
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends wget \
