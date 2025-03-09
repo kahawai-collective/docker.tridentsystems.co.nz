@@ -6,7 +6,12 @@ cran_nz <- "http://cran.stat.auckland.ac.nz"
 
 packages <- c(
     'gghighlight',
-    'tidybayes'
+    'tidyverse',
+    'brms',
+    'tidybayes',
+    'extraDistr',
+    'posterior',
+    'sf'
 )
 
 
