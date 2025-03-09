@@ -3,7 +3,7 @@ FROM docker.kahawai.net.nz/ubuntu/pisces
 # Following approach from https://cloud.r-project.org/bin/linux/ubuntu/ as at 9 May 2022
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends software-properties-common dirmngr wget pkgconf libdeflate-dev && \
+    apt-get install -y --no-install-recommends software-properties-common dirmngr wget pkgconf && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
