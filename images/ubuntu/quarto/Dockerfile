@@ -63,8 +63,8 @@ RUN apt-get update \
     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
-    
-RUN apt-get install python3-jupyter
+
+RUN pip install jupyter
 
 # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
 RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
