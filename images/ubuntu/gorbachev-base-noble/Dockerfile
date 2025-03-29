@@ -23,6 +23,7 @@ RUN apt-get update && \
                                                pngquant \
                                                cmake \
                                                p7zip-full \
+                                               libavfilter-dev \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -134,6 +135,7 @@ RUN apt-get update && \
                                                r-cran-officer \
                                                r-cran-anytime \
                                                r-cran-ggtext \
+                                               r-cran-av \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
