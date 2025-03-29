@@ -143,11 +143,11 @@ RUN apt-get update && \
 # # r-cran-bestglm \
 
 
-# # For R packages that are not available as deb packages, install from CRAN
+# For R packages that are not available as deb packages, install from other sources
 # RUN mkdir -p -v /usr/local/lib/R/site-library/cmdstan
 # ENV CMDSTAN /usr/local/lib/R/site-library/cmdstan
-# COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
-# RUN Rscript /etc/kahawai-jobserver/r_requirements.r
+COPY r_requirements.r /etc/kahawai-jobserver/r_requirements.r
+RUN Rscript /etc/kahawai-jobserver/r_requirements.r
 
 
 # # see https://github.com/stan-dev/rstan/issues/1007
