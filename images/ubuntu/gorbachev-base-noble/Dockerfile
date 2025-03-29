@@ -120,6 +120,7 @@ RUN apt-get update && \
                                                r-cran-chron \
                                                r-cran-gganimate \
                                                r-cran-magick \
+                                               r-cran-gifski \
                                                r-cran-diagrammer \
                                                r-cran-diagrammersvg \
                                                r-cran-rsvg \
