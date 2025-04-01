@@ -5,7 +5,6 @@ DOCKERS := \
 	#ubuntu/r-noble \
 	#ubuntu/texlive-r-noble \
 	#ubuntu/gorbachev-base-noble\
-
 	ubuntu/quarto 
 
 	#python/qc-reports	
