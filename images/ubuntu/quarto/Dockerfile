@@ -12,6 +12,8 @@ RUN apt-get update && \
                                                dumb-init \
                                                nodejs \
                                                npm \
+                                               rustc \
+                                               cargo \
                                                ghostscript && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -44,6 +46,8 @@ RUN apt-get update && \
                                                r-cran-dbscan \
                                                r-cran-ggspatial \
                                                r-cran-viridis \
+                                               r-cran-downloadthis \
+                                               r-cran-writexl\
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
