@@ -136,6 +136,7 @@ RUN apt-get update && \
                                                r-cran-anytime \
                                                r-cran-ggtext \
                                                r-cran-av \
+                                               r-cran-fishmethods \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
