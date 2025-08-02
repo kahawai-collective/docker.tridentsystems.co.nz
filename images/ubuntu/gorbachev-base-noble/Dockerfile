@@ -137,6 +137,7 @@ RUN apt-get update && \
                                                r-cran-ggtext \
                                                r-cran-av \
                                                r-cran-fishmethods \
+                                               r-cran-emojifont \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

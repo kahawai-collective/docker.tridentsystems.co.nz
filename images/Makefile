@@ -4,7 +4,7 @@ REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/r-noble \
 	ubuntu/texlive-r-noble \
-	ubuntu/gorbachev-base-noble\
+	ubuntu/gorbachev-base-noble
 
 	#ubuntu/quarto 	
 
