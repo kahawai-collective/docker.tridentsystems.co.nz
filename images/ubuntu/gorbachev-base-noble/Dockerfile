@@ -175,8 +175,10 @@ COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
 COPY pisces-latex-templates_0.36_all.deb /tmp/
 RUN dpkg -i /tmp/pisces-latex-templates_0.36_all.deb
-COPY mpi-latex-templates_1.64_all.deb /tmp/
-RUN dpkg -i /tmp/mpi-latex-templates_1.64_all.deb
+
+# This needs to be the version built for noble, from mpi-latex-templates-local
+COPY mpi-latex-templates_1.645_all.deb /tmp/
+RUN dpkg -i /tmp/mpi-latex-templates_1.645_all.deb
 
 # required for the assessment diagnostics
 RUN apt update && \
