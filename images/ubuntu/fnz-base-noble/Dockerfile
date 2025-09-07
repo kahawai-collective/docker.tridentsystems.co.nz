@@ -18,6 +18,7 @@ RUN apt-get update && \
                                                r-cran-devtools \
                                                r-cran-rnaturalearth \
                                                r-cran-rnaturalearthdata \
+                                               r-cran-ggspatial \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
