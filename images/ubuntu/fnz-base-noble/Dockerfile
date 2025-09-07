@@ -16,6 +16,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends r-cran-tidyverse \
                                                r-cran-sf \
                                                r-cran-devtools \
+                                               r-cran-rnaturalearth \
+                                               r-cran-rnaturalearthdata \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
