@@ -3,10 +3,10 @@ HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
 	ubuntu/r-noble \
-    ubuntu/fnz-base-noble
+#    ubuntu/fnz-base-noble
 
 # 	ubuntu/texlive-r-noble \
-# 	ubuntu/gorbachev-base-noble
+ 	ubuntu/gorbachev-base-noble
 
 	#ubuntu/quarto 	
 
