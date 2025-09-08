@@ -140,6 +140,8 @@ RUN apt-get update && \
                                                r-cran-emojifont \
                                                r-cran-ggoceanmaps \
                                                r-cran-icesdatras \
+                                               r-cran-tidybayes \
+                                               r-cran-posterior \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
