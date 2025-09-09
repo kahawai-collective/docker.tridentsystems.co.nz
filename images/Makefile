@@ -2,7 +2,10 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
- 	ubuntu/gorbachev-base-noble
+	python/pytorch
+
+
+# 	ubuntu/gorbachev-base-noble
 #	ubuntu/r-noble \
 #    ubuntu/fnz-base-noble
 
@@ -170,8 +173,8 @@ ubuntu/.noble:
 	$(call fetchofficial,ubuntu:24.04,$@)
 
 python/.official:
-	docker pull python:3.13.2
-	$(call fetchofficial,python:3.13.2,$@)
+	docker pull python:3.13.7
+	$(call fetchofficial,python:3.13.7,$@)
 
 r-base/.official:
 	docker pull r-base:4.1.2

@@ -1,4 +1,4 @@
-FROM python:3.13.2
+FROM python:3.13.7
 
 # Set timezone & locale
 
@@ -14,3 +14,5 @@ RUN dpkg-reconfigure locales
 
 ENV LANG en_NZ.UTF-8
 ENV LANGUAGE en_NZ:en
+
+ENV TZ="Pacific/Auckland"
