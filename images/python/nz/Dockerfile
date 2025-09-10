@@ -11,6 +11,7 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 
 RUN locale-gen en_NZ.UTF-8
 RUN dpkg-reconfigure locales
+RUN update-locale LANG=en_NZ.UTF-8 LC_ALL=en_NZ.UTF-8
 
 ENV LANG en_NZ.UTF-8
 ENV LANGUAGE en_NZ:en
