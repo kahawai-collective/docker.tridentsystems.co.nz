@@ -9,7 +9,9 @@ RUN echo "Pacific/Auckland" > /etc/timezone
 RUN ln -fs /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
 
-RUN locale-gen en_NZ.UTF-8
+RUN echo "en_NZ.UTF-8 UTF-8" >> /etc/locale.gen && \
+    locale-gen en_NZ.UTF-8
+
 RUN dpkg-reconfigure locales
 
 ENV LC_ALL en_NZ.UTF-8
