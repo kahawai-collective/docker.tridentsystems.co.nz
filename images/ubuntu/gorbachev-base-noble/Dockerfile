@@ -177,8 +177,8 @@ RUN groupadd -g 1003 deployhub && useradd -m -g deployhub -u 1003 deployhub
 
 COPY dragonfly-latex-templates_1.13_all.deb /tmp/
 RUN dpkg -i /tmp/dragonfly-latex-templates_1.13_all.deb
-COPY pisces-latex-templates_0.37_all.deb /tmp/
-RUN dpkg -i /tmp/pisces-latex-templates_0.37_all.deb
+COPY pisces-latex-templates_0.38_all.deb /tmp/
+RUN dpkg -i /tmp/pisces-latex-templates_0.38_all.deb
 
 # This needs to be the version built for noble, from mpi-latex-templates-local
 COPY mpi-latex-templates_1.645_all.deb /tmp/
