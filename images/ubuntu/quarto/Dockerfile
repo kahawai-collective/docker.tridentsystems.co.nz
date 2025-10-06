@@ -1,5 +1,9 @@
 FROM docker.kahawai.net.nz/ubuntu/gorbachev-base-noble
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends r-cran-systemfonts \
+                                               r-cran-flextable
+
 # Following https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker per https://quarto.org/docs/authoring/diagrams.html#chrome-install
 # Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
 # Requires dumb-init package loaded above: https://github.com/Yelp/dumb-init
