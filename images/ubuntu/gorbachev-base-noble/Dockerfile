@@ -181,8 +181,8 @@ COPY pisces-latex-templates_0.38_all.deb /tmp/
 RUN dpkg -i /tmp/pisces-latex-templates_0.38_all.deb
 
 # This needs to be the version built for noble, from mpi-latex-templates-local
-COPY mpi-latex-templates_1.645_all.deb /tmp/
-RUN dpkg -i /tmp/mpi-latex-templates_1.645_all.deb
+COPY mpi-latex-templates_1.646_all.deb /tmp/
+RUN dpkg -i /tmp/mpi-latex-templates_1.646_all.deb
 
 # required for the assessment diagnostics
 RUN apt update && \
