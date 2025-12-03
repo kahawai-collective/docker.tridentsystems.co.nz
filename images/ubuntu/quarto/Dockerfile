@@ -27,7 +27,7 @@ RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
 
 RUN dpkg -i /tmp/quarto-*-linux-amd64.deb
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN quarto install tool tinytex --quiet
+#RUN quarto install tool tinytex --quiet
 
 
 # For converting revealjs to PDF: https://github.com/astefanutti/decktape (requires nodejs and npm installed above)
