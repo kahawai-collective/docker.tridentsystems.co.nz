@@ -6,7 +6,7 @@ RUN apt-get update &&  \
     postgresql-client s3cmd python3-psycopg2 ca-certificates \
     python3-pip
 
-RUN pip3 install --no-cache-dir unicodecsv
+#RUN pip3 install --no-cache-dir unicodecsv
 RUN pip3 install --no-cache-dir xlsx2csv
 
 # TODO: something less fragile
