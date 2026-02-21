@@ -2,7 +2,9 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/quarto \
+	ubuntu/kahawai-build
+
+#	ubuntu/quarto \
 #	ubuntu/r-noble \
 #	ubuntu/texlive-r-noble \
 #	ubuntu/gorbachev-base-noble
@@ -45,7 +47,6 @@ DOCKERS := \
     # ubuntu/quarto \
 	# ubuntu/kahawai-build \
     # ubuntu/fonz-focal \
-    # ubuntu/kahawai-build \
     # ubuntu/r-jammy \
 	# ubuntu/texlive-r-jammy \
 	# ubuntu/gorbachev-base-jammy \
@@ -63,7 +64,6 @@ DOCKERS := \
 	# ubuntu/gorbachev-base-focal \
 	# ubuntu/bookdown \
 	# ubuntu/stan_2.26 \
-	# ubuntu/kahawai-build \
 	# ubuntu/layers-build \
 	# ubuntu/ems-build \
 	# ubuntu/ems2-build \
