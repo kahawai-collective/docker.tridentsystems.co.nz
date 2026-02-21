@@ -4,7 +4,7 @@ MAINTAINER finlay@dragonfly.co.nz
 RUN apt-get update &&  \
     apt-get install --no-install-recommends -y \
     postgresql-client s3cmd python3-psycopg2 ca-certificates \
-    python3-pip python3-xlsx2csv
+    python3-pip xlsx2csv
 
 #RUN pip3 install --no-cache-dir unicodecsv
 #RUN pip3 install --no-cache-dir xlsx2csv
