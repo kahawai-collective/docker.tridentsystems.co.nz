@@ -140,7 +140,7 @@ ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
 ubuntu/paua-jammy/.docker: ubuntu/gorbachev-base-jammy/.docker
 
-ubuntu/kahawai-build/.docker: ubuntu/pisces/.docker
+ubuntu/kahawai-build/.docker: ubuntu/kahawai-noble/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
 ubuntu/ems2-build/.docker: ubuntu/kahawai-build/.docker
 ubuntu/layers-build/.docker: ubuntu/kahawai-build/.docker

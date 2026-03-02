@@ -6,6 +6,7 @@ RUN apt-get update &&  \
     python3-yaml jq curl wget git-core dirmngr software-properties-common gpg-agent unzip && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Do we just have to trust these binaries or can we work out which source produced them?
 RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip \
     && unzip awscliv2.zip \
     && ./aws/install \
