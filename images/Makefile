@@ -1,9 +1,8 @@
 DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
-DOCKERS := \
-	# ubuntu/psc-estimation
-	ubuntu/kahawai-build
+DOCKERS ?= \
+	ubuntu/psc-estimation
 
 #	ubuntu/quarto \
 #	ubuntu/r-noble \

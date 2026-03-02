@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
-#cp /input/mpi-latex-templates-local/mpi-latex-templates_1.55_all.deb ubuntu/gorbachev-base-jammy/mpi-latex-templates_1.55_all.deb
-
+IMAGE=${IMAGE:-}
+if [ -n "${IMAGE}" ]; then
+    export DOCKERS=$IMAGE
+fi
 make deploy
-
-exit $?
