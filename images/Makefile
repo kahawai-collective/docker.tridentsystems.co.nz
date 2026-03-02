@@ -2,7 +2,8 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS := \
-	ubuntu/kahawai-build
+	ubuntu/psc-estimation
+	#ubuntu/kahawai-build
 
 #	ubuntu/quarto \
 #	ubuntu/r-noble \
@@ -139,6 +140,7 @@ ubuntu/kahawai-noble/.docker: ubuntu/nz-noble/.docker
 ubuntu/ffmpeg/.docker: ubuntu/pisces-focal/.docker
 ubuntu/bookdown/.docker: ubuntu/pisces-focal/.docker
 ubuntu/paua-jammy/.docker: ubuntu/gorbachev-base-jammy/.docker
+ubuntu/psc-estimation/.docker: ubuntu/gorbachev-base-noble/.docker
 
 ubuntu/kahawai-build/.docker: ubuntu/kahawai-noble/.docker
 ubuntu/ems-build/.docker: ubuntu/gorbachev-base/.docker
