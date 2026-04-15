@@ -1,1 +1,1 @@
-docker: "ubuntu/gorbachev-base"
+docker: "debian:13"
