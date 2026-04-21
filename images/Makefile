@@ -192,11 +192,6 @@ react-native-android/.official:
 	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(DATE)
 	docker tag $(REGISTRY)/$* $(REGISTRY)/$*:$(HASH)
 
-%/Dockerfile: %/Dockerfile.tmpl includes/df-user.inc includes/nz-locale.inc
-	@cp $< $@
-	@sed -i -e "/__INCLUDE_DF_USER__/r includes/df-user.inc" -e "//d" $@
-	@sed -i -e "/__INCLUDE_NZ_LOCALE__/r includes/nz-locale.inc" -e "//d" $@
-
 $(REGISTRY)/%: %/.docker
 	docker push $(REGISTRY)/$*
 	docker push $(REGISTRY)/$*:$(DATE)
