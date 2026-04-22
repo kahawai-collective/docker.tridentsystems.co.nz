@@ -6,6 +6,10 @@ import sys
 DEP = {}
 REGISTRY = "docker.kahawai.net.nz"
 
+def log(s):
+    sys.stderr.write(s + "\n")
+    sys.stderr.flush()
+
 def load_dependencies():
     newest_mtime = 0
     last_modified = None
@@ -53,7 +57,7 @@ if __name__ == "__main__":
     elif "IMAGE" in os.environ:
         image = os.environ.get("IMAGE")
     else:
-        print("No image found on command line or in environment; attempting to build image for most recently modified Dockerfile")
+        log("No image found on command line or in environment; attempting to build image for most recently modified Dockerfile")
         image = default_image
 
     date = os.environ.get("DATE", subprocess.check_output(["date", "+%Y-%m-%d"]).decode("utf-8").strip())
@@ -63,10 +67,10 @@ if __name__ == "__main__":
     assert re.match(r"^\d{4}-\d{2}-\d{2}$", date), "Bad date format"
     assert re.match(r"^[0-9a-f]{8}$", hash), "Bad hash format"
 
-    print(f"Image:{image} Date:{date} Commit:{hash}")
+    log(f"Image:{image} Date:{date} Commit:{hash}")
 
     if not image in DEP:
-        print(f"Dockerfile not found for {image}")
+        log(f"Dockerfile not found for {image}")
         sys.exit(1)
 
     cmds = build_commands(image, hash, date)
@@ -75,9 +79,9 @@ if __name__ == "__main__":
         cmds += push_commands(image, hash, date)
 
     for cmd in cmds:
-        print(" ".join(cmd))
+        log(" ".join(cmd))
 
-    print("----")
+    log("----")
     for cmd in cmds:
-        print("* " + " ".join(cmd))
+        log("* " + " ".join(cmd))
         subprocess.run(cmd, check=True)
