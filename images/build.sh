@@ -2,8 +2,4 @@
 
 set -euo pipefail
 
-IMAGE=${IMAGE:-}
-if [ -n "${IMAGE}" ]; then
-    export DOCKERS=$IMAGE
-fi
-make deploy
+PUSH=yes python3 build.py ${IMAGE:-}
