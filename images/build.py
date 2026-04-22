@@ -59,9 +59,9 @@ if __name__ == "__main__":
     date = os.environ.get("DATE", subprocess.check_output(["date", "+%Y-%m-%d"]).decode("utf-8").strip())
     hash = os.environ.get("HASH", subprocess.check_output(["git", "rev-parse", "--short=8", "HEAD"]).decode("utf-8").strip())
 
-    assert re.match("^[a-zA-Z][-a-zA-Z0-9\._:\/]+$", image), "Bad image format"
-    assert re.match("^\d{4}-\d{2}-\d{2}$", date), "Bad date format"
-    assert re.match("^[0-9a-f]{8}$", hash), "Bad hash format"
+    assert re.match(r"^[a-zA-Z][-a-zA-Z0-9\._:\/]+$", image), "Bad image format"
+    assert re.match(r"^\d{4}-\d{2}-\d{2}$", date), "Bad date format"
+    assert re.match(r"^[0-9a-f]{8}$", hash), "Bad hash format"
 
     print(f"Image:{image} Date:{date} Commit:{hash}")
 
