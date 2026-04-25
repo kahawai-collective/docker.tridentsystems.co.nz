@@ -142,6 +142,7 @@ RUN apt-get update && \
                                                r-cran-icesdatras \
                                                r-cran-tidybayes \
                                                r-cran-posterior \
+                                               r-cran-ecume \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
