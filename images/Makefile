@@ -2,7 +2,8 @@ DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
 DOCKERS ?= \
-	ubuntu/quarto #\
+	ubuntu/Auto-CPUE-reporting
+	#ubuntu/quarto \
 	#ubuntu/r-noble \
 	#ubuntu/texlive-r-noble \
 	#ubuntu/gorbachev-base-noble
@@ -124,7 +125,8 @@ ubuntu/gorbachev-base-minimal/.docker: ubuntu/texlive-r/.docker
 ubuntu/gorbachev-base-bleedingedge/.docker: ubuntu/texlive-r-bleedingedge/.docker
 ubuntu/gorbachev-base-jammy/.docker: ubuntu/texlive-r-jammy/.docker
 ubuntu/gorbachev-base-noble/.docker: ubuntu/texlive-r-noble/.docker
-ubuntu/quarto/.docker: ubuntu/r-noble/.docker
+ubuntu/quarto/.docker: ubuntu/gorbachev-base/.docker
+ubuntu/Auto-CPUE-reporting/.docker: ubuntu/quarto/.docker
 ubuntu/jags-stan/.docker: ubuntu/gorbachev-base/.docker
 #ubuntu/stan_2.26/.docker: ubuntu/gorbachev-base-bleedingedge/.docker
 ubuntu/trophia-tools/.docker: ubuntu/gorbachev-base/.docker
