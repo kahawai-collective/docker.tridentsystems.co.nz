@@ -1,3 +1,7 @@
+# This makefile is no longer used in kahawai
+# Use build.py instead, e.g. python3 build.py ubuntu/gorbachev-base
+# Instead of listing image dependencies here, build.py tries to grep them from Dockerfiles
+
 DATE ?= $(shell date +%Y-%m-%d)
 HASH ?= $(shell git rev-parse HEAD | grep -o "^.\{8\}")
 REGISTRY := docker.kahawai.net.nz
