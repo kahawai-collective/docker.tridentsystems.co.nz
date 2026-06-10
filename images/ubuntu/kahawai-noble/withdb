@@ -21,27 +21,29 @@ except:
 
 token = None
 
-if os.path.exists("/.webtoken"):
-    content = open("/.webtoken", "rt").read()
-    if len(content) > 10:
-        token = content
+if os.path.exists("/.webtoken") and os.path.getsize("/.webtoken") > 10:
+    token = open("/.webtoken", "rt").read()
 
 if not token:
     sys.stderr.write("No job token available; unable to request temporary database\n")
     sys.exit(1)
 
-db_codes = {"LAYERS": "1"}
+db_codes = {"read": []}
 
 for var in os.environ.keys():
     if var.endswith("_BUILD"):
-        cleaned = re.sub('[^A-Z0-9_]+', '', var)
-        db_codes[cleaned] = "1"
+        db_codes["build"] = var.lower().strip().replace("_", "-")
+        break
 
 if "DATABASES" in os.environ:
-    for code in os.environ["DATABASES"].split(","):
-        cleaned = re.sub('[^A-Z0-9_]+', '', code)
-        if len(cleaned) > 2:
-            db_codes[cleaned] = "1"
+    codes = [c.strip() for c in os.environ["DATABASES"].lower().replace("_", "-").split(",")]
+    for code in codes:
+        if code.endswith("-build"):
+            if not "build" in db_codes:
+                db_codes["build"] = code
+            continue
+        else:
+            db_codes["read"].append(code)
 
 post_data = db_codes.copy()
 post_data["job_id"] = job_id
