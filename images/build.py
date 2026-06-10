@@ -17,7 +17,10 @@ def load_dependencies():
         child_df, rest = line.split(":", maxsplit=1)
         child_df = child_df[len("./"):]
         child_folder = child_df.rsplit("/", maxsplit=1)[0]
-        mtime = os.stat(child_df).st_mtime
+        try:
+            mtime = int(subprocess.check_output(["git", "log", "-1", "--format=%ct", child_df], text=True).strip())
+        except:
+            mtime = 0
         if mtime > newest_mtime:
             newest_mtime = mtime
             last_modified = child_folder
@@ -57,8 +60,8 @@ if __name__ == "__main__":
     elif "IMAGE" in os.environ:
         image = os.environ.get("IMAGE")
     else:
-        log("No image found on command line or in environment; attempting to build image for most recently modified Dockerfile")
         image = default_image
+        log(f"No image found on command line or in environment; attempting to build image for most recently modified Dockerfile: {image}")
 
     date = os.environ.get("DATE", subprocess.check_output(["date", "+%Y-%m-%d"]).decode("utf-8").strip())
     hash = os.environ.get("HASH", subprocess.check_output(["git", "rev-parse", "--short=8", "HEAD"]).decode("utf-8").strip())
