@@ -13,6 +13,7 @@ def log(s):
 def load_dependencies():
     newest_mtime = 0
     last_modified = None
+    subprocess.run(["git", "fetch", "--depth", "30"], check=True)
     for line in subprocess.check_output('find . -name Dockerfile | xargs grep "^FROM "', shell=True).decode("utf-8").splitlines():
         child_df, rest = line.split(":", maxsplit=1)
         child_df = child_df[len("./"):]
