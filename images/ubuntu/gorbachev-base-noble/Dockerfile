@@ -143,6 +143,7 @@ RUN apt-get update && \
                                                r-cran-tidybayes \
                                                r-cran-posterior \
                                                r-cran-ecume \
+                                               r-cran-svglite \
                                                && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
