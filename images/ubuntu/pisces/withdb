@@ -19,28 +19,35 @@ try:
 except:
     job_id = 1000000
 
-dbcodes = set([
-    "test-build", "ems-build", "ems2-build", "fonzdb-build", "kahawai-build",
-    "layers-build", "packhorse-build", "sampling-build", "vms-build",
-    "em-admin", "em-snapshots", "ems", "ems2", "fonzdb", "kahawai", "layers",
-    "moana", "moanapaua", "oreo", "packhorse", "pauaboard", "reports-ca5-10",
-    "sampling", "scs", "sightings", "vms", "demitto", "visum", "snappy",
-    "ems3", "ems3-build", "pelagics", "gpr", "gpr-build", "pelco-sfff,
-    "qualitas", "portus""])
+token = None
 
-for dbcode in os.environ.get("PISCES_DB_CODES", "layers").split(","):
-    clean_dbcode = re.sub('[^a-zA-Z0-9_-]+', '', dbcode)
-    if clean_dbcode:
-        dbcodes.add(clean_dbcode)
+if os.path.exists("/.webtoken") and os.path.getsize("/.webtoken") > 10:
+    token = open("/.webtoken", "rt").read()
 
-secrets = {}
-for code in dbcodes:
-    varname = code.upper().replace("-", "_")
-    if varname in os.environ:
-        secrets[code] = os.environ[varname]
+if not token:
+    sys.stderr.write("No job token available; unable to request temporary database\n")
+    sys.exit(1)
 
-post_data = secrets.copy()
+db_codes = {"read": []}
+
+for var in os.environ.keys():
+    if var.endswith("_BUILD"):
+        db_codes["build"] = var.lower().strip().replace("_", "-")
+        break
+
+if "DATABASES" in os.environ:
+    codes = [c.strip() for c in os.environ["DATABASES"].lower().replace("_", "-").split(",")]
+    for code in codes:
+        if code.endswith("-build"):
+            if not "build" in db_codes:
+                db_codes["build"] = code
+            continue
+        else:
+            db_codes["read"].append(code)
+
+post_data = db_codes.copy()
 post_data["job_id"] = job_id
+post_data["token"] = token
 headers = {"Content-Type": "application/json"}
 
 r = requests.post("%s/db/new" % server, json=post_data, headers=headers, timeout=timeout)
