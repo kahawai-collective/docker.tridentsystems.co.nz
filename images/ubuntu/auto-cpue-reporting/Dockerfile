@@ -1,3 +1,3 @@
 FROM docker.kahawai.net.nz/ubuntu/quarto
 
-RUN Rscript -e 'remotes::install_github("dragonfly-science/generalised_influ@dfe3c77")'
+RUN Rscript -e 'remotes::install_github("dragonfly-science/generalised_influ@e120f94")'
