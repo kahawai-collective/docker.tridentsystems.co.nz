@@ -80,6 +80,7 @@ sys.stderr.flush()
 return_code = subprocess.Popen(command, env=env).wait()
 
 post_data["temp_db"] = temp_db
+post_data["token"] = open("/.webtoken", "rt").read()
 
 if return_code == 0 and building:
     r = requests.post("%s/db/rename" % server, json=post_data, headers=headers, timeout=timeout)
