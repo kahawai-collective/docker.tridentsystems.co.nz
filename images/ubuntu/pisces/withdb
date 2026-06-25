@@ -58,6 +58,10 @@ if r.status_code == 403:
 
 if r.status_code != 200:
     sys.stderr.write("Request for temporary database failed with status %d\n" % r.status_code)
+    try:
+        sys.stderr.write(r.json().get("message") + "\n")
+    except RuntimeError as e:
+        pass
     sys.exit(1)
 
 temp_db = r.json().get("temp_db", {})
