@@ -1,6 +1,6 @@
 FROM docker.kahawai.net.nz/ubuntu/quarto
 
-RUN Rscript -e 'remotes::install_github("dragonfly-science/generalised_influ@4741eca")'
+RUN Rscript -e 'remotes::install_github("dragonfly-science/generalised_influ@b439f87")'
 
 # Create the target directory inside the container
 RUN mkdir -p /usr/local/share/fonts/FNZ
