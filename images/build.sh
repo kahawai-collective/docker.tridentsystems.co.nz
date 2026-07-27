@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-PUSH=yes python3 build.py ${IMAGE:-}
+PUSH=yes python3 build.py ${IMAGE:-} ${OUTPUTDIR}/commands.txt ${OUTPUTDIR}/image.txt
