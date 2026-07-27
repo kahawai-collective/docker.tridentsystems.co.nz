@@ -1,3 +1,4 @@
+import argparse
 import os
 import re
 import subprocess
@@ -55,17 +56,17 @@ def push_commands(image, hash, date):
     ]
 
 if __name__ == "__main__":
-    default_image = load_dependencies()
-    if len(sys.argv) >= 2:
-        image = sys.argv[1]
-    elif "IMAGE" in os.environ:
-        image = os.environ.get("IMAGE")
+    if "IMAGE" in os.environ:
+        default_image = os.environ.get("IMAGE")
     else:
-        image = default_image
-        log(f"No image found on command line or in environment; attempting to build image for most recently modified Dockerfile: {image}")
-
-    cmdfile = open(sys.argv[2], "wt") if len(sys.argv) >= 3 else None
-    imagefile = open(sys.argv[3], "wt") if len(sys.argv) >= 4 else None
+        default_image = load_dependencies()
+    parser = argparse.ArgumentParser(description="Build kahawai images from Dockerfiles")
+    parser.add_argument("--command-file", help="Print docker commands to this file")
+    parser.add_argument("--image-file", help="Print name of target image to this file")
+    parser.add_argument("image", nargs="?", default=default_image, help="Folder containing the Dockerfile for the target image")
+    args = parser.parse_args()
+    image = args.image
+    command_file = open(args.command_file, "wt") if args.command_file else None
 
     date = os.environ.get("DATE", subprocess.check_output(["date", "+%Y-%m-%d"]).decode("utf-8").strip())
     hash = os.environ.get("HASH", subprocess.check_output(["git", "rev-parse", "--short=8", "HEAD"]).decode("utf-8").strip())
@@ -87,13 +88,13 @@ if __name__ == "__main__":
 
     for cmd in cmds:
         log(" ".join(cmd))
-        if cmdfile:
-            log(" ".join(cmd), cmdfile)
+        if command_file:
+            log(" ".join(cmd), command_file)
 
     log("----")
     for cmd in cmds:
         log("* " + " ".join(cmd))
         subprocess.run(cmd, check=True)
 
-    if imagefile:
-        log(f"{image}:{hash}", imagefile)
+    if args.image_file:
+        log(f"{image}:{hash}", open(args.image_file, "wt"))
