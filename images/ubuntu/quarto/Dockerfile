@@ -18,7 +18,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update \
-    && apt-get install -y python3-jupyter-core 
+    && apt-get install -y python3-jupyter-core python3-boto3
 
 # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
 RUN curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest \
