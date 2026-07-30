@@ -56,10 +56,11 @@ def push_commands(image, hash, date):
     ]
 
 if __name__ == "__main__":
+    latest_image = load_dependencies()
     if "IMAGE" in os.environ:
         default_image = os.environ.get("IMAGE")
     else:
-        default_image = load_dependencies()
+        default_image = latest_image
     parser = argparse.ArgumentParser(description="Build kahawai images from Dockerfiles")
     parser.add_argument("--command-file", help="Print docker commands to this file")
     parser.add_argument("--image-file", help="Print name of target image to this file")
