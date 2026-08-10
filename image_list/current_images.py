@@ -16,7 +16,7 @@ for report in open(reports_list, "rt").read().splitlines():
         directory = ""
     elif directory.startswith("./"):
         directory = directory[2:]
-    path = f"{directory}/kahawai.yaml"
+    path = "/".join([directory, "kahawai.yaml"]) if directory else "kahawai.yaml"
     url = f"https://api.github.com/repos/{repo}/contents/{path}?ref={branch}"
     response = requests.get(url, headers=headers)
 
@@ -24,7 +24,7 @@ for report in open(reports_list, "rt").read().splitlines():
         response.raise_for_status()
         image = yaml.safe_load(base64.b64decode(response.json().get("content")))["docker"]
     except Exception as e:
-        sys.stderr.write(f"✗ {code}\n")
+        sys.stderr.write(f"✗ {code} {e}\n")
         continue
 
     sys.stderr.write(f"✓ {code}\n")
