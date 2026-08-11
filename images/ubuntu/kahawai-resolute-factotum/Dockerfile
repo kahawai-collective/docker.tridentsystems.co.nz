@@ -34,7 +34,6 @@ RUN apt-get update && \
                                                r-cran-tidyverse \
                                                r-cran-shapefiles \
                                                r-cran-sp \
-                                               r-cran-maptools \
                                                r-cran-knitr \
                                                r-cran-rjson \
                                                r-cran-pander \
@@ -53,7 +52,6 @@ RUN apt-get update && \
                                                r-cran-rgenoud \
                                                r-cran-broom \
                                                r-cran-cowplot \
-                                               r-cran-pryr \
                                                r-cran-proto \
                                                r-cran-mapdata \
                                                r-cran-caret \
