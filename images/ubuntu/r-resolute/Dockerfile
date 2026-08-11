@@ -20,6 +20,8 @@ RUN echo "Components: main" >> /etc/apt/sources.list.d/r2u.sources
 RUN echo "Arch: amd64, arm64" >> /etc/apt/sources.list.d/r2u.sources
 RUN echo "Signed-By: /etc/apt/trusted.gpg.d/eddelbuettel.asc" >> /etc/apt/sources.list.d/r2u.sources
 
+RUN wget -q -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
+     | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 RUN add-apt-repository  "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 
 RUN apt update -qq
