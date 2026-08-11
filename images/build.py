@@ -29,7 +29,7 @@ def load_dependencies():
         dependency = rest[len("FROM "):]
         if dependency.startswith(f"{REGISTRY}/") and not ":" in dependency:
             folder = dependency[len(f"{REGISTRY}/"):]
-            assert(os.path.exists(f"{folder}/Dockerfile"))
+            assert os.path.exists(f"{folder}/Dockerfile"), f"{child_folder}: could not find depencency {folder}/Dockerfile"
             DEP[child_folder] = dict(build=folder)
         else:
             DEP[child_folder] = dict(pull=dependency)
