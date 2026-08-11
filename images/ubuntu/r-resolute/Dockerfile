@@ -14,11 +14,11 @@ RUN gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/r2u.gp
 RUN gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/r2u.gpg --export --armor F2B6E89C389782D0 5E25F516B04C661B > /etc/apt/trusted.gpg.d/rutter.asc
 
 RUN echo "Types: deb" > /etc/apt/sources.list.d/r2u.sources
-RUN echo "URIs: http://r2u.stat.illinois.edu/ubuntu" > /etc/apt/sources.list.d/r2u.sources
-RUN echo "Suites: resolute" > /etc/apt/sources.list.d/r2u.sources
-RUN echo "Components: main" > /etc/apt/sources.list.d/r2u.sources
-RUN echo "Arch: amd64, arm64" > /etc/apt/sources.list.d/r2u.sources
-RUN echo "Signed-By: /etc/apt/trusted.gpg.d/eddelbuettel.asc" > /etc/apt/sources.list.d/r2u.sources
+RUN echo "URIs: http://r2u.stat.illinois.edu/ubuntu" >> /etc/apt/sources.list.d/r2u.sources
+RUN echo "Suites: resolute" >> /etc/apt/sources.list.d/r2u.sources
+RUN echo "Components: main" >> /etc/apt/sources.list.d/r2u.sources
+RUN echo "Arch: amd64, arm64" >> /etc/apt/sources.list.d/r2u.sources
+RUN echo "Signed-By: /etc/apt/trusted.gpg.d/eddelbuettel.asc" >> /etc/apt/sources.list.d/r2u.sources
 
 RUN add-apt-repository  "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 
