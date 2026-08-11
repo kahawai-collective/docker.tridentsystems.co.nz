@@ -1,4 +1,4 @@
-FROM docker.kahawai.net.nz/ubuntu/kahawai-resolute-base
+FROM docker.kahawai.net.nz/ubuntu/kahawai-resolute
 
 # Following approach from https://eddelbuettel.github.io/r2u/ as at 11 August 2026
 # Also see https://github.com/eddelbuettel/r2u/blob/master/inst/scripts/add_cranapt_resolute.sh
