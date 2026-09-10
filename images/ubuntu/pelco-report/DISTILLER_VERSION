@@ -1,0 +1,9 @@
+Vendored from dragonfly-science/distiller at:
+  946912fb60609840a49395fda94891eca3197e39
+  2026-09-10  Getting distiller quarto ready
+
+Copied from that repo's r/ directory. Vendored rather than cloned because
+build.py builds with this folder as the docker context, and the kahawai build
+job has no credentials for the (private) distiller repo.
+
+To update: re-copy r/ from distiller at the new commit and update this file.

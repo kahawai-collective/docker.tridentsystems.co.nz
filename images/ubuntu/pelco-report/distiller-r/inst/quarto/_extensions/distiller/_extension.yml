@@ -1,0 +1,15 @@
+title: Distiller
+author: Dragonfly Data Science
+version: "0.1.0"
+quarto-required: ">=1.5"
+
+contributes:
+  formats:
+    typst:
+      # Inject the distiller library import at the top of every typst
+      # document rendered with `format: distiller-typst`. Path is
+      # relative to the project root, which is where Quarto writes the
+      # generated .typ.
+      include-in-header:
+        text: |
+          #import "_extensions/distiller/distiller.typ": *

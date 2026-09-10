@@ -1,0 +1,22 @@
+Package: distiller
+Title: R Companion for the Distiller Typst Package
+Version: 0.1.0
+Authors@R:
+    person("Dragonfly Data Science", email = "edward@dragonfly.co.nz",
+           role = c("aut", "cre"))
+Description: Converts gt tables to distiller data-table() calls for Typst output.
+    Provides a knit_print method that automatically renders gt tables using
+    distiller's formatting when targeting Typst output from Quarto.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    gt (>= 0.10.0),
+    jsonlite,
+    knitr,
+    utils
+Suggests:
+    testthat (>= 3.0.0),
+    data.table
+Config/testthat/edition: 3
