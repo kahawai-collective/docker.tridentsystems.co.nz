@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libcurl4 libssl3t64 libxml2 libfontconfig1 \
       libharfbuzz0b libfribidi0 libfreetype6 libpng16-16t64 libtiff6 libjpeg-turbo8 \
       fonts-ibm-plex \
-      ca-certificates curl git \
+      ca-certificates curl git make \
  && fc-cache -f \
  && rm -rf /var/lib/apt/lists/*
 
@@ -53,6 +53,19 @@ RUN curl -sSL -o /tmp/quarto.deb \
  && rm -f /tmp/quarto.deb \
  && rm -rf /var/lib/apt/lists/* \
  && quarto --version
+
+# Pre-fetch the Typst packages the Dragonfly template imports, so rendering
+# needs no network. Typst caches downloads under $XDG_CACHE_HOME/typst; that
+# defaults to $HOME/.cache, which is /root here and unreadable to a job running
+# as another user -- so pin it to a fixed, world-readable path.
+ENV XDG_CACHE_HOME=/opt/cache
+RUN mkdir -p "$XDG_CACHE_HOME" \
+ && printf '#import "@preview/mitex:0.2.6"\n#import "@preview/unify:0.8.0"\n= warm\n' > /tmp/warm.typ \
+ && quarto typst compile /tmp/warm.typ /tmp/warm.pdf \
+ && rm -f /tmp/warm.typ /tmp/warm.pdf \
+ && chmod -R a+rwX "$XDG_CACHE_HOME" \
+ && test -d "$XDG_CACHE_HOME/typst/packages/preview/mitex/0.2.6" \
+ && test -d "$XDG_CACHE_HOME/typst/packages/preview/unify/0.8.0"
 
 # distiller supplies distiller_table(), called from the report's R chunks.
 # Vendored here (see DISTILLER_VERSION) because build.py uses this folder as the
