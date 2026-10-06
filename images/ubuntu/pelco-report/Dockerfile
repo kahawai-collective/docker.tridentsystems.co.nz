@@ -15,11 +15,16 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # r-recommended matters: r-base-core alone omits R's recommended packages
 # (codetools, MASS, Matrix, lattice, ...), which knitr and much of CRAN depend
 # on. Without it the first R chunk fails on 'no package called codetools'.
+#
+# libwebpmux3 (2026-10-06): the P3M binary of ragg links against it; without it
+# ragg installs but cannot load (libwebpmux.so.3 not found), so neither the
+# ragg figure device nor ggsave()'s PNG output works.
 RUN apt-get update && apt-get install -y --no-install-recommends \
       r-base-core r-recommended \
       libgdal34 libgeos-c1v5 libproj25 libudunits2-0 \
       libcurl4 libssl3t64 libxml2 libfontconfig1 \
       libharfbuzz0b libfribidi0 libfreetype6 libpng16-16t64 libtiff6 libjpeg-turbo8 \
+      libwebpmux3 \
       fonts-ibm-plex \
       ca-certificates curl git make \
  && fc-cache -f \
@@ -37,9 +42,13 @@ RUN printf '%s\n' \
 
 # Only what the report actually loads. ggridges, kableExtra, tidybayes and DBI
 # are deliberately absent -- nothing on the built path calls them.
+# svglite, ragg and systemfonts (2026-10-06): the figures are drawn with svglite
+# (vector text in IBM Plex Sans; grDevices::svg's hinted glyph advances
+# mis-space small text), ragg is the fallback device and writes the PNG maps,
+# and systemfonts resolves the font for both.
 RUN R -q -e 'pkgs <- c("tidyverse","sf","cowplot","patchwork","ggpubr","geosphere", \
                       "RColorBrewer","scales","glue","jsonlite","magrittr", \
-                      "knitr","rmarkdown","gt"); \
+                      "knitr","rmarkdown","gt","svglite","ragg","systemfonts"); \
              install.packages(pkgs); \
              miss <- setdiff(pkgs, rownames(installed.packages())); \
              if (length(miss)) stop("failed to install: ", paste(miss, collapse=", "))'
