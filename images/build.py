@@ -54,9 +54,16 @@ def build_commands(image, hash, date, push_required=True):
 def image_exists(image):
     p = subprocess.run(
         ["docker", "manifest", "inspect", image],
-        stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+        stderr=subprocess.PIPE, stdout=subprocess.DEVNULL,
     )
-    return p.returncode == 0
+    if p.returncode == 0:
+        return True
+    msg = p.stderr.decode("utf-8")
+    if "no such manifest:" in msg:
+        return False
+    log("Unable to check registry")
+    log(msg)
+    sys.exit(1)
 
 def push_hash(image, hash):
     # Refuse to push altogether if a hash-tagged image already exists
