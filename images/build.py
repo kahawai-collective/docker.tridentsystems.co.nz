@@ -6,6 +6,7 @@ import sys
 
 DEP = {}
 REGISTRY = "docker.kahawai.net.nz"
+PUSH_HOST = "push.docker.kahawai.net.nz"
 
 def log(s, f=sys.stderr):
     f.write(s + "\n")
@@ -35,25 +36,41 @@ def load_dependencies():
             DEP[child_folder] = dict(pull=dependency)
     return last_modified
 
-def build_commands(image, hash, date):
+def build_commands(image, hash, date, push_required=True):
     commands = []
     if "pull" in DEP[image]:
         commands += [("docker", "pull", DEP[image]["pull"])]
-    commands += [
-        ("docker", "build", "-t", f"{REGISTRY}/{image}", image),
-        ("docker", "tag", f"{REGISTRY}/{image}", f"{REGISTRY}/{image}:{hash}"),
-        ("docker", "tag", f"{REGISTRY}/{image}", f"{REGISTRY}/{image}:{date}"),
-    ]
+    registry = PUSH_HOST if push_required else REGISTRY
+    commands += [("docker", "build", "-t", f"{registry}/{image}", image)]
+    if push_required:
+        commands += [
+            ("docker", "tag", f"{registry}/{image}", f"{registry}/{image}:{hash}"),
+            ("docker", "tag", f"{registry}/{image}", f"{registry}/{image}:{date}"),
+        ]
     if "build" in DEP[image]:
-        commands = build_commands(DEP[image]["build"], hash, date) + commands
+        commands = build_commands(DEP[image]["build"], hash, date, push_required=False) + commands
     return commands
 
 def push_commands(image, hash, date):
     return [
-        ("docker", "push", f"{REGISTRY}/{image}:latest"),
-        ("docker", "push", f"{REGISTRY}/{image}:{hash}"),
-        ("docker", "push", f"{REGISTRY}/{image}:{date}"),
+        ("docker", "push", f"{PUSH_HOST}/{image}:latest"),
+        ("docker", "push", f"{PUSH_HOST}/{image}:{hash}"),
+        ("docker", "push", f"{PUSH_HOST}/{image}:{date}"),
     ]
+
+def docker_login():
+    if "PUSH_USERNAME" not in os.environ or "PUSH_PASSWORD" not in os.environ:
+        log("Missing registry credentials")
+        sys.exit(1)
+    login_cmd = [
+        "docker", "login", "--password-stdin",
+        "--username", os.environ["PUSH_USERNAME"],
+        PUSH_HOST,
+    ]
+    p = subprocess.run(login_cmd, input=os.environ["PUSH_PASSWORD"], text=True)
+    if p.returncode != 0:
+        log("Registry login failed")
+        sys.exit(1)
 
 if __name__ == "__main__":
     latest_image = load_dependencies()
@@ -82,9 +99,11 @@ if __name__ == "__main__":
         log(f"Dockerfile not found for {image}")
         sys.exit(1)
 
-    cmds = build_commands(image, hash, date)
     push = os.environ.get("PUSH", "no")
-    if push in ("yes", "1", "true"):
+    push_required = push in ("yes", "1", "true")
+    cmds = build_commands(image, hash, date, push_required=push_required)
+    if push_required:
+        docker_login()
         cmds += push_commands(image, hash, date)
 
     for cmd in cmds:

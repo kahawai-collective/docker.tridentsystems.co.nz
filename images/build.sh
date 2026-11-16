@@ -2,4 +2,8 @@
 
 set -euo pipefail
 
-PUSH=yes python3 build.py --command-file ${OUTPUTDIR}/commands.txt --image-file ${OUTPUTDIR}/image.txt ${IMAGE:-}
+export PUSH=yes
+export PUSH_USERNAME
+export PUSH_PASSWORD
+
+python3 build.py --command-file ${OUTPUTDIR}/commands.txt --image-file ${OUTPUTDIR}/image.txt ${IMAGE:-}
