@@ -134,7 +134,7 @@ if __name__ == "__main__":
     push = os.environ.get("PUSH", "no")
     push_required = push in ("yes", "1", "true")
     build_cmds = build_commands(image, hash, date, push_required=push_required)
-    plan = build_cmds
+    plan = build_cmds.copy()
 
     if push_required:
         docker_login()
