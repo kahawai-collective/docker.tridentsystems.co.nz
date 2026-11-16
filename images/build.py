@@ -51,12 +51,39 @@ def build_commands(image, hash, date, push_required=True):
         commands = build_commands(DEP[image]["build"], hash, date, push_required=False) + commands
     return commands
 
+def image_exists(image):
+    p = subprocess.run(
+        ["docker", "manifest", "inspect", image],
+        stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+    )
+    return p.returncode == 0
+
+def push_hash(image, hash):
+    # Refuse to push altogether if a hash-tagged image already exists
+    hash_image = f"{REGISTRY}/{image}:{hash}"
+    if image_exists(hash_image):
+        log(f"Image {hash_image} already exists, overwriting not allowed")
+        sys.exit(1)
+    return ("docker", "push", f"{PUSH_HOST}/{image}:{hash}")
+
+def push_date(image, date):
+    # Only push a date-tagged image if it doesn't exist
+    date_image = f"{REGISTRY}/{image}:{date}"
+    if image_exists(date_image):
+        log(f"Image {date_image} already exists, not overwriting")
+        return
+    return ("docker", "push", f"{PUSH_HOST}/{image}:{date}")
+
+def push_latest(image):
+    # Always overwrite the latest tag
+    return ("docker", "push", f"{PUSH_HOST}/{image}:latest")
+
 def push_commands(image, hash, date):
-    return [
-        ("docker", "push", f"{PUSH_HOST}/{image}:latest"),
-        ("docker", "push", f"{PUSH_HOST}/{image}:{hash}"),
-        ("docker", "push", f"{PUSH_HOST}/{image}:{date}"),
-    ]
+    cmds = [push_hash(image, hash)]
+    date_cmd = push_date(image, date)
+    if date_cmd:
+        cmds.append(date_cmd)
+    return cmds + [push_latest(image)]
 
 def docker_login():
     if "PUSH_USERNAME" not in os.environ or "PUSH_PASSWORD" not in os.environ:
@@ -71,6 +98,11 @@ def docker_login():
     if p.returncode != 0:
         log("Registry login failed")
         sys.exit(1)
+
+def run_cmd(cmd):
+    if cmd:
+        log("* " + " ".join(cmd))
+        subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
     latest_image = load_dependencies()
@@ -101,20 +133,25 @@ if __name__ == "__main__":
 
     push = os.environ.get("PUSH", "no")
     push_required = push in ("yes", "1", "true")
-    cmds = build_commands(image, hash, date, push_required=push_required)
+    build_cmds = build_commands(image, hash, date, push_required=push_required)
+    plan = build_cmds
+
     if push_required:
         docker_login()
-        cmds += push_commands(image, hash, date)
+        plan += push_commands(image, hash, date)
 
-    for cmd in cmds:
+    for cmd in plan:
         log(" ".join(cmd))
         if command_file:
             log(" ".join(cmd), command_file)
 
     log("----")
-    for cmd in cmds:
-        log("* " + " ".join(cmd))
-        subprocess.run(cmd, check=True)
+    for cmd in build_cmds:
+        run_cmd(cmd)
+
+    run_cmd(push_hash(image, hash))
+    run_cmd(push_date(image, date))
+    run_cmd(push_latest(image))
 
     if args.image_file:
         log(f"{image}:{hash}", open(args.image_file, "wt"))
