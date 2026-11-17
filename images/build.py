@@ -162,3 +162,7 @@ if __name__ == "__main__":
 
     if args.image_file:
         log(f"{image}:{hash}", open(args.image_file, "wt"))
+
+    msg = f"Image pushed to {REGISTRY}/{image}:{hash}"
+    divider = "-" * len(msg)
+    log("\n".join([divider, msg, divider]))
