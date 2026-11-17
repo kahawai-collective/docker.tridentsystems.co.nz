@@ -120,6 +120,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build kahawai images from Dockerfiles")
     parser.add_argument("--command-file", help="Print docker commands to this file")
     parser.add_argument("--image-file", help="Print name of target image to this file")
+    parser.add_argument("--push", action="store_true", help=f"Push image to {REGISTRY}")
     parser.add_argument("image", nargs="?", default=default_image, help="Folder containing the Dockerfile for the target image")
     args = parser.parse_args()
     image = args.image
@@ -138,12 +139,10 @@ if __name__ == "__main__":
         log(f"Dockerfile not found for {image}")
         sys.exit(1)
 
-    push = os.environ.get("PUSH", "no")
-    push_required = push in ("yes", "1", "true")
-    build_cmds = build_commands(image, hash, date, push_required=push_required)
+    build_cmds = build_commands(image, hash, date, push_required=args.push)
     plan = build_cmds.copy()
 
-    if push_required:
+    if args.push:
         docker_login()
         plan += push_commands(image, hash, date)
 
@@ -156,13 +155,15 @@ if __name__ == "__main__":
     for cmd in build_cmds:
         run_cmd(cmd)
 
-    run_cmd(push_hash(image, hash))
-    run_cmd(push_date(image, date))
-    run_cmd(push_latest(image))
+    if args.push:
+        run_cmd(push_hash(image, hash))
+        run_cmd(push_date(image, date))
+        run_cmd(push_latest(image))
 
     if args.image_file:
         log(f"{image}:{hash}", open(args.image_file, "wt"))
 
-    msg = f"Image pushed to {REGISTRY}/{image}:{hash}"
-    divider = "-" * len(msg)
-    log("\n".join([divider, msg, divider]))
+    if args.push:
+        msg = f"Image pushed to {REGISTRY}/{image}:{hash}"
+        divider = "-" * len(msg)
+        log("\n".join([divider, msg, divider]))
