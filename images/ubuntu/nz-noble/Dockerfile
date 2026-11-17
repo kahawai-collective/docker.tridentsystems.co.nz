@@ -1,10 +1,7 @@
 FROM ubuntu:24.04
-MAINTAINER david@pisces.nz
 
 # Set timezone & locale
-
-ENV DEBIAN_FRONTEND noninteractive
-
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y tzdata locales && \
     apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -15,9 +12,8 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 RUN locale-gen en_NZ.UTF-8
 RUN dpkg-reconfigure locales
 
-ENV LANG en_NZ.UTF-8
-ENV LANGUAGE en_NZ:en
-
+ENV LANG=en_NZ.UTF-8
+ENV LANGUAGE=en_NZ:en
 ENV TZ="Pacific/Auckland"
 
 # vim: syntax=Dockerfile
