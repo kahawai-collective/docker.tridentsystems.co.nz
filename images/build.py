@@ -36,7 +36,7 @@ def load_dependencies():
             DEP[child_folder] = dict(pull=dependency)
     return last_modified
 
-def build_commands(image, hash, date, push_required=True):
+def build_commands(image, tag, push_required=True):
     commands = []
     if "pull" in DEP[image]:
         commands += [("docker", "pull", DEP[image]["pull"])]
@@ -44,11 +44,10 @@ def build_commands(image, hash, date, push_required=True):
     commands += [("docker", "build", "-t", f"{registry}/{image}", image)]
     if push_required:
         commands += [
-            ("docker", "tag", f"{registry}/{image}", f"{registry}/{image}:{hash}"),
-            ("docker", "tag", f"{registry}/{image}", f"{registry}/{image}:{date}"),
+            ("docker", "tag", f"{registry}/{image}", f"{registry}/{image}:{tag}"),
         ]
     if "build" in DEP[image]:
-        commands = build_commands(DEP[image]["build"], hash, date, push_required=False) + commands
+        commands = build_commands(DEP[image]["build"], tag, push_required=False) + commands
     return commands
 
 def image_exists(image):
@@ -65,32 +64,20 @@ def image_exists(image):
     log(msg)
     sys.exit(1)
 
-def push_hash(image, hash):
-    # Refuse to push altogether if a hash-tagged image already exists
-    hash_image = f"{REGISTRY}/{image}:{hash}"
-    if image_exists(hash_image):
-        log(f"Image {hash_image} already exists, overwriting not allowed")
+def push_tag(image, tag):
+    # Refuse to push altogether if a image already exists with this name & tag
+    tagged_image = f"{REGISTRY}/{image}:{tag}"
+    if image_exists(tagged_image):
+        log(f"Image {tagged_image} already exists, overwriting not allowed")
         sys.exit(1)
-    return ("docker", "push", f"{PUSH_HOST}/{image}:{hash}")
-
-def push_date(image, date):
-    # Only push a date-tagged image if it doesn't exist
-    date_image = f"{REGISTRY}/{image}:{date}"
-    if image_exists(date_image):
-        log(f"Image {date_image} already exists, not overwriting")
-        return
-    return ("docker", "push", f"{PUSH_HOST}/{image}:{date}")
+    return ("docker", "push", f"{PUSH_HOST}/{image}:{tag}")
 
 def push_latest(image):
     # Always overwrite the latest tag
     return ("docker", "push", f"{PUSH_HOST}/{image}:latest")
 
-def push_commands(image, hash, date):
-    cmds = [push_hash(image, hash)]
-    date_cmd = push_date(image, date)
-    if date_cmd:
-        cmds.append(date_cmd)
-    return cmds + [push_latest(image)]
+def push_commands(image, tag):
+    return [push_tag(image, tag), push_latest(image)]
 
 def docker_login():
     if "PUSH_USERNAME" not in os.environ or "PUSH_PASSWORD" not in os.environ:
@@ -121,30 +108,32 @@ if __name__ == "__main__":
     parser.add_argument("--command-file", help="Print docker commands to this file")
     parser.add_argument("--image-file", help="Print name of target image to this file")
     parser.add_argument("--push", action="store_true", help=f"Push image to {REGISTRY}")
+    parser.add_argument("--tag", help=f"Image tag, defaults to the commit hash of this git checkout")
     parser.add_argument("image", nargs="?", default=default_image, help="Folder containing the Dockerfile for the target image")
     args = parser.parse_args()
     image = args.image
     command_file = open(args.command_file, "wt") if args.command_file else None
 
-    date = os.environ.get("DATE", subprocess.check_output(["date", "+%Y-%m-%d"]).decode("utf-8").strip())
-    hash = os.environ.get("HASH", subprocess.check_output(["git", "rev-parse", "--short=8", "HEAD"]).decode("utf-8").strip())
+    if args.tag:
+        tag = args.tag
+    else:
+        tag = subprocess.check_output(["git", "rev-parse", "--short=8", "HEAD"]).decode("utf-8").strip()
 
     assert re.match(r"^[a-zA-Z][-a-zA-Z0-9\._:\/]+$", image), "Bad image format"
-    assert re.match(r"^\d{4}-\d{2}-\d{2}$", date), "Bad date format"
-    assert re.match(r"^[0-9a-f]{8}$", hash), "Bad hash format"
+    assert re.match(r"^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,127}$", tag), "Bad tag format"
 
-    log(f"Image:{image} Date:{date} Commit:{hash}")
+    log(f"Image:{image} Tag:{tag}")
 
     if not image in DEP:
         log(f"Dockerfile not found for {image}")
         sys.exit(1)
 
-    build_cmds = build_commands(image, hash, date, push_required=args.push)
+    build_cmds = build_commands(image, tag, push_required=args.push)
     plan = build_cmds.copy()
 
     if args.push:
         docker_login()
-        plan += push_commands(image, hash, date)
+        plan += push_commands(image, tag)
 
     for cmd in plan:
         log(" ".join(cmd))
@@ -156,14 +145,13 @@ if __name__ == "__main__":
         run_cmd(cmd)
 
     if args.push:
-        run_cmd(push_hash(image, hash))
-        run_cmd(push_date(image, date))
+        run_cmd(push_tag(image, tag))
         run_cmd(push_latest(image))
 
     if args.image_file:
-        log(f"{image}:{hash}", open(args.image_file, "wt"))
+        log(f"{image}:{tag}", open(args.image_file, "wt"))
 
     if args.push:
-        msg = f"Image pushed to {REGISTRY}/{image}:{hash}"
+        msg = f"Image pushed to {REGISTRY}/{image}:{tag}"
         divider = "-" * len(msg)
         log("\n".join([divider, msg, divider]))
