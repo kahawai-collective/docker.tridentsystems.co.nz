@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       	libharfbuzz-dev \
         libfribidi-dev \
+        libtbb2 \
         r-base-dev \
         r-recommended \
         r-base && \
